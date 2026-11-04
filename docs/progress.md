@@ -58,6 +58,7 @@ The pure editor reducer caps each history stack at 50 entries, excludes selectio
 - [#4](https://github.com/SynergyFlowLabs/open-architect/pull/4) — Next.js foundation and local-first room studio; merged 2026-11-04.
 - [#5](https://github.com/SynergyFlowLabs/open-architect/pull/5) — M3 browser review, accessible-name corrections, and SVG direction controls; merged 2026-11-04.
 - [#6](https://github.com/SynergyFlowLabs/open-architect/pull/6) — M4 validated plan import, non-destructive errors, and one-step undo; merged 2026-11-04.
+- [#7](https://github.com/SynergyFlowLabs/open-architect/pull/7) — M5 bounded undo/redo, keyboard shortcuts, drag coalescing, and history-aware inspector drafts.
 
 ## Update protocol
 
