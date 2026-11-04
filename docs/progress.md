@@ -11,8 +11,8 @@ The requester has directed work to begin on an original Next.js application. The
 | Milestone | Scope | Status | Verification |
 | --- | --- | --- | --- |
 | M0 — Direction and skills | Next.js/React skill discovery, design direction, decision record, progress tracking | completed | 33 project skills installed; design and accessibility searches reviewed |
-| M1 — Application foundation | Next.js 16, React 19, TypeScript, linting, unit-test setup, original landing page | in progress | TBD |
-| M2 — Studio vertical slice | Room reducer, accessible editor, local persistence, JSON export | pending | TBD |
+| M1 — Application foundation | Next.js 16, React 19, TypeScript, linting, unit-test setup, original landing page | completed | ESLint 10, TypeScript, 1 component test, and production build passed; `/` and `/studio` prerendered |
+| M2 — Studio vertical slice | Room reducer, accessible editor, local persistence, JSON export | in progress | TDD at reducer/snapshot seams; component and browser checks TBD |
 | M3 — Browser review | Desktop/mobile interaction, keyboard flow, console, accessibility spot checks | pending | TBD |
 
 ## Testing seams

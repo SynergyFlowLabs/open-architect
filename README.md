@@ -1,15 +1,33 @@
 # open-architect
 
-An evidence-led project to build an independent, open-source alternative to an Android app supplied for analysis. Drive metadata suggests the target is Planner 5D 2.101.0, but the APK itself has not been downloaded or verified, so this remains a planning and analysis scaffold—not a feature-complete implementation.
+An evidence-led project containing an original Next.js room-planning web app alongside an Android target-analysis scaffold. Drive metadata suggests the target is Planner 5D 2.101.0, but the APK itself has not been downloaded or verified. The web app is independent early work—not a feature-complete implementation or a verified reproduction of target behavior. No open-source license has been selected.
 
 ## Current status
 
 - **Target APK:** Google Drive metadata is accessible, but the APK bytes were not downloaded: the file is 192,807,124 bytes, above the Drive connector's 100 MiB per-file transfer limit. A later TransferNow link points to a host outside this workspace's network allowlist and was not accessed. The filename indicates Planner 5D 2.101.0, but that identity and build have not been verified from the APK. No app-specific reverse-engineering findings are available.
 - **REA tooling:** integration instructions and a safe analysis workflow are documented. REA is an external tool; its code is not vendored into this project.
-- **Product specification and implementation:** pending receipt and authorized analysis of the APK. No target-specific behavior is asserted in the documents.
+- **Web implementation:** the Next.js 16 foundation and original landing page build successfully. The local-first room editor is the active vertical slice; see [delivery progress](docs/progress.md).
+- **Target-specific specification:** pending receipt and authorized analysis of the APK. No target-specific behavior is asserted in the app or documents.
 - **Open-source license:** not selected yet. Until a license is added, do not treat this repository as licensed for reuse or distribution.
 
 See [the documentation index](docs/index.md) for the project brief, tool setup, analysis plan, evidence templates, requirements, architecture, security, and roadmap.
+
+## Run the web app
+
+Use Node.js 22.12 or newer. The current workspace uses Node.js 22.22.3.
+
+```bash
+npm ci
+npm run dev
+```
+
+Open the local URL printed by Next.js. To run the static and production checks:
+
+```bash
+npm run check
+```
+
+The app has no project-owned backend, accounts, or analytics. Planner drafts are stored only in the current browser and can be exported as JSON. This local-first behavior is an original web scope decision, not a measured target requirement.
 
 ## Set up REA (Reverse Engineer Anything)
 

@@ -1,8 +1,8 @@
-# Proposed architecture
+# Architecture
 
 ## Status
 
-**Proposal only.** This repository contains no app code and no APK-specific technical findings. The Android-first assumption follows from the supplied artifact being an APK; confirm product scope before choosing a framework, SDK baseline, backend, or storage model.
+The original Next.js web foundation is active under [Decision 0002](decisions/0002-nextjs-web-foundation.md). The Android structure below remains a proposal. There are no APK-specific technical findings, and target-parity features remain gated on artifact intake and explicit requirements.
 
 ## Constraints
 

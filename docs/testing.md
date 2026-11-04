@@ -2,17 +2,18 @@
 
 ## Status
 
-No application exists yet and no target-specific behavior has been measured. This is a proposed test plan. Convert evidence-backed requirements into reproducible acceptance scenarios before implementing their corresponding features.
+The Next.js foundation has an active ESLint, TypeScript, Vitest, and production-build gate. One landing-page component smoke test passes. Room-domain and browser coverage are being added with the first studio slice. No target-specific behavior has been measured, and the Android matrix remains a proposal.
 
 ## Test layers
 
-1. **Unit tests:** domain rules, validation, state transitions, serialization, and error mapping without Android framework or network access.
-2. **Component tests:** repository/storage adapters and UI state with fakes and synthetic data.
-3. **Android instrumentation:** permissions, lifecycle, navigation, persistence, process death, and accessibility on disposable emulators.
-4. **Service contract tests (if needed):** project-owned API against local/test fixtures; no dependency on the original vendor service.
-5. **Acceptance tests:** user-visible scenarios derived from approved requirements and linked to evidence IDs.
-6. **Security/privacy checks:** permission diff, dependency/license review, secret scan, data-retention/delete checks, and offline/network behavior.
-7. **Manual exploratory checks:** screen-reader labels, text scaling, keyboard/switch navigation where relevant, rotation/resizing, and error states.
+1. **Unit tests:** planner domain rules, validation, state transitions, serialization, and error mapping without framework or network access.
+2. **Component tests:** Next.js UI and editor state with Testing Library and synthetic data.
+3. **Browser tests:** local Playwright checks for keyboard operation, responsive layout, persistence, and console errors.
+4. **Android instrumentation (future):** permissions, lifecycle, navigation, persistence, process death, and accessibility on disposable emulators if Android is approved.
+5. **Service contract tests (if needed):** project-owned API against local/test fixtures; no dependency on the original vendor service.
+6. **Acceptance tests:** user-visible scenarios derived from approved requirements and linked to evidence IDs when target-derived.
+7. **Security/privacy checks:** dependency/license review, secret scan, data-retention/delete checks, and offline/network behavior.
+8. **Manual exploratory checks:** screen-reader labels, text scaling, keyboard/switch navigation where relevant, rotation/resizing, and error states.
 
 ## Behavior validation
 
