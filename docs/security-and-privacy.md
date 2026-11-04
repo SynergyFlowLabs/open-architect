@@ -10,7 +10,8 @@ This baseline now covers the active original Next.js app and the Android target-
 - There is no project-owned backend, account, analytics, or upload flow. The browser review observed no external requests.
 - JSON import reads a local file with the browser File API, caps it at 256 KB, and applies strict version/geometry/unique-ID validation. File extensions and MIME types are not treated as proof of valid content.
 - A valid import replaces the current plan and enters the general editing history. The dedicated import-undo action retires after the next plan edit. Invalid imports do not replace the plan. Up to 50 history entries are held in memory and discarded on reload.
-- JSON export creates a local Blob download. Exported copies are the only current backup mechanism; clearing browser site data can remove the saved draft.
+- Starting a new plan requires confirmation, replaces the saved plan, and can be undone only until reload. Export a separate copy first when the previous plan must be retained permanently.
+- JSON export creates a local Blob download with a filename derived from the plan name. Exported copies are the only current backup mechanism; clearing browser site data can remove the saved draft.
 - Imported names are rendered as React text, not HTML. Treat plans from other people as untrusted data.
 
 ## Handling the target APK

@@ -111,6 +111,36 @@ describe("plannerReducer", () => {
     expect(next.selectedRoomId).toBe("room-3");
     expect(plannerReducer(next, { type: "select", roomId: "missing" }).selectedRoomId).toBeNull();
   });
+
+  it("renames a plan without changing its rooms and ignores no-op names", () => {
+    const state = {
+      ...createInitialPlannerState(),
+      rooms: [room()],
+      selectedRoomId: "room-1",
+    };
+    const next = plannerReducer(state, { type: "rename", name: "  City apartment  " });
+
+    expect(next.name).toBe("City apartment");
+    expect(next.rooms).toBe(state.rooms);
+    expect(next.selectedRoomId).toBe("room-1");
+    expect(plannerReducer(next, { type: "rename", name: "City apartment" })).toBe(next);
+    expect(plannerReducer(next, { type: "rename", name: "   " })).toBe(next);
+    expect(plannerReducer(next, { type: "rename", name: "x".repeat(61) }).name).toHaveLength(60);
+  });
+
+  it("resets the whole plan and treats an already-new plan as a no-op", () => {
+    const state = {
+      ...createInitialPlannerState(),
+      name: "Client draft",
+      rooms: [room()],
+      selectedRoomId: "room-1",
+    };
+    const next = plannerReducer(state, { type: "reset" });
+
+    expect(next).toEqual(createInitialPlannerState());
+    expect(next).not.toBe(state);
+    expect(plannerReducer(next, { type: "reset" })).toBe(next);
+  });
 });
 
 describe("createRoom", () => {

@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { act, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { PLANNER_STORAGE_KEY, serializeSnapshot } from "@/lib/planner/snapshot";
@@ -103,6 +103,7 @@ describe("RoomPlanner plan import", () => {
     ).toBeInTheDocument();
     expect(within(canvas).queryByRole("button", { name: /Room 1/ })).not.toBeInTheDocument();
     expect(screen.getByText('Imported "Client plan" with 1 room.')).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "Plan name" })).toHaveValue("Client plan");
 
     await user.click(screen.getByRole("button", { name: "Undo import" }));
     expect(
@@ -112,6 +113,7 @@ describe("RoomPlanner plan import", () => {
     expect(
       screen.getByText("Import undone. Your previous plan is restored."),
     ).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "Plan name" })).toHaveValue("Untitled plan");
   });
 
   it("keeps the current plan when an imported file is invalid", async () => {
@@ -236,5 +238,95 @@ describe("RoomPlanner editing history", () => {
     await user.keyboard("{Control>}z{/Control}");
     expect(screen.getByRole("spinbutton", { name: "X position in metres" })).toHaveValue(0.5);
     expect(canvasRoom).toBeInTheDocument();
+  });
+});
+
+describe("RoomPlanner plan management", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
+  it("renames a plan and keeps the name field in sync with history", async () => {
+    const user = userEvent.setup();
+    renderPlanner();
+    const nameInput = screen.getByRole("textbox", { name: "Plan name" });
+    expect(nameInput).toHaveValue("Untitled plan");
+    expect(screen.getByRole("button", { name: "New plan" })).toBeDisabled();
+
+    await user.clear(nameInput);
+    await user.type(nameInput, "City apartment");
+    await user.tab();
+    expect(nameInput).toHaveValue("City apartment");
+    expect(screen.getByRole("button", { name: "New plan" })).toBeEnabled();
+
+    await user.click(screen.getByRole("button", { name: "Undo last edit" }));
+    expect(nameInput).toHaveValue("Untitled plan");
+    await user.click(screen.getByRole("button", { name: "Redo last edit" }));
+    expect(nameInput).toHaveValue("City apartment");
+  });
+
+  it("confirms a new plan and restores the replaced plan with undo", async () => {
+    const user = userEvent.setup();
+    const confirmation = vi.spyOn(window, "confirm").mockReturnValue(false);
+    renderPlanner();
+    await user.click(screen.getByRole("button", { name: "Add room" }));
+    const nameInput = screen.getByRole("textbox", { name: "Plan name" });
+    await user.clear(nameInput);
+    await user.type(nameInput, "Client draft");
+    await user.tab();
+
+    await user.click(screen.getByRole("button", { name: "New plan" }));
+    expect(confirmation).toHaveBeenCalledWith(expect.stringContaining("Client draft"));
+    expect(nameInput).toHaveValue("Client draft");
+    expect(screen.getByRole("textbox", { name: "Room name" })).toHaveValue("Room 1");
+
+    confirmation.mockReturnValue(true);
+    await user.click(screen.getByRole("button", { name: "New plan" }));
+    expect(nameInput).toHaveValue("Untitled plan");
+    expect(screen.getByText("Your plan starts here.")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "New plan" })).toBeDisabled();
+
+    await user.click(screen.getByRole("button", { name: "Undo last edit" }));
+    expect(nameInput).toHaveValue("Client draft");
+    expect(screen.getByRole("textbox", { name: "Room name" })).toHaveValue("Room 1");
+    await user.click(screen.getByRole("button", { name: "Redo last edit" }));
+    expect(nameInput).toHaveValue("Untitled plan");
+    expect(screen.getByText("Your plan starts here.")).toBeInTheDocument();
+  });
+
+  it("retires a pending import when a new plan is confirmed", async () => {
+    const user = userEvent.setup();
+    vi.spyOn(window, "confirm").mockReturnValue(true);
+    renderPlanner();
+    await user.click(screen.getByRole("button", { name: "Add room" }));
+
+    const imported = {
+      ...createInitialPlannerState(),
+      name: "Late import",
+      rooms: [
+        { id: "imported", name: "Imported office", x: 1, y: 1, width: 2, depth: 2 },
+      ],
+    };
+    let resolveRead: (contents: string) => void = () => {
+      throw new Error("The import did not start.");
+    };
+    const file = new File(["{}"], "late-plan.json", { type: "application/json" });
+    vi.spyOn(file, "text").mockImplementation(
+      () =>
+        new Promise<string>((resolve) => {
+          resolveRead = (contents) => resolve(contents);
+        }),
+    );
+    await user.upload(screen.getByLabelText("Import plan"), file);
+    await user.click(screen.getByRole("button", { name: "New plan" }));
+
+    await act(async () => {
+      resolveRead(serializeSnapshot(imported));
+      await Promise.resolve();
+    });
+
+    expect(screen.getByRole("textbox", { name: "Plan name" })).toHaveValue("Untitled plan");
+    expect(screen.getByText("Your plan starts here.")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Imported office/ })).not.toBeInTheDocument();
   });
 });
