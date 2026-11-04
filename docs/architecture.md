@@ -1,8 +1,8 @@
-# Proposed architecture
+# Architecture
 
 ## Status
 
-**Proposal only.** This repository contains no app code and no APK-specific technical findings. The Android-first assumption follows from the supplied artifact being an APK; confirm product scope before choosing a framework, SDK baseline, backend, or storage model.
+The original Next.js web foundation is active under [Decision 0002](decisions/0002-nextjs-web-foundation.md). The Android structure below remains a proposal. There are no APK-specific technical findings, and target-parity features remain gated on artifact intake and explicit requirements.
 
 ## Constraints
 
@@ -10,6 +10,17 @@
 - The alternative must not depend on the target app's private APIs, credentials, backend, source, or assets.
 - Keep data local by default. Add a network service only when an approved requirement needs it.
 - Isolate platform permissions, persistence, and external integrations behind small testable interfaces.
+
+## Current web structure
+
+```text
+app/                 Server-rendered routes, metadata, global tokens, and layout
+components/          Original brand assets and client editor leaves
+lib/planner/         Pure room state, geometry rules, snapshots, and storage adapter
+test/                Vitest/Testing Library setup
+```
+
+The server studio route passes its brand component into the client planner boundary. The planner reducer owns room transitions; a small editor reducer coordinates hydration and save status. Browser storage is accessed only in effects through a versioned adapter. Snapshots contain plan data, not selection or other UI-only state. No backend or analytics service exists.
 
 ## Candidate Android structure
 

@@ -6,11 +6,11 @@ Build an independent, open-source alternative to the Android application represe
 
 ## Status
 
-**Discovery blocked on receiving the binary.** Google Drive metadata identifies a Planner 5D 2.101.0 APK, but the file is 192,807,124 bytes and exceeds the connector's 100 MiB per-file transfer limit. The binary is not present locally, so its package identity, screens, workflows, API, permissions, and behavior remain unverified. See [target intake](analysis/target-intake.md).
+**Target discovery is blocked on receiving the binary.** Google Drive metadata identifies a Planner 5D 2.101.0 APK, but the file is 192,807,124 bytes and exceeds the connector's 100 MiB per-file transfer limit. The binary is not present locally, so its package identity, screens, workflows, API, permissions, and behavior remain unverified. See [target intake](analysis/target-intake.md). Separately, the requester directed an original Next.js web slice; that work makes no target-parity claim and does not select a license.
 
 ## Working assumptions (not findings)
 
-1. The first alternative will target Android because the supplied artifact is an APK.
+1. Android remains a candidate for the target-derived alternative because the supplied artifact is an APK; the independently approved web slice does not settle the future target platform.
 2. The desired outcome is a functionally useful alternative, not a byte-for-byte clone or a distribution of the target APK.
 3. Initial analysis will be static. Dynamic observation needs a disposable, isolated test environment and explicit authorization.
 4. Requirements and architecture in this repository are proposals until the target has been inspected and the owner has approved scope.
