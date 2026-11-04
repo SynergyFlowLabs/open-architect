@@ -19,6 +19,7 @@ This documentation is a planning scaffold. No target APK is available in the wor
 
 ## Build and stewardship
 
+- [Agent skills](agent-skills.md) — curated project-local skill inventory, provenance, maintenance, and trust policy.
 - [Security and privacy](security-and-privacy.md) — handling rules and threat model.
 - [Testing strategy](testing.md) — proposed validation plan.
 - [Legal and provenance](legal-and-provenance.md) — authorization, clean-room boundaries, and license decision.
