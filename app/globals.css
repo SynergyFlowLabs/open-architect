@@ -522,7 +522,7 @@ p {
   font-size: 0.8125rem;
 }
 
-.import-feedback {
+.editor-feedback {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -534,26 +534,26 @@ p {
   border-radius: var(--radius-medium);
 }
 
-.import-feedback[data-type="success"] {
+.editor-feedback[data-type="success"] {
   background: var(--color-accent-soft);
   border-color: var(--color-accent);
 }
 
-.import-feedback[data-type="error"] {
+.editor-feedback[data-type="error"] {
   background: #fff7ed;
   border-color: var(--color-danger);
 }
 
-.import-feedback[data-type="error"] p {
+.editor-feedback[data-type="error"] p {
   color: var(--color-danger);
 }
 
-.import-feedback p {
+.editor-feedback p {
   margin-block-end: 0;
   font-size: 0.875rem;
 }
 
-.import-feedback .button {
+.editor-feedback .button {
   flex: none;
 }
 
@@ -596,7 +596,53 @@ p {
   font-weight: 600;
 }
 
-.panel-heading > span {
+.canvas-heading-tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.history-controls {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.history-button {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  padding: 0.625rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.history-button svg {
+  width: 1.375rem;
+  height: 1.375rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.history-button:hover:not(:disabled) {
+  background: var(--color-background);
+  border-color: var(--color-border);
+}
+
+.history-button:disabled {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.panel-heading > span,
+.canvas-heading-tools > span {
   color: var(--color-text-muted);
   font-size: 0.8125rem;
   font-variant-numeric: tabular-nums;
@@ -1053,7 +1099,7 @@ p {
     flex: 1 1 8rem;
   }
 
-  .import-feedback {
+  .editor-feedback {
     flex-direction: column;
     align-items: stretch;
   }
@@ -1079,10 +1125,21 @@ p {
   .field-grid {
     grid-template-columns: 1fr;
   }
+
+  .plan-section .panel-heading {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .canvas-heading-tools {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .button,
+  .history-button,
   .site-nav a,
   .text-link {
     transition:
@@ -1111,6 +1168,10 @@ p {
   .room-shape {
     background: Canvas;
     border-color: CanvasText;
+  }
+
+  .history-button:disabled {
+    color: GrayText;
   }
 
   .room-shape[aria-pressed="true"] {

@@ -160,3 +160,81 @@ describe("RoomPlanner plan import", () => {
     expect(screen.queryByText('Imported "Client plan" with 1 room.')).not.toBeInTheDocument();
   });
 });
+
+describe("RoomPlanner editing history", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
+  it("undoes and redoes an added room with native buttons", async () => {
+    const user = userEvent.setup();
+    renderPlanner();
+    expect(screen.getByRole("button", { name: "Undo last edit" })).toBeDisabled();
+
+    await user.click(screen.getByRole("button", { name: "Add room" }));
+    await user.click(screen.getByRole("button", { name: "Undo last edit" }));
+    expect(screen.getByText("Your plan starts here.")).toBeInTheDocument();
+    expect(screen.getByText("Undid last edit.")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Redo last edit" }));
+    const canvas = screen.getByRole("region", { name: "Plan canvas" });
+    expect(
+      await within(canvas).findByRole("button", { name: "Room 1 4 × 3 m" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Redid last edit.")).toBeInTheDocument();
+  });
+
+  it("keeps a committed room name in sync with undo and redo", async () => {
+    const user = userEvent.setup();
+    renderPlanner();
+    await user.click(screen.getByRole("button", { name: "Add room" }));
+
+    const nameInput = screen.getByRole("textbox", { name: "Room name" });
+    await user.clear(nameInput);
+    await user.type(nameInput, "Studio");
+    await user.tab();
+    const canvas = screen.getByRole("region", { name: "Plan canvas" });
+    const canvasRoom = within(canvas).getByRole("button", { name: "Studio 4 × 3 m" });
+    canvasRoom.focus();
+
+    await user.keyboard("{Control>}z{/Control}");
+    expect(nameInput).toHaveValue("Room 1");
+    expect(
+      within(canvas).getByRole("button", { name: "Room 1 4 × 3 m" }),
+    ).toBeInTheDocument();
+
+    await user.keyboard("{Control>}{Shift>}z{/Shift}{/Control}");
+    expect(nameInput).toHaveValue("Studio");
+    expect(
+      within(canvas).getByRole("button", { name: "Studio 4 × 3 m" }),
+    ).toBeInTheDocument();
+  });
+
+  it("supports keyboard history without overriding text-input undo", async () => {
+    const user = userEvent.setup();
+    renderPlanner();
+    await user.click(screen.getByRole("button", { name: "Add room" }));
+    await user.click(screen.getByRole("button", { name: "Move Room 1 right" }));
+    expect(screen.getByRole("spinbutton", { name: "X position in metres" })).toHaveValue(0.5);
+
+    const canvas = screen.getByRole("region", { name: "Plan canvas" });
+    const canvasRoom = within(canvas).getByRole("button", { name: "Room 1 4 × 3 m" });
+    canvasRoom.focus();
+    await user.keyboard("{Control>}z{/Control}");
+    expect(screen.getByRole("spinbutton", { name: "X position in metres" })).toHaveValue(0);
+
+    await user.keyboard("{Control>}{Shift>}z{/Shift}{/Control}");
+    expect(screen.getByRole("spinbutton", { name: "X position in metres" })).toHaveValue(0.5);
+
+    await user.keyboard("{Control>}z{/Control}");
+    expect(screen.getByRole("spinbutton", { name: "X position in metres" })).toHaveValue(0);
+    await user.keyboard("{Control>}y{/Control}");
+    expect(screen.getByRole("spinbutton", { name: "X position in metres" })).toHaveValue(0.5);
+
+    const nameInput = screen.getByRole("textbox", { name: "Room name" });
+    nameInput.focus();
+    await user.keyboard("{Control>}z{/Control}");
+    expect(screen.getByRole("spinbutton", { name: "X position in metres" })).toHaveValue(0.5);
+    expect(canvasRoom).toBeInTheDocument();
+  });
+});
