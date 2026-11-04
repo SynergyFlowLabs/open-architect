@@ -6,7 +6,7 @@ An evidence-led project containing an original Next.js room-planning web app alo
 
 - **Target APK:** Google Drive metadata is accessible, but the APK bytes were not downloaded: the file is 192,807,124 bytes, above the Drive connector's 100 MiB per-file transfer limit. A later TransferNow link points to a host outside this workspace's network allowlist and was not accessed. The filename indicates Planner 5D 2.101.0, but that identity and build have not been verified from the APK. No app-specific reverse-engineering findings are available.
 - **REA tooling:** integration instructions and a safe analysis workflow are documented. REA is an external tool; its code is not vendored into this project.
-- **Web implementation:** the Next.js 16 app includes an original landing page and a local-first room editor with bounded geometry, keyboard movement, browser persistence, and JSON export. Nineteen tests and the production build pass; browser review is the next milestone. See [delivery progress](docs/progress.md).
+- **Web implementation:** the Next.js 16 app includes an original landing page and a local-first room editor with bounded geometry, keyboard movement, browser persistence, and JSON export. Nineteen tests, the production build, and the first desktop/mobile browser review pass. See [delivery progress](docs/progress.md).
 - **Target-specific specification:** pending receipt and authorized analysis of the APK. No target-specific behavior is asserted in the app or documents.
 - **Open-source license:** not selected yet. Until a license is added, do not treat this repository as licensed for reuse or distribution.
 

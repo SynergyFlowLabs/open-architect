@@ -122,7 +122,6 @@ export function PlanCanvas({
         {rooms.map((room, index) => (
           <button
             aria-describedby="plan-canvas-help"
-            aria-label={`${room.name}, ${formatNumber(room.width)} by ${formatNumber(room.depth)} metres`}
             aria-pressed={selectedRoomId === room.id}
             className="room-shape"
             data-color={(index % 4) + 1}
@@ -141,7 +140,7 @@ export function PlanCanvas({
             }}
             type="button"
           >
-            <span className="room-shape-label">{room.name}</span>
+            <span className="room-shape-label">{room.name}</span>{" "}
             <span className="room-shape-measure">
               {formatNumber(room.width)} × {formatNumber(room.depth)} m
             </span>

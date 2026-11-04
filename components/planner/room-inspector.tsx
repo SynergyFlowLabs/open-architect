@@ -13,6 +13,21 @@ function formatNumber(value: number): string {
   return new Intl.NumberFormat("en", { maximumFractionDigits: 2 }).format(value);
 }
 
+const arrowPaths: Record<MoveDirection, string> = {
+  up: "M12 19V5m-6 6 6-6 6 6",
+  down: "M12 5v14m6-6-6 6-6-6",
+  left: "M19 12H5m6-6-6 6 6 6",
+  right: "M5 12h14m-6-6 6 6-6 6",
+};
+
+function DirectionArrow({ direction }: { direction: MoveDirection }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d={arrowPaths[direction]} />
+    </svg>
+  );
+}
+
 interface NumberFieldProps {
   id: string;
   label: string;
@@ -162,7 +177,7 @@ export function RoomInspector({ room, onChange, onMove, onDelete }: RoomInspecto
               onClick={() => onMove("up")}
               type="button"
             >
-              <span aria-hidden="true">↑</span>
+              <DirectionArrow direction="up" />
             </button>
             <button
               aria-label={`Move ${room.name} left`}
@@ -170,7 +185,7 @@ export function RoomInspector({ room, onChange, onMove, onDelete }: RoomInspecto
               onClick={() => onMove("left")}
               type="button"
             >
-              <span aria-hidden="true">←</span>
+              <DirectionArrow direction="left" />
             </button>
             <span aria-hidden="true" className="move-step">0.5 m</span>
             <button
@@ -179,7 +194,7 @@ export function RoomInspector({ room, onChange, onMove, onDelete }: RoomInspecto
               onClick={() => onMove("right")}
               type="button"
             >
-              <span aria-hidden="true">→</span>
+              <DirectionArrow direction="right" />
             </button>
             <button
               aria-label={`Move ${room.name} down`}
@@ -187,18 +202,13 @@ export function RoomInspector({ room, onChange, onMove, onDelete }: RoomInspecto
               onClick={() => onMove("down")}
               type="button"
             >
-              <span aria-hidden="true">↓</span>
+              <DirectionArrow direction="down" />
             </button>
           </div>
         </div>
 
-        <button
-          aria-label={`Delete ${room.name}`}
-          className="button button-danger"
-          onClick={onDelete}
-          type="button"
-        >
-          Delete room
+        <button className="button button-danger" onClick={onDelete} type="button">
+          Delete {room.name}
         </button>
       </div>
     </section>

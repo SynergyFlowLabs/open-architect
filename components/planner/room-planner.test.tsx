@@ -29,7 +29,7 @@ describe("RoomPlanner", () => {
     await user.clear(nameInput);
     await user.type(nameInput, "Studio");
     await user.tab();
-    expect(canvasRoom).toHaveAccessibleName(/Studio/);
+    expect(canvasRoom).toHaveAccessibleName("Studio 4 × 3 m");
 
     canvasRoom.focus();
     await user.keyboard("{ArrowRight}");
