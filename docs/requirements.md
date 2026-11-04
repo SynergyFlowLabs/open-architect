@@ -2,7 +2,7 @@
 
 ## Status
 
-There are no verified target-specific product requirements yet. The APK is unavailable, so the target's user tasks and expected outcomes are unknown. The items below are initial project constraints/proposals; do not treat them as a feature list or implementation authorization.
+There are no verified target-specific product requirements yet. The APK is unavailable, so the target's user tasks and expected outcomes are unknown. The requester separately approved an original Next.js slice under [Decision 0002](decisions/0002-nextjs-web-foundation.md). The items below remain target-analysis constraints/proposals, not a verified target feature list.
 
 ## Requirement status
 

@@ -1,6 +1,6 @@
 # Roadmap
 
-This roadmap has no dates because the target APK and scope are not available. A phase advances only when its exit criteria are met.
+This target-analysis roadmap has no dates because the target APK and target-specific scope are not available. A phase advances only when its exit criteria are met. The separately approved original Next.js slice is tracked in [delivery progress](progress.md); it does not advance or bypass these target-discovery gates.
 
 ## Phase 0 — unblock and prepare
 

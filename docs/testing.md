@@ -2,7 +2,7 @@
 
 ## Status
 
-The Next.js foundation has an active ESLint, TypeScript, Vitest, and production-build gate. One landing-page component smoke test passes. Room-domain and browser coverage are being added with the first studio slice. No target-specific behavior has been measured, and the Android matrix remains a proposal.
+The Next.js app has an active ESLint, TypeScript, Vitest, and production-build gate. Nineteen tests pass: 7 reducer, 8 snapshot/storage, 3 editor component, and 1 landing-page component. They cover bounded geometry, selection, deletion, versioned round-trips, malformed data, keyboard movement, hydration, and unavailable storage. Browser interaction/export review remains pending. No target-specific behavior has been measured, and the Android matrix remains a proposal.
 
 ## Test layers
 
