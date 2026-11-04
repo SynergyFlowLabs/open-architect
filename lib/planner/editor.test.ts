@@ -87,6 +87,23 @@ describe("editor history", () => {
     expect(state.plan.rooms[0].x).toBe(0);
   });
 
+  it("coalesces a resize gesture into one history entry", () => {
+    let state = createEditorState();
+    state = editorReducer(state, { type: "user", action: { type: "add", room: room() } });
+    for (const width of [4.5, 5, 5.5]) {
+      state = editorReducer(state, {
+        type: "user",
+        action: { type: "resize", roomId: "room-1", width, depth: 3 },
+        historyKey: "resize-1",
+      });
+    }
+
+    expect(state.past).toHaveLength(2);
+    expect(state.plan.rooms[0].width).toBe(5.5);
+    state = editorReducer(state, { type: "undo" });
+    expect(state.plan.rooms[0]).toMatchObject({ x: 0, width: 4, depth: 3 });
+  });
+
   it("bounds history to the documented limit", () => {
     let state = createEditorState();
     state = editorReducer(state, { type: "user", action: { type: "add", room: room() } });

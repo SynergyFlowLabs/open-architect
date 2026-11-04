@@ -763,6 +763,26 @@ p {
   white-space: nowrap;
 }
 
+.room-resize-handle {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: nwse-resize;
+}
+
+.room-resize-handle::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0.25rem;
+  inset-block-end: 0.25rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-inline-end: 2px solid currentColor;
+  border-block-end: 2px solid currentColor;
+}
+
 .panel-help {
   margin-block-end: 0;
   padding: var(--space-3) var(--space-4);

@@ -17,6 +17,7 @@ The requester has directed work to begin on an original Next.js application. The
 | M4 — Plan restore | Validated JSON import, non-destructive errors, and one-step import undo | completed | 26 tests and 20 browser checks passed; export/import/undo/reload flow and screenshots reviewed; lint, type, and build passed |
 | M5 — Editing history | General undo/redo, keyboard shortcuts, bounded history, and drag coalescing | completed | 36 tests and 19 focused browser checks passed; screenshots reviewed; lint, type, and production build passed |
 | M6 — Plan management | Editable plan names, portable export filenames, and confirmed undoable reset | completed | 42 tests and 18 focused browser checks passed; screenshots reviewed; lint, type, and production build passed |
+| M7 — Direct resizing | Selected-room resize handle, anchored bounded geometry, and gesture history | completed | 45 tests and 16 focused browser checks passed; screenshots reviewed; lint, type, and production build passed |
 
 ## Testing seams
 
@@ -52,6 +53,12 @@ The focused Git-ignored browser report contains 18 passing checks against the pr
 
 Plan rename and reset are ordinary planner actions inside the existing bounded history. The name field commits on Enter or blur and synchronizes with external plan changes. Reset requires native confirmation and remains undoable until reload; it is not a permanent backup mechanism. A deferred-read component test also verifies that confirmed reset retires an in-flight import. Filename generation retains Unicode letters and numbers, collapses other characters to separators, and falls back to `untitled-plan.json`.
 
+## M7 direct-resize evidence
+
+The focused Git-ignored browser report contains 16 passing checks against the production build. It verified selected-only handles, stable accessible names, pointer resize and one-step undo/redo, the one-metre minimum, plan-edge bounds, off-grid imported origins, persistence, export contents, normal-drag regression behavior, and 320/390 px layouts. Desktop and mobile screenshots were reviewed. Axe reported no tested A/AA violations on the studio or landing page, and the browser observed no console errors, uncaught page errors, or external requests.
+
+The resize reducer preserves the top-left origin and snaps dimensions to 0.5 metres while clamping them to the remaining plan bounds. Resize gestures use the existing bounded history with gesture-key coalescing. The lower-right handle is visual-only inside the room button, not a nested interactive control; numeric dimension fields remain the exact keyboard and assistive-technology alternative.
+
 ## Blockers and open decisions
 
 - Target APK intake and target-specific behavior remain blocked. No target-parity requirement is approved.
@@ -66,7 +73,8 @@ Plan rename and reset are ordinary planner actions inside the existing bounded h
 - [#5](https://github.com/SynergyFlowLabs/open-architect/pull/5) — M3 browser review, accessible-name corrections, and SVG direction controls; merged 2026-11-04.
 - [#6](https://github.com/SynergyFlowLabs/open-architect/pull/6) — M4 validated plan import, non-destructive errors, and one-step undo; merged 2026-11-04.
 - [#7](https://github.com/SynergyFlowLabs/open-architect/pull/7) — M5 bounded undo/redo, keyboard shortcuts, drag coalescing, and history-aware inspector drafts; merged 2026-11-04.
-- [#8](https://github.com/SynergyFlowLabs/open-architect/pull/8) — M6 plan naming, Unicode export filenames, confirmed undoable reset, and pending-import safety.
+- [#8](https://github.com/SynergyFlowLabs/open-architect/pull/8) — M6 plan naming, Unicode export filenames, confirmed undoable reset, and pending-import safety; merged 2026-11-04.
+- [#9](https://github.com/SynergyFlowLabs/open-architect/pull/9) — M7 selected-room direct resizing with anchored bounds and gesture history.
 
 ## Update protocol
 
