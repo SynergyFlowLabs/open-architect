@@ -8,6 +8,7 @@ This documentation is a planning scaffold. No target APK is available in the wor
 - [Requirements](requirements.md) — initial quality constraints and a template for evidence-backed product requirements.
 - [Architecture](architecture.md) — proposed Android-first structure, pending discovery.
 - [Roadmap](roadmap.md) — gated path from artifact intake to release.
+- [Delivery progress](progress.md) — active Next.js milestones, verification, blockers, and pull-request log.
 
 ## Reverse engineering
 
@@ -24,3 +25,4 @@ This documentation is a planning scaffold. No target APK is available in the wor
 - [Testing strategy](testing.md) — proposed validation plan.
 - [Legal and provenance](legal-and-provenance.md) — authorization, clean-room boundaries, and license decision.
 - [Decision 0001: REA as external tooling](decisions/0001-rea-as-external-tool.md) — why REA is documented as a local analyst tool rather than vendored into the app.
+- [Decision 0002: Next.js web foundation](decisions/0002-nextjs-web-foundation.md) — owner-directed original web slice and its clean-room boundaries.

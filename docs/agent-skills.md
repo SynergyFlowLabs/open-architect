@@ -1,6 +1,6 @@
 # Agent skills
 
-This project includes a curated, project-local set of 30 skills discovered through [skills.sh](https://skills.sh/). They were installed on 2026-11-04 with Skills CLI 1.7.6.
+This project includes a curated, project-local set of 33 skills discovered through [skills.sh](https://skills.sh/). They were installed on 2026-11-04 with Skills CLI 1.7.6.
 
 The collection emphasizes the requested design, writing, 3D/motion, typography, accessibility, and anti-slop capabilities, with a small general engineering baseline. “Best” is a curation judgment based on adoption, source reputation, usefulness to this project, and the security-audit signals shown by skills.sh—not a claim that these are the only good skills or that popularity proves quality.
 
@@ -50,6 +50,12 @@ The collection emphasizes the requested design, writing, 3D/motion, typography, 
 - [`threejs-animation`](https://www.skills.sh/cloudai-x/threejs-skills/threejs-animation) — keyframes, skeletal animation, morph targets, and animation mixing.
 - [`threejs-performance`](https://www.skills.sh/cloudai-x/threejs-skills/threejs-performance) — Three.js rendering and resource-performance practices.
 - [`threejs-asset-pipeline`](https://www.skills.sh/cloudai-x/threejs-skills/threejs-asset-pipeline) — model, texture, compression, and loading workflows.
+
+### Next.js, React, and browser testing
+
+- [`vercel-react-best-practices`](https://www.skills.sh/vercel-labs/agent-skills/vercel-react-best-practices) — React and Next.js performance, bundle, rendering, and state guidance.
+- [`vercel-composition-patterns`](https://www.skills.sh/vercel-labs/agent-skills/vercel-composition-patterns) — maintainable component composition and React 19 patterns.
+- [`webapp-testing`](https://www.skills.sh/anthropics/skills/webapp-testing) — Playwright-driven local browser inspection and interaction testing.
 
 ### Engineering baseline
 
