@@ -14,6 +14,7 @@ The requester has directed work to begin on an original Next.js application. The
 | M1 — Application foundation | Next.js 16, React 19, TypeScript, linting, unit-test setup, original landing page | completed | ESLint 10, TypeScript, 1 component test, and production build passed; `/` and `/studio` prerendered |
 | M2 — Studio vertical slice | Room reducer, accessible editor, local persistence, JSON export | completed | 19 tests passed across reducer, snapshots, editor, and landing page; ESLint, TypeScript, and production build passed |
 | M3 — Browser review | Desktop/mobile interaction, keyboard flow, persistence, export, console, accessibility spot checks | completed | 15 Playwright checks passed; zero axe A/AA violations on desktop landing/studio; screenshots reviewed; lint, type, 19 tests, and build passed |
+| M4 — Plan restore | Validated JSON import, non-destructive errors, and one-step import undo | completed | 26 tests and 20 browser checks passed; export/import/undo/reload flow and screenshots reviewed; lint, type, and build passed |
 
 ## Testing seams
 
@@ -31,6 +32,12 @@ Verified flows include the skip link, add/rename, keyboard and numeric edits, lo
 
 The review corrected accessible-name/visible-text mismatches and replaced font-dependent direction glyphs with inline SVG arrows. Final screenshots were reviewed after those corrections.
 
+## M4 plan-restore evidence
+
+The combined Git-ignored browser report now contains 20 passing checks. The exercised portability loop was: create and export two rooms, import a different valid plan, undo the replacement, import again and reload, re-import the original export, then attempt a malformed import. The malformed file produced an error without replacing the current plan. Imported plans were also verified in local storage after reload.
+
+The file adapter rejects files over 256 KB before reading them and delegates all content to the strict version 1 snapshot parser. Import undo is intentionally one step, expires after the next plan edit, and is not persisted across reloads. Desktop import feedback and the three-action mobile header were visually reviewed. Axe reported no tested A/AA violations on the landing, populated studio, or import-error states.
+
 ## Blockers and open decisions
 
 - Target APK intake and target-specific behavior remain blocked. No target-parity requirement is approved.
@@ -42,7 +49,8 @@ The review corrected accessible-name/visible-text mismatches and replaced font-d
 
 - [#3](https://github.com/SynergyFlowLabs/open-architect/pull/3) — installed the initial 30-skill collection; merged 2026-11-04.
 - [#4](https://github.com/SynergyFlowLabs/open-architect/pull/4) — Next.js foundation and local-first room studio; merged 2026-11-04.
-- [#5](https://github.com/SynergyFlowLabs/open-architect/pull/5) — M3 browser review, accessible-name corrections, and SVG direction controls.
+- [#5](https://github.com/SynergyFlowLabs/open-architect/pull/5) — M3 browser review, accessible-name corrections, and SVG direction controls; merged 2026-11-04.
+- [#6](https://github.com/SynergyFlowLabs/open-architect/pull/6) — M4 validated plan import, non-destructive errors, and one-step undo.
 
 ## Update protocol
 

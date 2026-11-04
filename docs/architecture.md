@@ -20,7 +20,7 @@ lib/planner/         Pure room state, geometry rules, snapshots, and storage ada
 test/                Vitest/Testing Library setup
 ```
 
-The server studio route passes its brand component into the client planner boundary. The planner reducer owns room transitions; a small editor reducer coordinates hydration and save status. Browser storage is accessed only in effects through a versioned adapter. Snapshots contain plan data, not selection or other UI-only state. No backend or analytics service exists.
+The server studio route passes its brand component into the client planner boundary. The planner reducer owns room transitions; a small editor reducer coordinates hydration, save status, and one-step import undo. Browser storage is accessed only in effects through a versioned adapter. Snapshots contain plan data, not selection or other UI-only state. A separate file adapter enforces the 256 KB import cap and delegates content to the same strict snapshot parser. No backend or analytics service exists.
 
 ## Candidate Android structure
 

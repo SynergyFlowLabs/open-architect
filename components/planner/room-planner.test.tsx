@@ -71,3 +71,92 @@ describe("RoomPlanner", () => {
     expect(screen.getByRole("region", { name: "Room inspector" })).toBeInTheDocument();
   });
 });
+
+describe("RoomPlanner plan import", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
+  it("imports a valid plan and restores the previous plan with undo", async () => {
+    const user = userEvent.setup();
+    renderPlanner();
+    await user.click(screen.getByRole("button", { name: "Add room" }));
+
+    const imported = {
+      ...createInitialPlannerState(),
+      name: "Client plan",
+      rooms: [
+        { id: "imported", name: "Imported office", x: 1, y: 1, width: 2, depth: 2 },
+      ],
+    };
+    const input = screen.getByLabelText("Import plan");
+    await user.upload(
+      input,
+      new File([serializeSnapshot(imported)], "client-plan.json", {
+        type: "application/json",
+      }),
+    );
+
+    const canvas = screen.getByRole("region", { name: "Plan canvas" });
+    expect(
+      await within(canvas).findByRole("button", { name: "Imported office 2 × 2 m" }),
+    ).toBeInTheDocument();
+    expect(within(canvas).queryByRole("button", { name: /Room 1/ })).not.toBeInTheDocument();
+    expect(screen.getByText('Imported "Client plan" with 1 room.')).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Undo import" }));
+    expect(
+      await within(canvas).findByRole("button", { name: "Room 1 4 × 3 m" }),
+    ).toBeInTheDocument();
+    expect(within(canvas).queryByRole("button", { name: /Imported office/ })).not.toBeInTheDocument();
+    expect(
+      screen.getByText("Import undone. Your previous plan is restored."),
+    ).toBeInTheDocument();
+  });
+
+  it("keeps the current plan when an imported file is invalid", async () => {
+    const user = userEvent.setup();
+    renderPlanner();
+    await user.click(screen.getByRole("button", { name: "Add room" }));
+
+    await user.upload(
+      screen.getByLabelText("Import plan"),
+      new File(["{"], "broken.json", { type: "application/json" }),
+    );
+
+    expect(await screen.findByRole("alert")).toHaveTextContent(
+      "The snapshot is not valid JSON.",
+    );
+    const canvas = screen.getByRole("region", { name: "Plan canvas" });
+    expect(
+      within(canvas).getByRole("button", { name: "Room 1 4 × 3 m" }),
+    ).toBeInTheDocument();
+  });
+
+  it("retires import undo after a subsequent plan edit", async () => {
+    const user = userEvent.setup();
+    renderPlanner();
+    const imported = {
+      ...createInitialPlannerState(),
+      name: "Client plan",
+      rooms: [
+        { id: "imported", name: "Imported office", x: 1, y: 1, width: 2, depth: 2 },
+      ],
+    };
+    await user.upload(
+      screen.getByLabelText("Import plan"),
+      new File([serializeSnapshot(imported)], "client-plan.json", {
+        type: "application/json",
+      }),
+    );
+
+    const canvas = screen.getByRole("region", { name: "Plan canvas" });
+    expect(
+      await within(canvas).findByRole("button", { name: "Imported office 2 × 2 m" }),
+    ).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Move Imported office right" }));
+
+    expect(screen.queryByRole("button", { name: "Undo import" })).not.toBeInTheDocument();
+    expect(screen.queryByText('Imported "Client plan" with 1 room.')).not.toBeInTheDocument();
+  });
+});

@@ -16,7 +16,7 @@ const capabilities = [
   },
   {
     title: "Keep your draft",
-    description: "Save in your browser and export the plan as JSON when you want a copy.",
+    description: "Save in your browser, then export or re-import the plan as JSON when you want a copy.",
   },
 ];
 
