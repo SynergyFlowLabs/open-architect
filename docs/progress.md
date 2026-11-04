@@ -16,6 +16,7 @@ The requester has directed work to begin on an original Next.js application. The
 | M3 — Browser review | Desktop/mobile interaction, keyboard flow, persistence, export, console, accessibility spot checks | completed | 15 Playwright checks passed; zero axe A/AA violations on desktop landing/studio; screenshots reviewed; lint, type, 19 tests, and build passed |
 | M4 — Plan restore | Validated JSON import, non-destructive errors, and one-step import undo | completed | 26 tests and 20 browser checks passed; export/import/undo/reload flow and screenshots reviewed; lint, type, and build passed |
 | M5 — Editing history | General undo/redo, keyboard shortcuts, bounded history, and drag coalescing | completed | 36 tests and 19 focused browser checks passed; screenshots reviewed; lint, type, and production build passed |
+| M6 — Plan management | Editable plan names, portable export filenames, and confirmed undoable reset | completed | 42 tests and 18 focused browser checks passed; screenshots reviewed; lint, type, and production build passed |
 
 ## Testing seams
 
@@ -45,6 +46,12 @@ The focused Git-ignored browser report contains 19 passing checks against the pr
 
 The pure editor reducer caps each history stack at 50 entries, excludes selection-only changes, clears redo after a new edit, and coalesces updates sharing a drag key. History is memory-only; undone or redone plans continue to use the existing local-save effect. Browser review also exposed and verified a fix for stale inspector name drafts after rename undo/redo.
 
+## M6 plan-management evidence
+
+The focused Git-ignored browser report contains 18 passing checks against the production build. It verified plan-name persistence, `city-apartment.json` and `café-گھر.json` downloads, blank-name recovery, import/undo field synchronization, reset cancellation and confirmation, one-step reset undo/redo, restored-plan persistence, and 320/390 px layouts. Desktop and mobile screenshots were reviewed. Axe reported no tested A/AA violations on the studio or landing page, and the browser observed no console errors, uncaught page errors, or external requests.
+
+Plan rename and reset are ordinary planner actions inside the existing bounded history. The name field commits on Enter or blur and synchronizes with external plan changes. Reset requires native confirmation and remains undoable until reload; it is not a permanent backup mechanism. A deferred-read component test also verifies that confirmed reset retires an in-flight import. Filename generation retains Unicode letters and numbers, collapses other characters to separators, and falls back to `untitled-plan.json`.
+
 ## Blockers and open decisions
 
 - Target APK intake and target-specific behavior remain blocked. No target-parity requirement is approved.
@@ -58,7 +65,8 @@ The pure editor reducer caps each history stack at 50 entries, excludes selectio
 - [#4](https://github.com/SynergyFlowLabs/open-architect/pull/4) — Next.js foundation and local-first room studio; merged 2026-11-04.
 - [#5](https://github.com/SynergyFlowLabs/open-architect/pull/5) — M3 browser review, accessible-name corrections, and SVG direction controls; merged 2026-11-04.
 - [#6](https://github.com/SynergyFlowLabs/open-architect/pull/6) — M4 validated plan import, non-destructive errors, and one-step undo; merged 2026-11-04.
-- [#7](https://github.com/SynergyFlowLabs/open-architect/pull/7) — M5 bounded undo/redo, keyboard shortcuts, drag coalescing, and history-aware inspector drafts.
+- [#7](https://github.com/SynergyFlowLabs/open-architect/pull/7) — M5 bounded undo/redo, keyboard shortcuts, drag coalescing, and history-aware inspector drafts; merged 2026-11-04.
+- [#8](https://github.com/SynergyFlowLabs/open-architect/pull/8) — M6 plan naming, Unicode export filenames, confirmed undoable reset, and pending-import safety.
 
 ## Update protocol
 

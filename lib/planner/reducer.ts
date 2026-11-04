@@ -33,6 +33,8 @@ export type RoomChanges = Partial<
 export type MoveDirection = "up" | "down" | "left" | "right";
 
 export type PlannerAction =
+  | { type: "rename"; name: string }
+  | { type: "reset" }
   | { type: "add"; room: Room }
   | { type: "select"; roomId: string | null }
   | { type: "update"; roomId: string; changes: RoomChanges }
@@ -132,6 +134,23 @@ export function plannerReducer(
   action: PlannerAction,
 ): PlannerState {
   switch (action.type) {
+    case "rename": {
+      if (!action.name.trim()) {
+        return state;
+      }
+      const name = action.name.trim().slice(0, ROOM_RULES.maximumNameLength);
+      return name === state.name ? state : { ...state, name };
+    }
+
+    case "reset": {
+      const initial = createInitialPlannerState();
+      return state.name === initial.name &&
+        state.rooms.length === 0 &&
+        state.selectedRoomId === null
+        ? state
+        : initial;
+    }
+
     case "add": {
       if (
         state.rooms.length >= ROOM_RULES.maximumRooms ||

@@ -23,9 +23,11 @@ import {
   loadPlanner,
   savePlanner,
   serializeSnapshot,
+  snapshotFilename,
 } from "@/lib/planner/snapshot";
 import { parseSnapshotFile } from "@/lib/planner/snapshot-file";
 import { PlanCanvas } from "./plan-canvas";
+import { PlanNameField } from "./plan-name-field";
 import { RoomInspector } from "./room-inspector";
 
 const storageMessages: Record<StorageStatus, string> = {
@@ -106,12 +108,25 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
   }, [editor.isHydrated, editor.dirty, editor.plan]);
 
   const selectedRoom = state.rooms.find((room) => room.id === state.selectedRoomId) ?? null;
+  const canReset = state.name !== "Untitled plan" || state.rooms.length > 0;
 
   function addRoom() {
     dispatch({
       type: "add",
       room: createRoom(state.rooms, crypto.randomUUID()),
     });
+  }
+
+  function startNewPlan() {
+    if (
+      canReset &&
+      window.confirm(
+        `Start a new plan? This replaces "${state.name}". You can undo this change until you reload.`,
+      )
+    ) {
+      importRequestRef.current += 1;
+      dispatch({ type: "reset" });
+    }
   }
 
   async function importPlan(event: ChangeEvent<HTMLInputElement>) {
@@ -139,7 +154,7 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "open-architect-plan.json";
+    link.download = snapshotFilename(state.name);
     document.body.append(link);
     link.click();
     link.remove();
@@ -215,6 +230,21 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
           <p className="save-status" data-status={storageStatus} role="status">
             {storageMessages[storageStatus]}
           </p>
+        </div>
+
+        <div className="plan-toolbar">
+          <PlanNameField
+            name={state.name}
+            onCommit={(name) => dispatch({ type: "rename", name })}
+          />
+          <button
+            className="button button-secondary"
+            disabled={!canReset}
+            onClick={startNewPlan}
+            type="button"
+          >
+            New plan
+          </button>
         </div>
 
         <p className="import-guidance" id="plan-import-help">

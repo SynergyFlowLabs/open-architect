@@ -6,6 +6,7 @@ import {
   PLANNER_STORAGE_KEY,
   savePlanner,
   serializeSnapshot,
+  snapshotFilename,
   type StorageAdapter,
 } from "./snapshot";
 
@@ -33,6 +34,12 @@ describe("versioned planner snapshots", () => {
       units: "m",
       size: { width: 12, depth: 8 },
     });
+  });
+
+  it("creates a portable filename from the plan name", () => {
+    expect(snapshotFilename("  City Apartment  ")).toBe("city-apartment.json");
+    expect(snapshotFilename("Café / گھر")).toBe("café-گھر.json");
+    expect(snapshotFilename("***")).toBe("untitled-plan.json");
   });
 
   it.each([

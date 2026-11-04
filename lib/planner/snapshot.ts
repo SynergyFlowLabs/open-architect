@@ -117,6 +117,15 @@ export function parseSnapshot(input: string): SnapshotResult {
   };
 }
 
+export function snapshotFilename(name: string): string {
+  const slug = name
+    .trim()
+    .toLowerCase()
+    .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
+    .replace(/^-+|-+$/g, "");
+  return `${slug || "untitled-plan"}.json`;
+}
+
 export function serializeSnapshot(state: PlannerState): string {
   return JSON.stringify(
     {

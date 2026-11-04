@@ -6,7 +6,7 @@ An evidence-led project containing an original Next.js room-planning web app alo
 
 - **Target APK:** Google Drive metadata is accessible, but the APK bytes were not downloaded: the file is 192,807,124 bytes, above the Drive connector's 100 MiB per-file transfer limit. A later TransferNow link points to a host outside this workspace's network allowlist and was not accessed. The filename indicates Planner 5D 2.101.0, but that identity and build have not been verified from the APK. No app-specific reverse-engineering findings are available.
 - **REA tooling:** integration instructions and a safe analysis workflow are documented. REA is an external tool; its code is not vendored into this project.
-- **Web implementation:** the Next.js 16 app includes an original landing page and a local-first room editor with bounded geometry, keyboard movement, browser persistence, JSON export/import, and bounded undo/redo history. Thirty-six tests, the production build, and desktop/mobile browser reviews pass. See [delivery progress](docs/progress.md).
+- **Web implementation:** the Next.js 16 app includes an original landing page and a local-first room editor with bounded geometry, keyboard movement, browser persistence, JSON export/import, bounded undo/redo history, editable plan names, and confirmed new-plan reset. Forty-two tests, the production build, and desktop/mobile browser reviews pass. See [delivery progress](docs/progress.md).
 - **Target-specific specification:** pending receipt and authorized analysis of the APK. No target-specific behavior is asserted in the app or documents.
 - **Open-source license:** not selected yet. Until a license is added, do not treat this repository as licensed for reuse or distribution.
 
@@ -27,7 +27,7 @@ Open the local URL printed by Next.js. To run the static and production checks:
 npm run check
 ```
 
-The app has no project-owned backend, accounts, or analytics. Planner drafts are stored only in the current browser and can be exported or restored as validated JSON. Undo/redo controls and Ctrl/Command shortcuts retain up to 50 plan edits in memory; a pointer drag is one history entry. History and selection are not retained across reloads. The dedicated import-undo action remains available until the next plan edit. This local-first behavior is an original web scope decision, not a measured target requirement.
+The app has no project-owned backend, accounts, or analytics. Planner drafts are stored only in the current browser and can be exported or restored as validated JSON. Plan names are editable and become portable export filenames. Starting a new plan requires confirmation and is undoable until reload. Undo/redo controls and Ctrl/Command shortcuts retain up to 50 plan edits in memory; a pointer drag is one history entry. History and selection are not retained across reloads. The dedicated import-undo action remains available until the next plan edit. This local-first behavior is an original web scope decision, not a measured target requirement.
 
 ## Set up REA (Reverse Engineer Anything)
 

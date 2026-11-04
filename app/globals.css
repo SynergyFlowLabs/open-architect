@@ -237,7 +237,12 @@ p {
   color: var(--color-on-accent);
 }
 
-.button-primary:hover {
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.button-primary:hover:not(:disabled) {
   background: var(--color-text);
 }
 
@@ -247,7 +252,7 @@ p {
   color: var(--color-text);
 }
 
-.button-secondary:hover {
+.button-secondary:hover:not(:disabled) {
   background: var(--color-surface);
   border-color: var(--color-text-muted);
 }
@@ -513,6 +518,22 @@ p {
 .save-status[data-status="invalid"],
 .save-status[data-status="unavailable"] {
   color: var(--color-danger);
+}
+
+.plan-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-block-end: var(--space-3);
+}
+
+.plan-name-field {
+  width: min(100%, 32rem);
+}
+
+.plan-toolbar > .button {
+  flex: none;
 }
 
 .import-guidance {
@@ -1097,6 +1118,15 @@ p {
 
   .studio-actions .button {
     flex: 1 1 8rem;
+  }
+
+  .plan-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .plan-name-field {
+    width: 100%;
   }
 
   .editor-feedback {
