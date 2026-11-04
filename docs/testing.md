@@ -2,7 +2,7 @@
 
 ## Status
 
-The Next.js app has an active ESLint, TypeScript, Vitest, and production-build gate. Nineteen tests pass: 7 reducer, 8 snapshot/storage, 3 editor component, and 1 landing-page component. They cover bounded geometry, selection, deletion, versioned round-trips, malformed data, keyboard movement, hydration, and unavailable storage. Browser interaction/export review remains pending. No target-specific behavior has been measured, and the Android matrix remains a proposal.
+The Next.js app has an active ESLint, TypeScript, Vitest, and production-build gate. Nineteen tests pass: 7 reducer, 8 snapshot/storage, 3 editor component, and 1 landing-page component. They cover bounded geometry, selection, deletion, versioned round-trips, malformed data, keyboard movement, hydration, and unavailable storage. The M3 Chromium review also passed 15 Playwright checks covering the skip link, editing, keyboard and pointer movement, persistence, JSON download, responsive overflow, and browser errors. Axe reported no tested WCAG A/AA violations on the desktop landing or populated studio pages. This is not a full accessibility certification: screen readers and additional browsers remain unreviewed. No target-specific behavior has been measured, and the Android matrix remains a proposal.
 
 ## Test layers
 
