@@ -66,6 +66,7 @@ Plan rename and reset are ordinary planner actions inside the existing bounded h
 - [#5](https://github.com/SynergyFlowLabs/open-architect/pull/5) — M3 browser review, accessible-name corrections, and SVG direction controls; merged 2026-11-04.
 - [#6](https://github.com/SynergyFlowLabs/open-architect/pull/6) — M4 validated plan import, non-destructive errors, and one-step undo; merged 2026-11-04.
 - [#7](https://github.com/SynergyFlowLabs/open-architect/pull/7) — M5 bounded undo/redo, keyboard shortcuts, drag coalescing, and history-aware inspector drafts; merged 2026-11-04.
+- [#8](https://github.com/SynergyFlowLabs/open-architect/pull/8) — M6 plan naming, Unicode export filenames, confirmed undoable reset, and pending-import safety.
 
 ## Update protocol
 
