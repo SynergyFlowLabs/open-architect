@@ -2,7 +2,16 @@
 
 ## Status
 
-This is a design baseline for a project with no app implementation yet. Revisit it after the APK, workflows, and data flows are understood. It is not a substitute for a security review or legal advice.
+This baseline now covers the active original Next.js app and the Android target-analysis scaffold. The current web data flow is documented below; target-specific behavior remains unknown. This is not a substitute for a security review or legal advice.
+
+## Current web data flow
+
+- The browser's `open-architect:planner:v1` local-storage entry contains only the plan name and rectangular room data. Selection, import undo, and other UI-only state are not persisted.
+- There is no project-owned backend, account, analytics, or upload flow. The browser review observed no external requests.
+- JSON import reads a local file with the browser File API, caps it at 256 KB, and applies strict version/geometry/unique-ID validation. File extensions and MIME types are not treated as proof of valid content.
+- A valid import replaces the current plan and can be undone until the next plan edit. Invalid imports do not replace the plan. Undo state is memory-only and does not survive reload.
+- JSON export creates a local Blob download. Exported copies are the only current backup mechanism; clearing browser site data can remove the saved draft.
+- Imported names are rendered as React text, not HTML. Treat plans from other people as untrusted data.
 
 ## Handling the target APK
 
