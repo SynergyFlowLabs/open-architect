@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   createInitialPlannerState,
   createRoom,
+  duplicateRoom,
   PLAN_SIZE,
   plannerReducer,
   type Room,
@@ -207,5 +208,44 @@ describe("createRoom", () => {
       width: 4,
       depth: 3,
     });
+  });
+});
+
+describe("duplicateRoom", () => {
+  it("copies dimensions and uses the first available slot", () => {
+    const source = room({ name: "Studio" });
+    const duplicate = duplicateRoom([source], source, "studio-copy");
+
+    expect(duplicate).toEqual({
+      id: "studio-copy",
+      name: "Studio copy",
+      x: 4,
+      y: 0,
+      width: 4,
+      depth: 3,
+    });
+    expect(source).toEqual(room({ name: "Studio" }));
+  });
+
+  it("creates unique copy names within the 60-character limit", () => {
+    const source = room({ name: "x".repeat(60), width: 12, depth: 8 });
+    const first = duplicateRoom([source], source, "copy-1");
+    const second = duplicateRoom([source, first], source, "copy-2");
+
+    expect(first.name).toHaveLength(60);
+    expect(second.name).toHaveLength(60);
+    expect(second.name).toMatch(/ copy 2$/);
+    expect(second.name).not.toBe(first.name);
+  });
+
+  it("keeps a duplicate bounded when overlap is unavoidable", () => {
+    const source = room({ name: "Full plan", width: 12, depth: 8 });
+    const duplicate = duplicateRoom([source], source, "full-copy");
+
+    expect(duplicate).toMatchObject({ x: 0, y: 0, width: 12, depth: 8 });
+    expect(
+      duplicate.x + duplicate.width <= PLAN_SIZE.width &&
+        duplicate.y + duplicate.depth <= PLAN_SIZE.depth,
+    ).toBe(true);
   });
 });

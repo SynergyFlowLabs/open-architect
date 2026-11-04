@@ -853,6 +853,12 @@ p {
   padding: var(--space-4);
 }
 
+.inspector-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
 .text-field label,
 .number-field label,
 .geometry-fields legend {

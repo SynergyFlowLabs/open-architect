@@ -82,12 +82,21 @@ function NumberField({ id, label, value, min, max, onCommit }: NumberFieldProps)
 
 interface RoomInspectorProps {
   room: Room;
+  canDuplicate: boolean;
   onChange: (changes: RoomChanges) => void;
   onMove: (direction: MoveDirection) => void;
+  onDuplicate: () => void;
   onDelete: () => void;
 }
 
-export function RoomInspector({ room, onChange, onMove, onDelete }: RoomInspectorProps) {
+export function RoomInspector({
+  room,
+  canDuplicate,
+  onChange,
+  onMove,
+  onDuplicate,
+  onDelete,
+}: RoomInspectorProps) {
   const [nameDraft, setNameDraft] = useState(room.name);
   const [previousName, setPreviousName] = useState(room.name);
 
@@ -213,9 +222,20 @@ export function RoomInspector({ room, onChange, onMove, onDelete }: RoomInspecto
           </div>
         </div>
 
-        <button className="button button-danger" onClick={onDelete} type="button">
-          Delete {room.name}
-        </button>
+        <div className="inspector-actions">
+          <button
+            className="button button-secondary"
+            disabled={!canDuplicate}
+            onClick={onDuplicate}
+            title={canDuplicate ? undefined : "100-room limit reached"}
+            type="button"
+          >
+            Duplicate {room.name}
+          </button>
+          <button className="button button-danger" onClick={onDelete} type="button">
+            Delete {room.name}
+          </button>
+        </div>
       </div>
     </section>
   );

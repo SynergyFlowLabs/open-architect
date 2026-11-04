@@ -11,6 +11,8 @@ import {
 } from "react";
 import {
   createRoom,
+  duplicateRoom,
+  ROOM_RULES,
   type PlannerAction,
   type Room,
 } from "@/lib/planner/reducer";
@@ -109,12 +111,24 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
 
   const selectedRoom = state.rooms.find((room) => room.id === state.selectedRoomId) ?? null;
   const canReset = state.name !== "Untitled plan" || state.rooms.length > 0;
+  const canAddRoom = state.rooms.length < ROOM_RULES.maximumRooms;
 
   function addRoom() {
-    dispatch({
-      type: "add",
-      room: createRoom(state.rooms, crypto.randomUUID()),
-    });
+    if (canAddRoom) {
+      dispatch({
+        type: "add",
+        room: createRoom(state.rooms, crypto.randomUUID()),
+      });
+    }
+  }
+
+  function duplicateSelectedRoom() {
+    if (selectedRoom && canAddRoom) {
+      dispatch({
+        type: "add",
+        room: duplicateRoom(state.rooms, selectedRoom, crypto.randomUUID()),
+      });
+    }
   }
 
   function startNewPlan() {
@@ -198,7 +212,13 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
       <header className="studio-header page-frame">
         {brand}
         <div className="studio-actions">
-          <button className="button button-secondary" onClick={addRoom} type="button">
+          <button
+            className="button button-secondary"
+            disabled={!canAddRoom}
+            onClick={addRoom}
+            title={canAddRoom ? undefined : "100-room limit reached"}
+            type="button"
+          >
             <span aria-hidden="true">+</span>
             Add room
           </button>
@@ -306,11 +326,13 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
 
           {selectedRoom ? (
             <RoomInspector
+              canDuplicate={canAddRoom}
               key={selectedRoom.id}
               onChange={(changes) =>
                 dispatch({ type: "update", roomId: selectedRoom.id, changes })
               }
               onDelete={() => dispatch({ type: "delete", roomId: selectedRoom.id })}
+              onDuplicate={duplicateSelectedRoom}
               onMove={(direction) =>
                 dispatch({ type: "move", roomId: selectedRoom.id, direction })
               }
