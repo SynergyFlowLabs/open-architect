@@ -19,9 +19,24 @@ function formatNumber(value: number): string {
   return new Intl.NumberFormat("en", { maximumFractionDigits: 2 }).format(value);
 }
 
+function HistoryIcon({ direction }: { direction: "undo" | "redo" }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path
+        d={
+          direction === "undo"
+            ? "M9 7 4 12l5 5M4 12h9a6 6 0 0 1 6 6v1"
+            : "m15 7 5 5-5 5M20 12h-9a6 6 0 0 0-6 6v1"
+        }
+      />
+    </svg>
+  );
+}
+
 interface DragState {
   pointerId: number;
   roomId: string;
+  historyKey: string;
   startClientX: number;
   startClientY: number;
   originX: number;
@@ -33,20 +48,29 @@ interface DragState {
 interface PlanCanvasProps {
   rooms: Room[];
   selectedRoomId: string | null;
+  canUndo: boolean;
+  canRedo: boolean;
   onSelect: (roomId: string) => void;
   onMove: (roomId: string, direction: MoveDirection) => void;
-  onChange: (roomId: string, changes: RoomChanges) => void;
+  onChange: (roomId: string, changes: RoomChanges, historyKey: string) => void;
+  onUndo: () => void;
+  onRedo: () => void;
 }
 
 export function PlanCanvas({
   rooms,
   selectedRoomId,
+  canUndo,
+  canRedo,
   onSelect,
   onMove,
   onChange,
+  onUndo,
+  onRedo,
 }: PlanCanvasProps) {
   const canvasRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef<DragState | null>(null);
+  const dragSequenceRef = useRef(0);
 
   function startDrag(event: PointerEvent<HTMLButtonElement>, room: Room) {
     if (event.button !== 0) {
@@ -62,6 +86,7 @@ export function PlanCanvas({
     dragRef.current = {
       pointerId: event.pointerId,
       roomId: room.id,
+      historyKey: `drag-${++dragSequenceRef.current}`,
       startClientX: event.clientX,
       startClientY: event.clientY,
       originX: room.x,
@@ -82,10 +107,14 @@ export function PlanCanvas({
       ((event.clientX - drag.startClientX) / drag.canvasWidth) * PLAN_SIZE.width;
     const deltaY =
       ((event.clientY - drag.startClientY) / drag.canvasHeight) * PLAN_SIZE.depth;
-    onChange(drag.roomId, {
-      x: drag.originX + deltaX,
-      y: drag.originY + deltaY,
-    });
+    onChange(
+      drag.roomId,
+      {
+        x: drag.originX + deltaX,
+        y: drag.originY + deltaY,
+      },
+      drag.historyKey,
+    );
   }
 
   function endDrag(event: PointerEvent<HTMLButtonElement>) {
@@ -110,7 +139,33 @@ export function PlanCanvas({
     <section aria-labelledby="plan-canvas-title" className="plan-section">
       <div className="panel-heading">
         <h2 id="plan-canvas-title">Plan canvas</h2>
-        <span>{PLAN_SIZE.width} × {PLAN_SIZE.depth} m</span>
+        <div className="canvas-heading-tools">
+          <div aria-label="Edit history" className="history-controls" role="group">
+            <button
+              aria-keyshortcuts="Control+Z Meta+Z"
+              aria-label="Undo last edit"
+              className="history-button"
+              disabled={!canUndo}
+              onClick={onUndo}
+              title="Undo (Ctrl or Command + Z)"
+              type="button"
+            >
+              <HistoryIcon direction="undo" />
+            </button>
+            <button
+              aria-keyshortcuts="Control+Shift+Z Meta+Shift+Z Control+Y"
+              aria-label="Redo last edit"
+              className="history-button"
+              disabled={!canRedo}
+              onClick={onRedo}
+              title="Redo (Ctrl or Command + Shift + Z)"
+              type="button"
+            >
+              <HistoryIcon direction="redo" />
+            </button>
+          </div>
+          <span>{PLAN_SIZE.width} × {PLAN_SIZE.depth} m</span>
+        </div>
       </div>
       <div className="plan-canvas" ref={canvasRef}>
         {rooms.length === 0 ? (
@@ -149,7 +204,7 @@ export function PlanCanvas({
       </div>
       <p className="panel-help" id="plan-canvas-help">
         Drag a room, or focus it and use the arrow keys to move by 0.5 metres. Use the
-        inspector for exact dimensions.
+        inspector for exact dimensions. Ctrl/Command+Z undoes an edit; add Shift to redo.
       </p>
     </section>
   );

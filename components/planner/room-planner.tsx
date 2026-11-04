@@ -6,27 +6,27 @@ import {
   useReducer,
   useRef,
   type ChangeEvent,
+  type KeyboardEvent,
   type ReactNode,
 } from "react";
 import {
-  createInitialPlannerState,
   createRoom,
-  plannerReducer,
   type PlannerAction,
-  type PlannerState,
   type Room,
 } from "@/lib/planner/reducer";
+import {
+  createEditorState,
+  editorReducer,
+  type StorageStatus,
+} from "@/lib/planner/editor";
 import {
   loadPlanner,
   savePlanner,
   serializeSnapshot,
-  type LoadPlannerResult,
 } from "@/lib/planner/snapshot";
 import { parseSnapshotFile } from "@/lib/planner/snapshot-file";
 import { PlanCanvas } from "./plan-canvas";
 import { RoomInspector } from "./room-inspector";
-
-type StorageStatus = "loading" | "empty" | "saved" | "invalid" | "unavailable";
 
 const storageMessages: Record<StorageStatus, string> = {
   loading: "Checking local storage…",
@@ -35,107 +35,6 @@ const storageMessages: Record<StorageStatus, string> = {
   invalid: "Saved data could not be read. New changes will replace it.",
   unavailable: "Local saving is unavailable. Export to keep your plan.",
 };
-
-interface ImportNotice {
-  type: "success" | "error" | "undone";
-  message: string;
-}
-
-interface EditorState {
-  plan: PlannerState;
-  storageStatus: StorageStatus;
-  isHydrated: boolean;
-  dirty: boolean;
-  importUndo: PlannerState | null;
-  importNotice: ImportNotice | null;
-}
-
-type EditorAction =
-  | { type: "user"; action: PlannerAction }
-  | { type: "hydrate"; result: LoadPlannerResult }
-  | { type: "import"; plan: PlannerState }
-  | { type: "importError"; message: string }
-  | { type: "undoImport" }
-  | { type: "saved"; saved: boolean };
-
-function createEditorState(): EditorState {
-  return {
-    plan: createInitialPlannerState(),
-    storageStatus: "loading",
-    isHydrated: false,
-    dirty: false,
-    importUndo: null,
-    importNotice: null,
-  };
-}
-
-function editorReducer(state: EditorState, action: EditorAction): EditorState {
-  switch (action.type) {
-    case "user": {
-      const plan = plannerReducer(state.plan, action.action);
-      if (plan === state.plan) {
-        return state;
-      }
-      const selectionOnly = action.action.type === "select";
-      return {
-        ...state,
-        plan,
-        dirty: state.dirty || !selectionOnly,
-        importUndo: selectionOnly ? state.importUndo : null,
-        importNotice: selectionOnly ? state.importNotice : null,
-      };
-    }
-    case "hydrate":
-      return {
-        plan: action.result.state
-          ? plannerReducer(state.plan, { type: "hydrate", plan: action.result.state })
-          : state.plan,
-        storageStatus: action.result.status === "loaded" ? "saved" : action.result.status,
-        isHydrated: true,
-        dirty: false,
-        importUndo: null,
-        importNotice: null,
-      };
-    case "import": {
-      const roomCount = action.plan.rooms.length;
-      return {
-        ...state,
-        plan: plannerReducer(state.plan, { type: "hydrate", plan: action.plan }),
-        dirty: true,
-        importUndo: state.plan,
-        importNotice: {
-          type: "success",
-          message: `Imported "${action.plan.name}" with ${roomCount} ${roomCount === 1 ? "room" : "rooms"}.`,
-        },
-      };
-    }
-    case "importError":
-      return {
-        ...state,
-        importNotice: { type: "error", message: action.message },
-      };
-    case "undoImport":
-      if (!state.importUndo) {
-        return state;
-      }
-      return {
-        ...state,
-        plan: state.importUndo,
-        dirty: true,
-        importUndo: null,
-        importNotice: {
-          type: "undone",
-          message: "Import undone. Your previous plan is restored.",
-        },
-      };
-    case "saved":
-      return {
-        ...state,
-        storageStatus: action.saved ? "saved" : "unavailable",
-        dirty: false,
-      };
-  }
-}
 
 function formatNumber(value: number): string {
   return new Intl.NumberFormat("en", { maximumFractionDigits: 2 }).format(value);
@@ -184,11 +83,11 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
     undefined,
     createEditorState,
   );
-  const { plan: state, storageStatus, importNotice, importUndo } = editor;
+  const { plan: state, storageStatus, feedback } = editor;
   const importRequestRef = useRef(0);
 
-  const dispatch = useCallback((action: PlannerAction) => {
-    editorDispatch({ type: "user", action });
+  const dispatch = useCallback((action: PlannerAction, historyKey?: string) => {
+    editorDispatch({ type: "user", action, historyKey });
   }, []);
 
   useEffect(() => {
@@ -247,8 +146,40 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
     URL.revokeObjectURL(url);
   }
 
+  function handleHistoryKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (
+      event.defaultPrevented ||
+      (!event.ctrlKey && !event.metaKey) ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    const key = event.key.toLowerCase();
+    if (key !== "z" && key !== "y") {
+      return;
+    }
+
+    const target = event.target as HTMLElement;
+    if (
+      target.isContentEditable ||
+      target instanceof HTMLInputElement ||
+      target instanceof HTMLTextAreaElement ||
+      target instanceof HTMLSelectElement
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    if (key === "y" || event.shiftKey) {
+      editorDispatch({ type: "redo" });
+    } else {
+      editorDispatch({ type: "undo" });
+    }
+  }
+
   return (
-    <>
+    <div onKeyDown={handleHistoryKeyDown}>
       <header className="studio-header page-frame">
         {brand}
         <div className="studio-actions">
@@ -287,18 +218,24 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
         </div>
 
         <p className="import-guidance" id="plan-import-help">
-          Import a version 1 JSON plan up to 256 KB. Import replaces the current plan;
-          undo is available until the next edit.
+          Import a version 1 JSON plan up to 256 KB. Import replaces the current plan.
+          Editing history stays in memory until reload.
         </p>
 
-        {importNotice ? (
+        {feedback ? (
           <div
-            className="import-feedback"
-            data-type={importNotice.type}
-            role={importNotice.type === "error" ? "alert" : "status"}
+            className="editor-feedback"
+            data-type={
+              feedback.type === "importError"
+                ? "error"
+                : feedback.type === "imported"
+                  ? "success"
+                  : "info"
+            }
+            role={feedback.type === "importError" ? "alert" : "status"}
           >
-            <p>{importNotice.message}</p>
-            {importUndo ? (
+            <p>{feedback.message}</p>
+            {feedback.type === "imported" && editor.past.length > 0 ? (
               <button
                 className="button button-secondary"
                 onClick={() => editorDispatch({ type: "undoImport" })}
@@ -313,13 +250,17 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
         <div className="studio-layout">
           <div className="workspace-column">
             <PlanCanvas
-              onChange={(roomId, changes) =>
-                dispatch({ type: "update", roomId, changes })
+              canRedo={editor.future.length > 0}
+              canUndo={editor.past.length > 0}
+              onChange={(roomId, changes, historyKey) =>
+                dispatch({ type: "update", roomId, changes }, historyKey)
               }
               onMove={(roomId, direction) =>
                 dispatch({ type: "move", roomId, direction })
               }
+              onRedo={() => editorDispatch({ type: "redo" })}
               onSelect={(roomId) => dispatch({ type: "select", roomId })}
+              onUndo={() => editorDispatch({ type: "undo" })}
               rooms={state.rooms}
               selectedRoomId={state.selectedRoomId}
             />
@@ -356,6 +297,6 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
           separate copy.
         </p>
       </main>
-    </>
+    </div>
   );
 }

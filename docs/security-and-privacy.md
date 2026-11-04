@@ -6,10 +6,10 @@ This baseline now covers the active original Next.js app and the Android target-
 
 ## Current web data flow
 
-- The browser's `open-architect:planner:v1` local-storage entry contains only the plan name and rectangular room data. Selection, import undo, and other UI-only state are not persisted.
+- The browser's `open-architect:planner:v1` local-storage entry contains only the plan name and rectangular room data. Selection, all undo/redo history, and other UI-only state are not persisted.
 - There is no project-owned backend, account, analytics, or upload flow. The browser review observed no external requests.
 - JSON import reads a local file with the browser File API, caps it at 256 KB, and applies strict version/geometry/unique-ID validation. File extensions and MIME types are not treated as proof of valid content.
-- A valid import replaces the current plan and can be undone until the next plan edit. Invalid imports do not replace the plan. Undo state is memory-only and does not survive reload.
+- A valid import replaces the current plan and enters the general editing history. The dedicated import-undo action retires after the next plan edit. Invalid imports do not replace the plan. Up to 50 history entries are held in memory and discarded on reload.
 - JSON export creates a local Blob download. Exported copies are the only current backup mechanism; clearing browser site data can remove the saved draft.
 - Imported names are rendered as React text, not HTML. Treat plans from other people as untrusted data.
 

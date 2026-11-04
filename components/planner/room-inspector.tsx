@@ -89,6 +89,12 @@ interface RoomInspectorProps {
 
 export function RoomInspector({ room, onChange, onMove, onDelete }: RoomInspectorProps) {
   const [nameDraft, setNameDraft] = useState(room.name);
+  const [previousName, setPreviousName] = useState(room.name);
+
+  if (room.name !== previousName) {
+    setPreviousName(room.name);
+    setNameDraft(room.name);
+  }
 
   function commitName() {
     if (nameDraft.trim() && nameDraft.trim() !== room.name) {

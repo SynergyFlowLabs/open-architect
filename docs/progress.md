@@ -15,10 +15,11 @@ The requester has directed work to begin on an original Next.js application. The
 | M2 — Studio vertical slice | Room reducer, accessible editor, local persistence, JSON export | completed | 19 tests passed across reducer, snapshots, editor, and landing page; ESLint, TypeScript, and production build passed |
 | M3 — Browser review | Desktop/mobile interaction, keyboard flow, persistence, export, console, accessibility spot checks | completed | 15 Playwright checks passed; zero axe A/AA violations on desktop landing/studio; screenshots reviewed; lint, type, 19 tests, and build passed |
 | M4 — Plan restore | Validated JSON import, non-destructive errors, and one-step import undo | completed | 26 tests and 20 browser checks passed; export/import/undo/reload flow and screenshots reviewed; lint, type, and build passed |
+| M5 — Editing history | General undo/redo, keyboard shortcuts, bounded history, and drag coalescing | completed | 36 tests and 19 focused browser checks passed; screenshots reviewed; lint, type, and production build passed |
 
 ## Testing seams
 
-The public test seams for the first feature are the planner reducer and versioned snapshot parser/serializer.
+The public test seams for the first feature are the planner reducer, the editing-history reducer, and the versioned snapshot parser/serializer.
 
 - Reducer tests catch invalid geometry, selection, and state-transition regressions. They do not verify browser rendering or pointer coordinates.
 - Snapshot tests catch malformed-data and data-loss regressions. They do not verify browser storage availability.
@@ -34,9 +35,15 @@ The review corrected accessible-name/visible-text mismatches and replaced font-d
 
 ## M4 plan-restore evidence
 
-The combined Git-ignored browser report now contains 20 passing checks. The exercised portability loop was: create and export two rooms, import a different valid plan, undo the replacement, import again and reload, re-import the original export, then attempt a malformed import. The malformed file produced an error without replacing the current plan. Imported plans were also verified in local storage after reload.
+The M4 browser review recorded 20 passing checks. The exercised portability loop was: create and export two rooms, import a different valid plan, undo the replacement, import again and reload, re-import the original export, then attempt a malformed import. The malformed file produced an error without replacing the current plan. Imported plans were also verified in local storage after reload.
 
-The file adapter rejects files over 256 KB before reading them and delegates all content to the strict version 1 snapshot parser. Import undo is intentionally one step, expires after the next plan edit, and is not persisted across reloads. Desktop import feedback and the three-action mobile header were visually reviewed. Axe reported no tested A/AA violations on the landing, populated studio, or import-error states.
+The file adapter rejects files over 256 KB before reading them and delegates all content to the strict version 1 snapshot parser. The dedicated import-undo action is intentionally one step and retires after the next plan edit; M5 adds separate general history. Desktop import feedback and the three-action mobile header were visually reviewed. Axe reported no tested A/AA violations on the landing, populated studio, or import-error states.
+
+## M5 editing-history evidence
+
+The focused Git-ignored browser report contains 19 passing checks against the production build. The review covered initially disabled controls, button and keyboard undo/redo, native text-input shortcut preservation, redo invalidation, one-step pointer-drag undo, general and dedicated import undo, malformed-file recovery, persistence after undo, history reset on reload, export contents, and 320/390 px layouts with 44 px history targets. It observed no console errors, uncaught page errors, external requests, or reviewed axe A/AA violations. Desktop, mobile, import-error, and landing screenshots were reviewed.
+
+The pure editor reducer caps each history stack at 50 entries, excludes selection-only changes, clears redo after a new edit, and coalesces updates sharing a drag key. History is memory-only; undone or redone plans continue to use the existing local-save effect. Browser review also exposed and verified a fix for stale inspector name drafts after rename undo/redo.
 
 ## Blockers and open decisions
 
@@ -50,7 +57,8 @@ The file adapter rejects files over 256 KB before reading them and delegates all
 - [#3](https://github.com/SynergyFlowLabs/open-architect/pull/3) — installed the initial 30-skill collection; merged 2026-11-04.
 - [#4](https://github.com/SynergyFlowLabs/open-architect/pull/4) — Next.js foundation and local-first room studio; merged 2026-11-04.
 - [#5](https://github.com/SynergyFlowLabs/open-architect/pull/5) — M3 browser review, accessible-name corrections, and SVG direction controls; merged 2026-11-04.
-- [#6](https://github.com/SynergyFlowLabs/open-architect/pull/6) — M4 validated plan import, non-destructive errors, and one-step undo.
+- [#6](https://github.com/SynergyFlowLabs/open-architect/pull/6) — M4 validated plan import, non-destructive errors, and one-step undo; merged 2026-11-04.
+- [#7](https://github.com/SynergyFlowLabs/open-architect/pull/7) — M5 bounded undo/redo, keyboard shortcuts, drag coalescing, and history-aware inspector drafts.
 
 ## Update protocol
 
