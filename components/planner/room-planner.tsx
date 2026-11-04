@@ -288,6 +288,9 @@ export function RoomPlanner({ brand }: { brand: ReactNode }) {
               onMove={(roomId, direction) =>
                 dispatch({ type: "move", roomId, direction })
               }
+              onResize={(roomId, width, depth, historyKey) =>
+                dispatch({ type: "resize", roomId, width, depth }, historyKey)
+              }
               onRedo={() => editorDispatch({ type: "redo" })}
               onSelect={(roomId) => dispatch({ type: "select", roomId })}
               onUndo={() => editorDispatch({ type: "undo" })}

@@ -36,11 +36,14 @@ function HistoryIcon({ direction }: { direction: "undo" | "redo" }) {
 interface DragState {
   pointerId: number;
   roomId: string;
+  mode: "move" | "resize";
   historyKey: string;
   startClientX: number;
   startClientY: number;
   originX: number;
   originY: number;
+  originWidth: number;
+  originDepth: number;
   canvasWidth: number;
   canvasHeight: number;
 }
@@ -53,6 +56,7 @@ interface PlanCanvasProps {
   onSelect: (roomId: string) => void;
   onMove: (roomId: string, direction: MoveDirection) => void;
   onChange: (roomId: string, changes: RoomChanges, historyKey: string) => void;
+  onResize: (roomId: string, width: number, depth: number, historyKey: string) => void;
   onUndo: () => void;
   onRedo: () => void;
 }
@@ -65,6 +69,7 @@ export function PlanCanvas({
   onSelect,
   onMove,
   onChange,
+  onResize,
   onUndo,
   onRedo,
 }: PlanCanvasProps) {
@@ -83,14 +88,21 @@ export function PlanCanvas({
       return;
     }
 
+    const mode =
+      event.target instanceof Element && event.target.closest("[data-resize-handle]")
+        ? "resize"
+        : "move";
     dragRef.current = {
       pointerId: event.pointerId,
       roomId: room.id,
-      historyKey: `drag-${++dragSequenceRef.current}`,
+      mode,
+      historyKey: `${mode === "resize" ? "resize" : "drag"}-${++dragSequenceRef.current}`,
       startClientX: event.clientX,
       startClientY: event.clientY,
       originX: room.x,
       originY: room.y,
+      originWidth: room.width,
+      originDepth: room.depth,
       canvasWidth: bounds.width,
       canvasHeight: bounds.height,
     };
@@ -107,6 +119,16 @@ export function PlanCanvas({
       ((event.clientX - drag.startClientX) / drag.canvasWidth) * PLAN_SIZE.width;
     const deltaY =
       ((event.clientY - drag.startClientY) / drag.canvasHeight) * PLAN_SIZE.depth;
+    if (drag.mode === "resize") {
+      onResize(
+        drag.roomId,
+        drag.originWidth + deltaX,
+        drag.originDepth + deltaY,
+        drag.historyKey,
+      );
+      return;
+    }
+
     onChange(
       drag.roomId,
       {
@@ -199,12 +221,20 @@ export function PlanCanvas({
             <span className="room-shape-measure">
               {formatNumber(room.width)} × {formatNumber(room.depth)} m
             </span>
+            {selectedRoomId === room.id ? (
+              <span
+                aria-hidden="true"
+                className="room-resize-handle"
+                data-resize-handle="true"
+              />
+            ) : null}
           </button>
         ))}
       </div>
       <p className="panel-help" id="plan-canvas-help">
-        Drag a room, or focus it and use the arrow keys to move by 0.5 metres. Use the
-        inspector for exact dimensions. Ctrl/Command+Z undoes an edit; add Shift to redo.
+        Drag a room to move it, or drag the selected room’s lower-right corner to resize.
+        Focus a room and use arrow keys to move by 0.5 metres; use the inspector for exact
+        dimensions. Ctrl/Command+Z undoes an edit; add Shift to redo.
       </p>
     </section>
   );

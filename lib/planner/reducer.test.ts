@@ -76,6 +76,57 @@ describe("plannerReducer", () => {
     });
   });
 
+  it("resizes without moving the top-left origin or exceeding remaining bounds", () => {
+    const state = {
+      ...createInitialPlannerState(),
+      rooms: [room({ x: 6, y: 4 })],
+      selectedRoomId: "room-1",
+    };
+    const next = plannerReducer(state, {
+      type: "resize",
+      roomId: "room-1",
+      width: 20,
+      depth: 0.2,
+    });
+
+    expect(next.rooms[0]).toMatchObject({ x: 6, y: 4, width: 6, depth: 1 });
+  });
+
+  it("snaps resize dimensions and ignores invalid or no-op resize actions", () => {
+    const state = {
+      ...createInitialPlannerState(),
+      rooms: [room({ x: 0.25, y: 0.25 })],
+      selectedRoomId: "room-1",
+    };
+    const next = plannerReducer(state, {
+      type: "resize",
+      roomId: "room-1",
+      width: 4.7,
+      depth: 3.8,
+    });
+
+    expect(next.rooms[0]).toMatchObject({ x: 0.25, y: 0.25, width: 4.5, depth: 4 });
+    expect(
+      plannerReducer(next, {
+        type: "resize",
+        roomId: "room-1",
+        width: Number.NaN,
+        depth: 4,
+      }),
+    ).toBe(next);
+    expect(
+      plannerReducer(next, {
+        type: "resize",
+        roomId: "room-1",
+        width: 4.5,
+        depth: 4,
+      }),
+    ).toBe(next);
+    expect(
+      plannerReducer(next, { type: "resize", roomId: "missing", width: 2, depth: 2 }),
+    ).toBe(next);
+  });
+
   it("moves in half-metre increments and preserves state at an edge", () => {
     const state = {
       ...createInitialPlannerState(),

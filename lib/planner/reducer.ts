@@ -38,6 +38,7 @@ export type PlannerAction =
   | { type: "add"; room: Room }
   | { type: "select"; roomId: string | null }
   | { type: "update"; roomId: string; changes: RoomChanges }
+  | { type: "resize"; roomId: string; width: number; depth: number }
   | { type: "move"; roomId: string; direction: MoveDirection }
   | { type: "delete"; roomId: string }
   | { type: "hydrate"; plan: Pick<PlannerState, "name" | "rooms"> };
@@ -56,6 +57,10 @@ function clamp(value: number, minimum: number, maximum: number): number {
 
 function snap(value: number): number {
   return Number((Math.round(value / ROOM_RULES.step) * ROOM_RULES.step).toFixed(2));
+}
+
+function snapDown(value: number): number {
+  return Number((Math.floor(value / ROOM_RULES.step) * ROOM_RULES.step).toFixed(2));
 }
 
 function hasFiniteGeometry(room: Room): boolean {
@@ -207,6 +212,34 @@ export function plannerReducer(
 
       const rooms = [...state.rooms];
       rooms[roomIndex] = updated;
+      return { ...state, rooms };
+    }
+
+    case "resize": {
+      const roomIndex = state.rooms.findIndex((room) => room.id === action.roomId);
+      if (roomIndex < 0 || !Number.isFinite(action.width) || !Number.isFinite(action.depth)) {
+        return state;
+      }
+
+      const current = state.rooms[roomIndex];
+      const maximumWidth = snapDown(PLAN_SIZE.width - current.x);
+      const maximumDepth = snapDown(PLAN_SIZE.depth - current.y);
+      const width = clamp(
+        snap(action.width),
+        ROOM_RULES.minimumWidth,
+        maximumWidth,
+      );
+      const depth = clamp(
+        snap(action.depth),
+        ROOM_RULES.minimumDepth,
+        maximumDepth,
+      );
+      if (width === current.width && depth === current.depth) {
+        return state;
+      }
+
+      const rooms = [...state.rooms];
+      rooms[roomIndex] = { ...current, width, depth };
       return { ...state, rooms };
     }
 
