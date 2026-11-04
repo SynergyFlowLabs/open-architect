@@ -105,6 +105,47 @@ function overlaps(left: Room, right: Room): boolean {
   );
 }
 
+function placeRoom(existingRooms: Room[], template: Room): Room {
+  for (let y = 0; y <= PLAN_SIZE.depth - template.depth; y += ROOM_RULES.step) {
+    for (let x = 0; x <= PLAN_SIZE.width - template.width; x += ROOM_RULES.step) {
+      const candidate = { ...template, x, y };
+      if (existingRooms.every((room) => !overlaps(candidate, room))) {
+        return candidate;
+      }
+    }
+  }
+
+  const offset = (existingRooms.length % 6) * ROOM_RULES.step;
+  return {
+    ...template,
+    x: clamp(snap(template.x + offset), 0, PLAN_SIZE.width - template.width),
+    y: clamp(snap(template.y + offset), 0, PLAN_SIZE.depth - template.depth),
+  };
+}
+
+function duplicateName(existingRooms: Room[], sourceName: string): string {
+  const existingNames = new Set(existingRooms.map((room) => room.name));
+  const match = /^(.*) copy(?: ([1-9]\d*))?$/.exec(sourceName);
+  const base = match?.[1] ?? sourceName;
+  const parsedNumber = match?.[2] ? Number(match[2]) : null;
+  let copyNumber = match
+    ? parsedNumber && Number.isSafeInteger(parsedNumber)
+      ? parsedNumber + 1
+      : 2
+    : 1;
+
+  while (true) {
+    const suffix = copyNumber === 1 ? " copy" : ` copy ${copyNumber}`;
+    const candidate = `${base
+      .slice(0, ROOM_RULES.maximumNameLength - suffix.length)
+      .trimEnd()}${suffix}`;
+    if (!existingNames.has(candidate)) {
+      return candidate;
+    }
+    copyNumber = copyNumber === 1 ? 2 : copyNumber + 1;
+  }
+}
+
 export function createRoom(existingRooms: Room[], id: string): Room {
   let roomNumber = existingRooms.length + 1;
   const existingNames = new Set(existingRooms.map((room) => room.name));
@@ -121,17 +162,18 @@ export function createRoom(existingRooms: Room[], id: string): Room {
     depth: 3,
   };
 
-  for (let y = 0; y <= PLAN_SIZE.depth - template.depth; y += template.depth) {
-    for (let x = 0; x <= PLAN_SIZE.width - template.width; x += template.width) {
-      const candidate = { ...template, x, y };
-      if (existingRooms.every((room) => !overlaps(candidate, room))) {
-        return candidate;
-      }
-    }
-  }
+  return placeRoom(existingRooms, template);
+}
 
-  const offset = (existingRooms.length % 6) * ROOM_RULES.step;
-  return { ...template, x: offset, y: offset };
+export function duplicateRoom(existingRooms: Room[], source: Room, id: string): Room {
+  return placeRoom(
+    existingRooms,
+    normalizeRoom({
+      ...source,
+      id,
+      name: duplicateName(existingRooms, source.name),
+    }),
+  );
 }
 
 export function plannerReducer(

@@ -330,3 +330,60 @@ describe("RoomPlanner plan management", () => {
     expect(screen.queryByRole("button", { name: /Imported office/ })).not.toBeInTheDocument();
   });
 });
+
+describe("RoomPlanner room duplication", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
+  it("duplicates the selected room with unique names and undo support", async () => {
+    const user = userEvent.setup();
+    renderPlanner();
+    await user.click(screen.getByRole("button", { name: "Add room" }));
+    const nameInput = screen.getByRole("textbox", { name: "Room name" });
+    await user.clear(nameInput);
+    await user.type(nameInput, "Studio");
+    await user.tab();
+
+    await user.click(screen.getByRole("button", { name: "Duplicate Studio" }));
+    expect(screen.getByRole("textbox", { name: "Room name" })).toHaveValue("Studio copy");
+    expect(screen.getByRole("spinbutton", { name: "X position in metres" })).toHaveValue(4);
+    expect(screen.getByRole("button", { name: "Studio 4 × 3 m" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Studio copy 4 × 3 m" })).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Undo last edit" }));
+    expect(screen.queryByRole("button", { name: "Studio copy 4 × 3 m" })).not.toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Redo last edit" }));
+    expect(screen.getByRole("textbox", { name: "Room name" })).toHaveValue("Studio copy");
+
+    await user.click(screen.getByRole("button", { name: "Duplicate Studio copy" }));
+    expect(screen.getByRole("textbox", { name: "Room name" })).toHaveValue("Studio copy 2");
+    expect(screen.getByRole("spinbutton", { name: "X position in metres" })).toHaveValue(8);
+  });
+
+  it("disables room creation at the limit and re-enables it after deletion", async () => {
+    const user = userEvent.setup();
+    const saved = {
+      ...createInitialPlannerState(),
+      rooms: Array.from({ length: 100 }, (_, index) => ({
+        id: `room-${index + 1}`,
+        name: `Room ${index + 1}`,
+        x: 0,
+        y: 0,
+        width: 1,
+        depth: 1,
+      })),
+    };
+    window.localStorage.setItem(PLANNER_STORAGE_KEY, serializeSnapshot(saved));
+    renderPlanner();
+
+    expect(
+      await screen.findByRole("button", { name: "Duplicate Room 1" }),
+    ).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Add room" })).toBeDisabled();
+
+    await user.click(screen.getByRole("button", { name: "Delete Room 1" }));
+    expect(screen.getByRole("button", { name: "Add room" })).toBeEnabled();
+    expect(screen.getByRole("button", { name: "Duplicate Room 2" })).toBeEnabled();
+  });
+});

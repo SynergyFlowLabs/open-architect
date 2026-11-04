@@ -18,6 +18,7 @@ The requester has directed work to begin on an original Next.js application. The
 | M5 — Editing history | General undo/redo, keyboard shortcuts, bounded history, and drag coalescing | completed | 36 tests and 19 focused browser checks passed; screenshots reviewed; lint, type, and production build passed |
 | M6 — Plan management | Editable plan names, portable export filenames, and confirmed undoable reset | completed | 42 tests and 18 focused browser checks passed; screenshots reviewed; lint, type, and production build passed |
 | M7 — Direct resizing | Selected-room resize handle, anchored bounded geometry, and gesture history | completed | 45 tests and 16 focused browser checks passed; screenshots reviewed; lint, type, and production build passed |
+| M8 — Room duplication | Unique copy naming, bounded placement, history, and room-limit controls | completed | 50 tests and 16 focused browser checks passed; screenshots reviewed; lint, type, and production build passed |
 
 ## Testing seams
 
@@ -59,6 +60,12 @@ The focused Git-ignored browser report contains 16 passing checks against the pr
 
 The resize reducer preserves the top-left origin and snaps dimensions to 0.5 metres while clamping them to the remaining plan bounds. Resize gestures use the existing bounded history with gesture-key coalescing. The lower-right handle is visual-only inside the room button, not a nested interactive control; numeric dimension fields remain the exact keyboard and assistive-technology alternative.
 
+## M8 room-duplication evidence
+
+The focused production Chromium review recorded 16 passing checks. It verified `Studio` → `Studio copy` → `Studio copy 2`, first-free placement, one-step undo/redo, distinct exported UUIDs, copied dimensions, reload persistence, independent editing of sibling copies, and Add/Duplicate disabling with recovery after deletion at the 100-room boundary. Desktop, 390 px, and 320 px screenshots were reviewed without horizontal overflow or clipped actions. Axe reported no tested A/AA violations on the populated studio or landing page, and the browser observed no console errors, uncaught page errors, or external requests.
+
+Duplication uses the same bounded grid placement as room creation and the existing add/history path. If no non-overlapping position exists, normalized bounded overlap remains available. Copy names stay within 60 characters while retaining a numeric suffix sequence. No persistence-format, backend, account, or telemetry change was introduced.
+
 ## Blockers and open decisions
 
 - Target APK intake and target-specific behavior remain blocked. No target-parity requirement is approved.
@@ -74,7 +81,7 @@ The resize reducer preserves the top-left origin and snaps dimensions to 0.5 met
 - [#6](https://github.com/SynergyFlowLabs/open-architect/pull/6) — M4 validated plan import, non-destructive errors, and one-step undo; merged 2026-11-04.
 - [#7](https://github.com/SynergyFlowLabs/open-architect/pull/7) — M5 bounded undo/redo, keyboard shortcuts, drag coalescing, and history-aware inspector drafts; merged 2026-11-04.
 - [#8](https://github.com/SynergyFlowLabs/open-architect/pull/8) — M6 plan naming, Unicode export filenames, confirmed undoable reset, and pending-import safety; merged 2026-11-04.
-- [#9](https://github.com/SynergyFlowLabs/open-architect/pull/9) — M7 selected-room direct resizing with anchored bounds and gesture history.
+- [#9](https://github.com/SynergyFlowLabs/open-architect/pull/9) — M7 selected-room direct resizing with anchored bounds and gesture history; merged 2026-11-04.
 
 ## Update protocol
 
