@@ -1,0 +1,27 @@
+# Target APKs and private reverse-engineering outputs (never commit)
+/artifacts/
+/analysis/private/
+/analysis/output/
+*.apk
+*.aab
+*.apks
+*.xapk
+*.dex
+*.odex
+*.vdex
+*.hprof
+*.pcap
+*.pcapng
+
+# Secrets and signing material
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+
+# Android/Gradle generated files (when implementation begins)
+.gradle/
+local.properties
+**/build/
+/captures/
