@@ -1,0 +1,13 @@
+package com.google.android.material.badge;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/* JADX INFO: loaded from: classes4.dex */
+@Target({ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.PACKAGE})
+@Retention(RetentionPolicy.CLASS)
+@h.a(level = h.a.EnumC1911a.ERROR)
+public @interface c {
+}

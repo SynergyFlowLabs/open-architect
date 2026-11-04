@@ -1,0 +1,64 @@
+package rx.observers;
+
+import androidx.compose.animation.core.z1;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.CompletableSubscriber;
+import rx.Subscription;
+import rx.annotations.Experimental;
+import rx.plugins.RxJavaHooks;
+
+/* JADX INFO: loaded from: classes14.dex */
+@Experimental
+public abstract class AsyncCompletableSubscriber implements CompletableSubscriber, Subscription {
+    static final Unsubscribed UNSUBSCRIBED = new Unsubscribed();
+    private final AtomicReference<Subscription> upstream = new AtomicReference<>();
+
+    static final class Unsubscribed implements Subscription {
+        Unsubscribed() {
+        }
+
+        @Override // rx.Subscription
+        public boolean isUnsubscribed() {
+            return true;
+        }
+
+        @Override // rx.Subscription
+        public void unsubscribe() {
+        }
+    }
+
+    protected final void clear() {
+        this.upstream.set(UNSUBSCRIBED);
+    }
+
+    @Override // rx.Subscription
+    public final boolean isUnsubscribed() {
+        return this.upstream.get() == UNSUBSCRIBED;
+    }
+
+    protected void onStart() {
+    }
+
+    @Override // rx.CompletableSubscriber
+    public final void onSubscribe(Subscription subscription) {
+        if (z1.a(this.upstream, null, subscription)) {
+            onStart();
+            return;
+        }
+        subscription.unsubscribe();
+        if (this.upstream.get() != UNSUBSCRIBED) {
+            RxJavaHooks.onError(new IllegalStateException("Subscription already set!"));
+        }
+    }
+
+    @Override // rx.Subscription
+    public final void unsubscribe() {
+        Subscription andSet;
+        Subscription subscription = this.upstream.get();
+        Unsubscribed unsubscribed = UNSUBSCRIBED;
+        if (subscription == unsubscribed || (andSet = this.upstream.getAndSet(unsubscribed)) == null || andSet == unsubscribed) {
+            return;
+        }
+        andSet.unsubscribe();
+    }
+}

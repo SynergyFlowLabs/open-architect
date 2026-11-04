@@ -1,0 +1,81 @@
+package s3;
+
+import androidx.compose.runtime.a1;
+import androidx.compose.runtime.m4;
+import androidx.savedstate.m;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import kotlin.Result;
+import kotlin.ResultKt;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.SourceDebugExtension;
+import kotlin.l;
+import oj.i;
+import org.jetbrains.annotations.NotNull;
+
+/* JADX INFO: loaded from: classes3.dex */
+@SourceDebugExtension({"SMAP\nLocalSavedStateRegistryOwner.android.kt\nKotlin\n*S Kotlin\n*F\n+ 1 LocalSavedStateRegistryOwner.android.kt\nandroidx/savedstate/compose/LocalSavedStateRegistryOwnerKt\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,68:1\n12574#2,2:69\n*S KotlinDebug\n*F\n+ 1 LocalSavedStateRegistryOwner.android.kt\nandroidx/savedstate/compose/LocalSavedStateRegistryOwnerKt\n*L\n51#1:69,2\n*E\n"})
+@i(name = "LocalSavedStateRegistryOwnerKt")
+public final class b {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    @NotNull
+    private static final m4<m> f366969a;
+
+    static {
+        Object objM785constructorimpl;
+        m4 m4Var;
+        Object obj = null;
+        try {
+            Result.a aVar = Result.Companion;
+            ClassLoader classLoader = m.class.getClassLoader();
+            Intrinsics.checkNotNull(classLoader);
+            Method method = classLoader.loadClass("androidx.compose.ui.platform.AndroidCompositionLocals_androidKt").getMethod("getLocalSavedStateRegistryOwner", null);
+            Annotation[] annotations = method.getAnnotations();
+            Intrinsics.checkNotNullExpressionValue(annotations, "getAnnotations(...)");
+            int length = annotations.length;
+            int i10 = 0;
+            while (true) {
+                if (i10 >= length) {
+                    Object objInvoke = method.invoke(null, null);
+                    if (objInvoke instanceof m4) {
+                        m4Var = (m4) objInvoke;
+                        break;
+                    }
+                } else if (!(annotations[i10] instanceof l)) {
+                    i10++;
+                }
+                m4Var = null;
+                break;
+            }
+            objM785constructorimpl = Result.m785constructorimpl(m4Var);
+        } catch (Throwable th2) {
+            Result.a aVar2 = Result.Companion;
+            objM785constructorimpl = Result.m785constructorimpl(ResultKt.createFailure(th2));
+        }
+        if (!Result.m786isFailureimpl(objM785constructorimpl)) {
+            obj = objM785constructorimpl;
+        }
+        m4<m> m4VarM = (m4) obj;
+        if (m4VarM == null) {
+            m4VarM = a1.m(new Function0() { // from class: s3.a
+                @Override // kotlin.jvm.functions.Function0
+                public final Object invoke() {
+                    return b.b();
+                }
+            });
+        }
+        f366969a = m4VarM;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static final m b() {
+        throw new IllegalStateException("CompositionLocal LocalSavedStateRegistryOwner not present");
+    }
+
+    @NotNull
+    public static final m4<m> c() {
+        return f366969a;
+    }
+}

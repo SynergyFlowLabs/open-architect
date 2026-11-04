@@ -1,0 +1,53 @@
+package org.apache.commons.io.output;
+
+import java.io.Writer;
+
+/* JADX INFO: loaded from: classes14.dex */
+public class n extends Writer {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    public static final n f336773a = new n();
+
+    @Override // java.io.Writer, java.lang.Appendable
+    public Writer append(char c10) {
+        return this;
+    }
+
+    @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+    }
+
+    @Override // java.io.Writer, java.io.Flushable
+    public void flush() {
+    }
+
+    @Override // java.io.Writer
+    public void write(int i10) {
+    }
+
+    @Override // java.io.Writer, java.lang.Appendable
+    public Writer append(CharSequence charSequence) {
+        return this;
+    }
+
+    @Override // java.io.Writer
+    public void write(String str) {
+    }
+
+    @Override // java.io.Writer, java.lang.Appendable
+    public Writer append(CharSequence charSequence, int i10, int i11) {
+        return this;
+    }
+
+    @Override // java.io.Writer
+    public void write(String str, int i10, int i11) {
+    }
+
+    @Override // java.io.Writer
+    public void write(char[] cArr) {
+    }
+
+    @Override // java.io.Writer
+    public void write(char[] cArr, int i10, int i11) {
+    }
+}

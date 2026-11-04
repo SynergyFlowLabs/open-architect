@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_white_round_very_large"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/p5d_space_x_small"
+    android:paddingEnd="@dimen/p5d_space_medium"
+    android:elevation="@dimen/p5d_elevation_large"
+    android:layout_marginHorizontal="@dimen/p5d_space_20"
+    android:paddingVertical="@dimen/p5d_space_x_small">
+    <ImageView
+        android:id="@+id/bottomSheetItemIcon"
+        android:padding="@dimen/p5d_space_tiny"
+        android:layout_width="@dimen/p5d_space_huge"
+        android:layout_height="@dimen/p5d_space_huge"
+        android:layout_marginStart="@dimen/p5d_space_x_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textColor="@color/text.alpha"
+        android:id="@+id/bottomSheetItemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/p5d_space_medium"
+        android:layout_marginStart="@dimen/p5d_space_x_small"
+        app:layout_constraintBottom_toTopOf="@+id/bottomSheetItemSubtitle"
+        app:layout_constraintStart_toEndOf="@+id/bottomSheetItemIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        style="@style/Planner5D.Text.Title_Small"/>
+    <TextView
+        android:textColor="@color/text.gamma"
+        android:id="@+id/bottomSheetItemSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/p5d_space_x_small"
+        android:layout_marginStart="@dimen/p5d_space_x_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bottomSheetItemIcon"
+        app:layout_constraintTop_toBottomOf="@+id/bottomSheetItemTitle"
+        style="@style/Planner5D.Text.Misc_Caption"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/include_main_list_placeholder"/>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:enabled="false"
+        android:id="@+id/listSwipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.planner5d.library.widget.EnhancedRecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cellSpacing="@dimen/p5d_space_tiny"
+            app:cellWidth="@dimen/p5d_main_list_cell_width"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <LinearLayout
+        android:gravity="end|center_vertical"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:id="@+id/carryOverButtonsContainer"
+        android:paddingBottom="@dimen/p5d_space_tiny"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/p5d_space_20">
+        <Button
+            android:textSize="@dimen/font_size_big"
+            android:textColor="@color/selection_green"
+            android:id="@+id/carryOverCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Cancel"
+            android:fontFamily="@font/roboto_medium_w500"
+            android:layout_marginEnd="@dimen/p5d_space_tiny"
+            android:backgroundTint="@color/white"
+            android:letterSpacing="@dimen/p5d_letter_spacing_large"
+            style="@style/Planner5D.Button.Material"/>
+        <Button
+            android:enabled="false"
+            android:textSize="@dimen/font_size_big"
+            android:textColor="@color/material_button_text_color_selection_green"
+            android:id="@+id/carryOverOKButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/carry_over"
+            android:textAllCaps="false"
+            android:fontFamily="@font/roboto_medium_w500"
+            android:layout_marginStart="@dimen/p5d_space_tiny"
+            android:backgroundTint="@color/material_button_background_selection_green"
+            android:letterSpacing="@dimen/p5d_letter_spacing_large"
+            style="@style/Planner5D.Button.Material"/>
+    </LinearLayout>
+</FrameLayout>

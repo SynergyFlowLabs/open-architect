@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/image_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <View
+        android:layout_gravity="bottom"
+        android:background="@drawable/gradient_white_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_free_space"/>
+    <com.planner5d.library.widget.textview.ButtonTextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:id="@+id/button_send_to_gallery"
+        android:background="@drawable/gradient_green"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/p5d_space_huge"
+        android:layout_marginBottom="@dimen/p5d_space_x_large"
+        android:foreground="@drawable/ripple_rounded"
+        android:text="@string/tools_autostyle_save_to_gallery"
+        android:layout_marginHorizontal="@dimen/p5d_space_20"
+        app:backgroundCornerRadius="@dimen/p5d_corner_radius_huge"
+        style="@style/Planner5D.TextView.Medium"/>
+    <com.planner5d.library.widget.preloader.PreloaderSimpleV2View
+        android:id="@+id/image_pager_preloader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</FrameLayout>

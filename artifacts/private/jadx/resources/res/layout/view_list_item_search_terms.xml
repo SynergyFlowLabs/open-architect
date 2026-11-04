@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="@dimen/font_size_big"
+    android:textColor="@color/catalog_icon"
+    android:gravity="start|center_vertical"
+    android:paddingLeft="@dimen/p5d_space_x_small"
+    android:paddingRight="@dimen/p5d_space_x_small"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/p5d_space_huge"
+    android:textAlignment="viewStart"/>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.planner5d.library.widget.onboarding.OnboardingListenerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listener_view"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.fragment.app.FragmentContainerView
+        android:name="com.planner5d.library.spaces.view.SpacesSearchNavigationFragment"
+        android:id="@+id/nav_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</com.planner5d.library.widget.onboarding.OnboardingListenerView>

@@ -1,0 +1,7 @@
+package com.google.android.gms.internal.play_billing;
+
+/* JADX INFO: loaded from: classes4.dex */
+class d4 extends n3 {
+    d4() {
+    }
+}

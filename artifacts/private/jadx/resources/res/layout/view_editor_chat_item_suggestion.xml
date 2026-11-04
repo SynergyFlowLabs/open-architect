@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/suggestion"
+    android:background="@drawable/suggestion_bubble"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/p5d_space_xxx_small"
+    android:paddingStart="@dimen/p5d_space_xx_small"
+    android:paddingEnd="@dimen/p5d_space_xx_tiny"
+    android:layout_marginHorizontal="6dp">
+    <ImageView
+        android:gravity="center"
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_suggestion_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textColor="@color/neutral.text.alpha"
+        android:id="@+id/text"
+        android:paddingTop="@dimen/p5d_space_xx_small"
+        android:paddingBottom="14dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:paddingHorizontal="@dimen/p5d_space_xx_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icon"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.Text.Title_Small"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:tag="layout/view_main_list_new_project_list_0"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foreground="@drawable/ripple_white">
+    <ImageView
+        android:id="@+id/clickableBack"
+        android:tag="binding_1"
+        android:background="@drawable/background_button_green_gradient"
+        android:layout_width="@dimen/p5d_main_list_button_icon_size"
+        android:layout_height="@dimen/p5d_main_list_button_icon_size"
+        android:src="@drawable/icon_feed_projects_new_24"
+        android:scaleType="centerInside"
+        android:layout_marginStart="@dimen/p5d_space_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/new_project"
+        android:layout_marginStart="@dimen/p5d_space_xx_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/clickableBack"
+        app:layout_constraintTop_toBottomOf="@+id/clickableBack"
+        app:layout_constraintTop_toTopOf="@+id/clickableBack"
+        style="@style/Planner5D.TextView.Item"/>
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/p5d_space_x_tiny"
+        android:text="@string/tap_plus_to_get_started"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        style="@style/Planner5D.TextView.Meta"/>
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/p5d_space_x_tiny"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summary"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

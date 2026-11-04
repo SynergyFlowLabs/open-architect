@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ViewStub
+        android:id="@+id/contestEmpty"
+        android:layout="@layout/view_contest_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/p5d_toolbar_height"
+        android:layout_marginStart="@dimen/p5d_space_20"
+        android:layout_marginEnd="@dimen/p5d_space_20"
+        app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/contestSwipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.planner5d.library.widget.EnhancedRecyclerView
+            android:id="@+id/contestList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cellSpacing="@dimen/p5d_space_medium"
+            app:cellWidth="@dimen/p5d_gallery_list_cell_width"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/contestListPreloader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:hideAnimationBehavior="outward"
+        app:indicatorColor="@color/p5d_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:showAnimationBehavior="inward"
+        app:trackColor="@color/p5d_primary_24"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

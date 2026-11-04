@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/p5d_space_xx_large"
+    android:layout_marginBottom="@dimen/p5d_space_tiny">
+    <TextView
+        android:textColor="@color/neutral.text.alpha"
+        android:ellipsize="end"
+        android:gravity="start|center_vertical"
+        android:id="@+id/dropdown_text"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:lines="1"
+        android:singleLine="true"
+        android:paddingStart="@dimen/p5d_space_20"
+        android:layout_marginEnd="@dimen/p5d_space_x_small"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toStartOf="@+id/dropdown_radio_button"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.Text.Body_Medium"/>
+    <RadioButton
+        android:id="@+id/dropdown_radio_button"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/p5d_space_x_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

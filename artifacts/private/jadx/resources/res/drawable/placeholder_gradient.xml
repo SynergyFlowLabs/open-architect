@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" android:drawable="@drawable/_placeholder_gradient__0_res_0x7f08007f">
+    <target
+        android:name="group0"
+        android:animation="@drawable/_placeholder_gradient__4_res_0x7f080083"/>
+    <target
+        android:name="group"
+        android:animation="@drawable/_placeholder_gradient__5_res_0x7f080084"/>
+    <target
+        android:name="group2"
+        android:animation="@drawable/_placeholder_gradient__6_res_0x7f080085"/>
+</animated-vector>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:menu="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_finish"
+        android:visible="true"
+        android:title="@string/save"
+        android:iconTint="@color/button_text_neutral"
+        menu:showAsAction="withText|always"/>
+</menu>

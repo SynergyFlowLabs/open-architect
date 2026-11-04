@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#ffffffff"
+        android:pathData="M12,0L12,0A12,12 0,0 1,24 12L24,12A12,12 0,0 1,12 24L12,24A12,12 0,0 1,0 12L0,12A12,12 0,0 1,12 0z"/>
+    <path
+        android:fillColor="@drawable/_icon_clock_white__0_res_0x7f080019"
+        android:pathData="M6.1477,13.4622C5.6257,13.4622 5.2197,13.056 5.2197,12.5338C5.2197,12.0115 5.6257,11.6053 6.1477,11.6053H11.066V4.9438C11.066,4.4216 11.472,4.0154 11.9824,4.0154C12.516,4.0154 12.922,4.4216 12.922,4.9438V12.5338C12.922,13.056 12.516,13.4622 11.9824,13.4622H6.1477Z"/>
+</vector>

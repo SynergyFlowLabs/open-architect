@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/room_type_graph"
+    app:startDestination="@+id/room_type">
+    <include app:graph="@navigation/smart_wizard_graph"/>
+    <fragment
+        android:label="@string/room_type_title"
+        android:name="com.planner5d.library.project.fragment.roomtype.RoomTypeFragment"
+        android:id="@+id/room_type">
+        <argument
+            android:name="autoStyleId"
+            android:defaultValue="0L"
+            app:argType="long"/>
+        <action
+            android:id="@+id/to_smart_wizard"
+            app:destination="@+id/smart_wizard_graph"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/to_room_style"
+            app:destination="@+id/room_style"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/to_design_generator_room_style"
+            app:destination="@+id/design_generator_room_style"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:label="@string/smart_wizard_choose_room_style"
+        android:name="com.planner5d.library.activity.fragment.smartwizard.roomstyle.ChooseRoomStyle"
+        android:id="@+id/room_style"
+        app:toolbarVisible="true"/>
+    <fragment
+        android:label="@string/room_style_title"
+        android:name="com.planner5d.library.project.fragment.roomstyle.RoomStyleFragment"
+        android:id="@+id/design_generator_room_style"/>
+</navigation>

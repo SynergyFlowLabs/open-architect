@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="42dp">
+    <ImageView
+        android:layout_gravity="center_vertical"
+        android:id="@+id/image"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="centerInside"/>
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textSize="@dimen/font_size_normal"
+        android:textColor="#ff000000"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:id="@+id/title"
+        android:background="?android:attr/activatedBackgroundIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="42dp"
+        android:maxLines="2"
+        style="@style/Planner5D.Menu.Item"/>
+</FrameLayout>

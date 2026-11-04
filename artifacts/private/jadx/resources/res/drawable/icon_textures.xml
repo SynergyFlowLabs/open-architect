@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M15.7692,17H2.2308C1.5514,17 1,16.4486 1,15.7692V2.2308C1,1.5514 1.5514,1 2.2308,1H15.7692C16.4486,1 17,1.5514 17,2.2308V15.7692C17,16.4486 16.4486,17 15.7692,17Z"
+        android:strokeColor="@color/p5d_icon"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M21.7692,7H17.1538V15.9231C17.1538,16.6025 16.6025,17.1538 15.9231,17.1538H7V21.7692C7,22.4486 7.5514,23 8.2308,23H21.7692C22.4486,23 23,22.4486 23,21.7692V8.2308C23,7.5514 22.4486,7 21.7692,7Z"
+        android:strokeColor="@color/p5d_icon"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M7,17L13,23"
+        android:strokeColor="@color/p5d_icon"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M18,23L12,17"
+        android:strokeColor="@color/p5d_icon"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M22,22L17,17"
+        android:strokeColor="@color/p5d_icon"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M18,8L23,13"
+        android:strokeColor="@color/p5d_icon"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M17,12L23,18"
+        android:strokeColor="@color/p5d_icon"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"/>
+</vector>

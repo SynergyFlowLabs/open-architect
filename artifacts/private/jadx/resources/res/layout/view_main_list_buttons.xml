@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Button
+        android:id="@+id/button0"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.MainList.Button.Small"/>
+    <Button
+        android:id="@+id/button1"
+        android:layout_marginTop="@dimen/p5d_space_tiny"
+        android:layout_marginBottom="@dimen/p5d_space_tiny"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button0"
+        app:layout_goneMarginBottom="0dp"
+        style="@style/Planner5D.MainList.Button.Small"/>
+    <Button
+        android:id="@+id/button2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        style="@style/Planner5D.MainList.Button.Small"/>
+</merge>

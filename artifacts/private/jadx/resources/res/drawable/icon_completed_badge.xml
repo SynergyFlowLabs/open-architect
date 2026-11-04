@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:height="37dp"
+    android:width="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="37">
+    <path
+        android:fillColor="@drawable/_icon_completed_badge__0_res_0x7f080025"
+        android:pathData="m0,1.98c0,-1.1 0.895,-1.98 2,-1.98h28c1.1,0 2,0.888 2,1.98v33c0,1.33 -1.29,2.28 -2.57,1.9l-12.9,-3.79c-0.372,-0.109 -0.767,-0.109 -1.14,0l-12.9,3.79c-1.28,0.377 -2.57,-0.575 -2.57,-1.9v-33z"/>
+    <path
+        android:fillColor="#ffffffff"
+        android:pathData="m14.6,23c0.398,0 0.71,-0.164 0.929,-0.498l6.21,-9.86c0.159,-0.246 0.226,-0.471 0.226,-0.683 0,-0.56 -0.398,-0.962 -0.955,-0.962 -0.385,0 -0.617,0.136 -0.849,0.519l-5.59,9.09 -2.85,-3.7c-0.226,-0.28 -0.458,-0.41 -0.789,-0.41 -0.564,0 -0.968,0.41 -0.968,0.976 0,0.246 0.0796,0.478 0.285,0.724l3.43,4.33c0.259,0.321 0.544,0.464 0.922,0.464z"/>
+</vector>

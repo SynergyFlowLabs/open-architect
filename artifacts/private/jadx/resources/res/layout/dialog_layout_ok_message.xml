@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_white_round"
+    android:padding="@dimen/p5d_space_20"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/p5d_text"
+        android:textColorLink="@color/p5d_primary"
+        android:autoLink="web"
+        android:id="@+id/okDialogText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/button_text_default"
+        android:id="@+id/buttonOk"
+        android:background="@drawable/background_button_default"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/p5d_space_xx_large"
+        android:layout_marginTop="@dimen/p5d_space_20"
+        android:text="@string/ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/okDialogText"
+        style="@style/Planner5D.Button"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

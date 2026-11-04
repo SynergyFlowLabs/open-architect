@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="@dimen/font_size_big"
+    android:gravity="center_vertical"
+    android:layout_width="264dp"
+    android:layout_height="wrap_content"
+    android:drawablePadding="@dimen/p5d_space_tiny"
+    android:paddingStart="@dimen/p5d_space_tiny"
+    android:paddingEnd="@dimen/p5d_space_xx_small"/>

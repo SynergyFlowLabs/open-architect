@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/onboarding_step_1_2_card_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="@drawable/ripple_rounded_corners_very_large"
+    android:elevation="@dimen/p5d_elevation_small"
+    android:paddingVertical="@dimen/p5d_space_x_small">
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/p5d_space_medium"
+        android:layout_height="@dimen/p5d_space_medium"
+        android:layout_marginStart="@dimen/p5d_space_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textSize="@dimen/onboarding_item_font_size"
+        android:textColor="@color/neutral.text.alpha"
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/onboarding_step1_text_start"
+        android:layout_marginEnd="@dimen/onboarding_step1_text_start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.Text.Title_Small"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:clipChildren="false">
+    <com.google.android.material.slider.Slider
+        android:layout_gravity="center_vertical"
+        android:id="@+id/slider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/p5d_space_x_tiny"
+        app:thumbColor="@color/white"
+        app:thumbElevation="@dimen/p5d_elevation_large"
+        app:thumbRadius="@dimen/smart_wizard_dimensions_slider_thumb_radius"
+        app:trackColorInactive="@color/p5d_grey_8"
+        app:trackHeight="@dimen/smart_wizard_dimensions_slider_track_height"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:textSize="@dimen/font_size_very_very_big"
+        android:textColor="@color/p5d_grey_1"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/slider_value"
+        android:background="@drawable/background_grey_5_round_medium"
+        android:layout_width="@dimen/smart_wizard_dimensions_edit_text_width"
+        android:layout_height="@dimen/smart_wizard_dimensions_edit_text_height"
+        android:selectAllOnFocus="true"
+        android:inputType="numberDecimal"
+        android:fontFamily="@font/roboto_medium_w500"
+        android:layout_marginStart="@dimen/p5d_space_tiny"
+        android:layout_marginEnd="@dimen/p5d_space_20"
+        android:paddingHorizontal="@dimen/p5d_space_xx_small"/>
+</merge>

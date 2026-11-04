@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="16dp"
+    android:width="12dp"
+    android:viewportWidth="12"
+    android:viewportHeight="16">
+    <path
+        android:fillColor="@color/p5d_grey_5"
+        android:pathData="M2,0L2,0A2,2 0,0 1,4 2L4,2A2,2 0,0 1,2 4L2,4A2,2 0,0 1,0 2L0,2A2,2 0,0 1,2 0z"/>
+    <path
+        android:fillColor="@color/p5d_grey_5"
+        android:pathData="M2,6L2,6A2,2 0,0 1,4 8L4,8A2,2 0,0 1,2 10L2,10A2,2 0,0 1,0 8L0,8A2,2 0,0 1,2 6z"/>
+    <path
+        android:fillColor="@color/p5d_grey_5"
+        android:pathData="M2,12L2,12A2,2 0,0 1,4 14L4,14A2,2 0,0 1,2 16L2,16A2,2 0,0 1,0 14L0,14A2,2 0,0 1,2 12z"/>
+    <path
+        android:fillColor="@color/p5d_grey_5"
+        android:pathData="M10,0L10,0A2,2 0,0 1,12 2L12,2A2,2 0,0 1,10 4L10,4A2,2 0,0 1,8 2L8,2A2,2 0,0 1,10 0z"/>
+    <path
+        android:fillColor="@color/p5d_grey_5"
+        android:pathData="M10,6L10,6A2,2 0,0 1,12 8L12,8A2,2 0,0 1,10 10L10,10A2,2 0,0 1,8 8L8,8A2,2 0,0 1,10 6z"/>
+    <path
+        android:fillColor="@color/p5d_grey_5"
+        android:pathData="M10,12L10,12A2,2 0,0 1,12 14L12,14A2,2 0,0 1,10 16L10,16A2,2 0,0 1,8 14L8,14A2,2 0,0 1,10 12z"/>
+</vector>

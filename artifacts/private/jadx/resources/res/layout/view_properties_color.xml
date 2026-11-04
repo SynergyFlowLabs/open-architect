@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.planner5d.library.widget.colorpicker.ColorPickerInternalView
+        android:id="@+id/colorPicker"
+        android:padding="@dimen/p5d_space_20"
+        android:layout_width="match_parent"
+        android:layout_height="244dp"/>
+</merge>

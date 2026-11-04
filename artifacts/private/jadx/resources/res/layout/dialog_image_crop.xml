@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.canhub.cropper.core.CropImageView
+        android:id="@+id/crop_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/p5d_space_xx_huge"
+        android:layout_marginBottom="@dimen/crop_image_bottom_padding"
+        app:cropProgressBarColor="@color/p5d_primary"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_gravity="start|bottom"
+        android:id="@+id/cancel_button"
+        android:layout_width="@dimen/p5d_space_xx_large"
+        android:layout_height="@dimen/p5d_space_xx_large"
+        android:layout_margin="24dp"
+        android:src="@drawable/icon_close"
+        app:fabCustomSize="@dimen/p5d_space_xx_large"
+        style="@style/Planner5D.FloatingActionButton.ImageCrop"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_gravity="end|bottom"
+        android:id="@+id/accept_button"
+        android:layout_width="@dimen/p5d_space_xx_large"
+        android:layout_height="@dimen/p5d_space_xx_large"
+        android:layout_margin="24dp"
+        android:src="@drawable/icon_ok"
+        app:fabCustomSize="@dimen/p5d_space_xx_large"
+        style="@style/Planner5D.FloatingActionButton.ImageCrop"/>
+</FrameLayout>

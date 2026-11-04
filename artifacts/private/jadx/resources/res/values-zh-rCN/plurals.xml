@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="design_generator_images">
+        <item quantity="other">%d 张图片</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">快进 %d 秒</item>
+        <item quantity="other">快进 %d 秒</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">快退 %d 秒</item>
+        <item quantity="other">快退 %d 秒</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d 条新通知</item>
+        <item quantity="other">%d 条新通知</item>
+    </plurals>
+    <plurals name="onboarding_address_details_bedrooms">
+        <item quantity="other">%d室住宅</item>
+    </plurals>
+    <plurals name="purchase_design_generator_number_of_styles">
+        <item quantity="other">%d - 风格</item>
+    </plurals>
+    <plurals name="purchases_premium_benefit_upload_x_custom_textures">
+        <item quantity="other">上传 %d 个自定义纹理</item>
+    </plurals>
+    <plurals name="purchases_premium_benefit_x_renders_per_year">
+        <item quantity="other">%d 个渲染/年</item>
+    </plurals>
+    <plurals name="purchases_premium_days_left">
+        <item quantity="other">剩余 %d 天</item>
+    </plurals>
+    <plurals name="purchases_premium_snapshots_left">
+        <item quantity="other">剩余 %d 个快照</item>
+    </plurals>
+    <plurals name="purchases_premium_textures_left">
+        <item quantity="other">剩余 %d 种纹理</item>
+    </plurals>
+    <plurals name="purchases_rewards_minutes_until_next">
+        <item quantity="other">距离下一个物品还有 %d 分钟</item>
+    </plurals>
+    <plurals name="purchases_rewards_number">
+        <item quantity="other">%d 个奖励</item>
+    </plurals>
+</resources>

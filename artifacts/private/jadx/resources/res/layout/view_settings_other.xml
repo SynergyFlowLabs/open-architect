@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/toolbar_tabs_margin"
+            android:paddingRight="@dimen/toolbar_tabs_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.planner5d.library.activity.fragment.settings.ViewManagedFiles
+                android:id="@+id/managed_files_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"/>
+            <View
+                android:id="@+id/separator_0"
+                android:layout_marginTop="16dp"
+                style="@style/Planner5D.Separator.Material"/>
+            <com.planner5d.library.activity.fragment.settings.ViewPromoCode
+                android:id="@+id/promo_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:id="@+id/separator_1"
+                style="@style/Planner5D.Separator.Material"/>
+            <com.planner5d.library.activity.fragment.settings.ViewDataRemoval
+                android:id="@+id/data_removal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</merge>

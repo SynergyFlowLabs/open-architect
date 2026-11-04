@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enabled="false"
+    android:textColor="@color/actionbar_text_action"
+    android:id="@+id/title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:foreground="@drawable/ripple_rounded_corners_medium"
+    android:text="@string/save"
+    android:layout_marginEnd="@dimen/p5d_space_tiny"
+    android:paddingHorizontal="@dimen/p5d_space_x_small"
+    android:paddingVertical="@dimen/p5d_space_xx_small"
+    style="@style/Planner5D.Text.Title_Small"/>

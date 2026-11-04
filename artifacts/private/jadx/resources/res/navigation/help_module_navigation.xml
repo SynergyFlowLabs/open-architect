@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/help_module_navigation_graph"
+    app:startDestination="@+id/about">
+    <fragment
+        android:label="@string/about"
+        android:name="com.planner5d.library.activity.fragment.profile.about.AboutFragment"
+        android:id="@+id/about"/>
+</navigation>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/documents_graph"
+    app:startDestination="@+id/documents">
+    <fragment
+        android:label="@string/documents"
+        android:name="com.planner5d.library.activity.fragment.spaces.documents.Documents"
+        android:id="@+id/documents">
+        <action
+            android:id="@+id/toFolderEdit"
+            app:destination="@+id/folderEdit">
+            <argument
+                android:name="title"
+                app:argType="reference"/>
+        </action>
+    </fragment>
+    <fragment
+        android:name="com.planner5d.library.activity.fragment.spaces.folder.FolderEdit"
+        android:id="@+id/folderEdit"
+        app:dynamicLabelFromArgument="title"/>
+</navigation>

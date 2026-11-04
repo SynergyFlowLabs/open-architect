@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:textSize="@dimen/font_size_big"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/p5d_space_xx_large"
+    android:layout_marginTop="@dimen/p5d_space_x_small"
+    app:drawableLeftCompat="@drawable/icon_google_20"
+    style="@style/Planner5D.Welcome.ExternalServiceButton"/>

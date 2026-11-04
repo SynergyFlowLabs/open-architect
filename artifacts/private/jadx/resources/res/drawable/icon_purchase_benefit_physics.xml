@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="20dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="20">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0.8574,19.1753H22.639"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M5.416,9.2153L11.1951,15.4143L19.0928,6.8184"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M16.0537,6.8184H19.093V10.0419"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+    <path
+        android:fillColor="@color/p5d_purchase_benefit_icon"
+        android:pathData="M17.3937,15.1907C17.3937,14.8323 17.1235,14.5415 16.7892,14.5415C16.4548,14.5415 16.1846,14.8323 16.1846,15.1907C16.1846,15.549 16.4548,15.8399 16.7892,15.8399C17.1235,15.8399 17.3937,15.549 17.3937,15.1907Z"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/p5d_purchase_benefit_icon"
+        android:pathData="M21.6262,12.5943C21.6262,12.236 21.3559,11.9451 21.0216,11.9451C20.6872,11.9451 20.417,12.236 20.417,12.5943C20.417,12.9526 20.6872,13.2434 21.0216,13.2434C21.3559,13.2434 21.6262,12.9526 21.6262,12.5943Z"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/p5d_purchase_benefit_icon"
+        android:pathData="M14.9759,3.5061C14.9759,3.1478 14.7056,2.8569 14.3712,2.8569C14.0369,2.8569 13.7666,3.1478 13.7666,3.5061C13.7666,3.8644 14.0369,4.1553 14.3712,4.1553C14.7056,4.1553 14.9759,3.8644 14.9759,3.5061Z"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/p5d_purchase_benefit_icon"
+        android:pathData="M19.8117,1.5583C19.8117,1.2 19.5415,0.9092 19.2072,0.9092C18.8728,0.9092 18.6025,1.2 18.6025,1.5583C18.6025,1.9167 18.8728,2.2075 19.2072,2.2075C19.5415,2.2075 19.8117,1.9167 19.8117,1.5583Z"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/p5d_purchase_benefit_icon"
+        android:pathData="M4.093,12.5943C4.093,12.236 3.8227,11.9451 3.4884,11.9451C3.154,11.9451 2.8838,12.236 2.8838,12.5943C2.8838,12.9526 3.154,13.2434 3.4884,13.2434C3.8227,13.2434 4.093,12.9526 4.093,12.5943Z"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/p5d_purchase_benefit_icon"
+        android:pathData="M6.5109,3.5061C6.5109,3.1478 6.2407,2.8569 5.9063,2.8569C5.572,2.8569 5.3018,3.1478 5.3018,3.5061C5.3018,3.8644 5.572,4.1553 5.9063,4.1553C6.2407,4.1553 6.5109,3.8644 6.5109,3.5061Z"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/p5d_purchase_benefit_icon"
+        android:pathData="M10.7434,7.4009C10.7434,7.0425 10.4732,6.7517 10.1388,6.7517C9.8044,6.7517 9.5342,7.0425 9.5342,7.4009C9.5342,7.7592 9.8044,8.0501 10.1388,8.0501C10.4732,8.0501 10.7434,7.7592 10.7434,7.4009Z"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/p5d_purchase_benefit_icon"
+        android:pathData="M7.7199,15.8403C7.7199,15.482 7.4497,15.1912 7.1153,15.1912C6.781,15.1912 6.5107,15.482 6.5107,15.8403C6.5107,16.1987 6.781,16.4895 7.1153,16.4895C7.4497,16.4895 7.7199,16.1987 7.7199,15.8403Z"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillType="evenOdd"/>
+</vector>

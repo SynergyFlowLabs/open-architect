@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/content"
+    android:background="@drawable/background_white_round"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/dialog_icon"
+            android:layout_width="@dimen/dialog_icon_size"
+            android:layout_height="@dimen/dialog_icon_size"
+            android:layout_marginTop="@dimen/p5d_space_medium"
+            android:scaleType="centerInside"
+            android:layout_marginStart="@dimen/p5d_space_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/p5d_silver"/>
+        <TextView
+            android:textSize="@dimen/font_size_normal"
+            android:textColor="@color/p5d_grey_1"
+            android:gravity="start|center_vertical"
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/folder_selection_header_height"
+            android:paddingStart="@dimen/p5d_space_xx_small"
+            android:paddingEnd="@dimen/p5d_space_xx_small"
+            app:layout_constraintStart_toEndOf="@+id/dialog_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Planner5D.TextView"/>
+        <View
+            android:id="@+id/dialog_title_separator"
+            android:background="@color/p5d_grey_6"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/p5d_border"
+            app:layout_constraintTop_toBottomOf="@+id/title"/>
+        <com.planner5d.library.widget.preloader.PreloaderBoxV2View
+            android:id="@+id/preloader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

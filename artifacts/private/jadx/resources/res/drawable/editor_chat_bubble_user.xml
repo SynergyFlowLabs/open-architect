@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners
+        android:topLeftRadius="@dimen/p5d_corner_radius_large"
+        android:topRightRadius="@dimen/p5d_corner_radius_large"
+        android:bottomLeftRadius="@dimen/p5d_corner_radius_large"
+        android:bottomRightRadius="@dimen/p5d_corner_radius"/>
+    <solid android:color="@color/p5d_grey_6"/>
+</shape>

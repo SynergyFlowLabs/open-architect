@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:textSize="@dimen/font_size_big"
+    android:textColor="@color/p5d_text"
+    android:gravity="start|center_vertical"
+    android:background="@null"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:foreground="?android:attr/activatedBackgroundIndicator"
+    android:drawablePadding="@dimen/p5d_space_tiny"
+    android:textAlignment="viewStart"
+    android:paddingStart="@dimen/p5d_space_huge"/>

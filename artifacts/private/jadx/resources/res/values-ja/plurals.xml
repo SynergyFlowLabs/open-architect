@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="design_generator_images">
+        <item quantity="other">%d 枚の画像</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">%d 秒早送り</item>
+        <item quantity="other">%d 秒早送り</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">%d 秒巻き戻し</item>
+        <item quantity="other">%d 秒巻き戻し</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d 件の新しい通知</item>
+        <item quantity="other">%d 件の新しい通知</item>
+    </plurals>
+    <plurals name="onboarding_address_details_bedrooms">
+        <item quantity="other">%dベッドルームの家</item>
+    </plurals>
+    <plurals name="purchase_design_generator_number_of_styles">
+        <item quantity="other">%d - スタイル</item>
+    </plurals>
+    <plurals name="purchases_premium_benefit_upload_x_custom_textures">
+        <item quantity="other">%dのカスタムテクスチャーをアップロード</item>
+    </plurals>
+    <plurals name="purchases_premium_benefit_x_renders_per_year">
+        <item quantity="other">1年あたりのレンダー%d件</item>
+    </plurals>
+    <plurals name="purchases_premium_days_left">
+        <item quantity="other">残り%d日</item>
+    </plurals>
+    <plurals name="purchases_premium_snapshots_left">
+        <item quantity="other">あと%d個の図面</item>
+    </plurals>
+    <plurals name="purchases_premium_textures_left">
+        <item quantity="other">%d 件の残りのテクスチャ</item>
+    </plurals>
+    <plurals name="purchases_rewards_minutes_until_next">
+        <item quantity="other">次まであと%d分</item>
+    </plurals>
+    <plurals name="purchases_rewards_number">
+        <item quantity="other">%d個の報酬</item>
+    </plurals>
+</resources>

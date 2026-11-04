@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical">
+    <FrameLayout
+        android:id="@+id/add_floor_button"
+        android:background="@drawable/icon_floor_unselected"
+        android:focusable="true"
+        android:visibility="gone"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:src="@drawable/icon_plus_green"/>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/floor_number_button"
+        android:background="@drawable/icon_floor_number"
+        android:focusable="true"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="@dimen/font_size_big"
+            android:textColor="@color/p5d_grey_2"
+            android:layout_gravity="center"
+            android:id="@+id/floor_number_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:letterSpacing="@dimen/p5d_letter_spacing_default"
+            style="@style/Planner5D.TextView.Medium"/>
+    </FrameLayout>
+</merge>

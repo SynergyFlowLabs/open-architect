@@ -1,0 +1,7 @@
+package androidx.room;
+
+/* JADX INFO: loaded from: classes3.dex */
+public final class u1 {
+    private u1() {
+    }
+}

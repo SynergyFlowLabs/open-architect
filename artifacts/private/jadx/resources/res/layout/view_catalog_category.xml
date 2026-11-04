@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/catalogCategoryIcon"
+        android:layout_width="@dimen/p5d_space_medium"
+        android:layout_height="@dimen/p5d_space_medium"
+        android:layout_marginStart="@dimen/p5d_space_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:gravity="center_vertical"
+        android:id="@+id/catalogCategoryText"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginStart="@dimen/p5d_space_x_small"
+        android:layout_marginEnd="@dimen/p5d_space_x_tiny"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/catalogCategoryIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.TextView.Medium"/>
+    <ImageView
+        android:id="@+id/catalogCategoryArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_arrow_right_22"
+        android:layout_marginEnd="@dimen/p5d_space_x_tiny"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <View
+        android:id="@+id/catalogCategoryUnderline"
+        android:background="@color/p5d_grey_5"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/p5d_border_small"
+        app:layout_constraintBottom_toBottomOf="@+id/catalogCategoryText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/catalogCategoryText"/>
+</merge>

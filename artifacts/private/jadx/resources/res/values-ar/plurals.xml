@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="design_generator_images">
+        <item quantity="zero">%d صورة</item>
+        <item quantity="one">%d صورة</item>
+        <item quantity="two">%d صورتين</item>
+        <item quantity="few">%d صورة</item>
+        <item quantity="many">%d صورة</item>
+        <item quantity="other">%d صور</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="zero">تقديم سريع للفيديو بمقدار %d ثانية</item>
+        <item quantity="one">تقديم سريع للفيديو بمقدار ثانية واحدة (%d)</item>
+        <item quantity="two">تقديم سريع للفيديو بمقدار ثانيتَين (%d)</item>
+        <item quantity="few">تقديم سريع للفيديو بمقدار %d ثوانٍ</item>
+        <item quantity="many">تقديم سريع للفيديو بمقدار %d ثانية</item>
+        <item quantity="other">تقديم سريع للفيديو بمقدار %d ثانية</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="zero">ترجيع الفيديو بمقدار %d ثانية</item>
+        <item quantity="one">ترجيع الفيديو بمقدار ثانية واحدة (%d)</item>
+        <item quantity="two">ترجيع الفيديو بمقدار ثانيتَين (%d)</item>
+        <item quantity="few">ترجيع الفيديو بمقدار %d ثوانٍ</item>
+        <item quantity="many">ترجيع الفيديو بمقدار %d ثانية</item>
+        <item quantity="other">ترجيع الفيديو بمقدار %d ثانية</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="zero">%d إشعار جديد</item>
+        <item quantity="one">إشعار جديد واحد (%d)</item>
+        <item quantity="two">إشعاران جديدان (%d)</item>
+        <item quantity="few">%d إشعارات جديدة</item>
+        <item quantity="many">%d إشعارًا جديدًا</item>
+        <item quantity="other">%d إشعار جديد</item>
+    </plurals>
+    <plurals name="onboarding_address_details_bedrooms">
+        <item quantity="zero" />
+        <item quantity="one" />
+        <item quantity="two" />
+        <item quantity="few" />
+        <item quantity="many" />
+        <item quantity="other">منزل يحتوي على %d غرفة نوم</item>
+    </plurals>
+    <plurals name="purchase_design_generator_number_of_styles">
+        <item quantity="zero">%d - أسلوب</item>
+        <item quantity="one">%d - نمط</item>
+        <item quantity="two">%d - أنماط</item>
+        <item quantity="few">%d - أنماط</item>
+        <item quantity="many">%d - أنماط</item>
+        <item quantity="other">%d - أنماط</item>
+    </plurals>
+    <plurals name="purchases_premium_benefit_upload_x_custom_textures">
+        <item quantity="zero" />
+        <item quantity="one">تحميل %d مادة مخصصة</item>
+        <item quantity="two">تحميل %d مادة مخصصة</item>
+        <item quantity="few">تحميل %d مواد مخصصة</item>
+        <item quantity="many">تحميل %d مواد مخصصة</item>
+        <item quantity="other">تحميل %d مواد مخصصة</item>
+    </plurals>
+    <plurals name="purchases_premium_benefit_x_renders_per_year">
+        <item quantity="zero" />
+        <item quantity="one">%d معالَجَة عرض سنوياً</item>
+        <item quantity="two">%d معالَجَات عرض سنوياً</item>
+        <item quantity="few">%d معالَجَات عرض سنوياً</item>
+        <item quantity="many">%d معالَجَات عرض سنوياً</item>
+        <item quantity="other">%d معالَجَات عرض سنوياً</item>
+    </plurals>
+    <plurals name="purchases_premium_days_left">
+        <item quantity="zero">%d يوم متبقٍ</item>
+        <item quantity="one">يوم واحد (%d) متبقٍ</item>
+        <item quantity="two">يومان (%d) متبقيان</item>
+        <item quantity="few">%d أيام متبقية</item>
+        <item quantity="many">%d يومًا متبقيًا</item>
+        <item quantity="other">%d يوم متبقٍ</item>
+    </plurals>
+    <plurals name="purchases_premium_snapshots_left">
+        <item quantity="zero">%d لقطة شاشة متبقية</item>
+        <item quantity="one">لقطة شاشة واحدة (%d) متبقية</item>
+        <item quantity="two">لقطتا شاشة (%d) متبقيتان</item>
+        <item quantity="few">%d لقطات شاشة متبقية</item>
+        <item quantity="many">%d لقطة شاشة متبقية</item>
+        <item quantity="other">%d لقطة شاشة متبقية</item>
+    </plurals>
+    <plurals name="purchases_premium_textures_left">
+        <item quantity="zero" />
+        <item quantity="one">متبقي %d ملمس</item>
+        <item quantity="two" />
+        <item quantity="few" />
+        <item quantity="many">متبقي %d من الملمس</item>
+        <item quantity="other" />
+    </plurals>
+    <plurals name="purchases_rewards_minutes_until_next">
+        <item quantity="zero">%d دقيقة حتى</item>
+        <item quantity="one">دقيقة واحدة (%d) حتى</item>
+        <item quantity="two">دقيقتان (%d) حتى</item>
+        <item quantity="few">%d دقائق حتى</item>
+        <item quantity="many">%d دقيقةً حتى</item>
+        <item quantity="other">%d دقيقة حتى</item>
+    </plurals>
+    <plurals name="purchases_rewards_number">
+        <item quantity="zero">%d مكافأة</item>
+        <item quantity="one">مكافأة واحدة (%d) حتى</item>
+        <item quantity="two">مكافأتان (%d) حتى</item>
+        <item quantity="few">%d مكافآت حتى</item>
+        <item quantity="many">%d مكافأةً حتى</item>
+        <item quantity="other">%d مكافأة</item>
+    </plurals>
+</resources>

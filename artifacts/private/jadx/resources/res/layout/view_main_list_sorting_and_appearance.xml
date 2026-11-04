@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:tag="layout/view_main_list_sorting_and_appearance_0"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:gravity="center"
+        android:id="@+id/labelSelectedSortType"
+        android:tag="binding_1"
+        android:paddingTop="@dimen/p5d_space_x_tiny"
+        android:paddingBottom="@dimen/p5d_space_x_tiny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/p5d_space_xx_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.TextView.Sorting"/>
+    <ImageView
+        android:tag="binding_2"
+        android:padding="@dimen/p5d_space_x_tiny"
+        android:layout_width="@dimen/p5d_space_large"
+        android:layout_height="@dimen/p5d_space_large"
+        android:foreground="@drawable/ripple_white"
+        app:layout_constraintBottom_toBottomOf="@+id/labelSelectedSortType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/labelSelectedSortType"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:height="@dimen/bottom_sheet_peek_height">
+        <shape>
+            <corners
+                android:topLeftRadius="@dimen/p5d_corner_radius_large"
+                android:topRightRadius="@dimen/p5d_corner_radius_large"/>
+            <solid android:color="#ffffffff"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <corners
+                android:topLeftRadius="@dimen/p5d_corner_radius_large"
+                android:topRightRadius="@dimen/p5d_corner_radius_large"/>
+            <solid android:color="#ffffffff"/>
+            <stroke
+                android:width="@dimen/p5d_border_small"
+                android:color="@color/p5d_grey_5"/>
+        </shape>
+    </item>
+</layer-list>

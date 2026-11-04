@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.Planner5D.MaterialCard.Material"
+    android:id="@+id/imageWrapper"
+    android:layout_width="@dimen/feed_blog_card_width"
+    android:layout_height="@dimen/feed_blog_card_width"
+    android:layout_marginTop="@dimen/p5d_space_xxx_small"
+    android:layout_marginBottom="@dimen/p5d_space_medium"
+    android:layout_marginStart="@dimen/p5d_space_xxx_small"
+    android:layout_marginEnd="@dimen/p5d_space_xxx_small"
+    app:cardCornerRadius="@dimen/p5d_corner_radius_large"
+    app:cardElevation="@dimen/p5d_elevation_large">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.planner5d.library.widget.preloader.PreloaderShimmerV2View
+            android:id="@+id/shimmer_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

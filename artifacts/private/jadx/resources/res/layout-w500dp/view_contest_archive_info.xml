@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:textSize="@dimen/font_size_very_small"
+        android:textColor="@color/p5d_eerie_black_50"
+        android:gravity="center"
+        android:id="@+id/contestInfoContestantsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:minWidth="200dp"
+        android:textAllCaps="true"
+        app:layout_constraintRight_toLeftOf="@+id/contestInfoDivider"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.TextView.Medium"/>
+    <View
+        android:id="@+id/contestInfoDivider"
+        android:background="@color/p5d_platinum"
+        android:layout_width="@dimen/p5d_border_small"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/contestInfoTime"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="@dimen/font_size_very_small"
+        android:textColor="@color/p5d_eerie_black_50"
+        android:gravity="center"
+        android:id="@+id/contestInfoTime"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:minWidth="200dp"
+        android:minHeight="@dimen/font_size_normal"
+        android:textAllCaps="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.TextView.Medium"/>
+</merge>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.planner5d.library.widget.ProfileIconView
+        android:id="@+id/avatar"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="@dimen/p5d_space_x_small"
+        app:imageSize="28dp"
+        app:layout_constraintStart_toStartOf="@+id/placeBadge"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.planner5d.library.widget.ContestPlaceBadgeView
+        android:id="@+id/placeBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/avatar"/>
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/p5d_text"
+        android:ellipsize="end"
+        android:id="@+id/userName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_marginStart="@dimen/p5d_space_tiny"
+        android:layout_marginEnd="@dimen/p5d_space_20"
+        android:letterSpacing="@dimen/p5d_letter_spacing_large"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
+        app:layout_constraintEnd_toStartOf="@+id/votesPercentage"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toTopOf="@+id/avatar"/>
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/p5d_text"
+        android:id="@+id/votesPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="@dimen/p5d_letter_spacing_large"
+        app:layout_constraintBaseline_toBaselineOf="@+id/userName"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</merge>

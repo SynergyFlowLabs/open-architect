@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="onboarding_button_bottom_margin">84dp</dimen>
+    <dimen name="onboarding_recycler_top_margin">326dp</dimen>
+    <dimen name="onboarding_recycler_top_margin_last_step">326dp</dimen>
+    <dimen name="onboarding_title_font_size">@dimen/font_size_very_very_huge</dimen>
+    <dimen name="onboarding_title_top_margin">236dp</dimen>
+    <dimen name="purchase_marquee_font_size">@dimen/font_size_very_huge</dimen>
+    <dimen name="purchase_terms_font_size">@dimen/font_size_big</dimen>
+    <dimen name="purchase_title_font_size">@dimen/font_size_very_very_huge</dimen>
+</resources>

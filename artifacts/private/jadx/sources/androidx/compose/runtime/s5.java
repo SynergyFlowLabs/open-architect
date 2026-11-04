@@ -1,0 +1,11 @@
+package androidx.compose.runtime;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+import org.jetbrains.annotations.NotNull;
+
+/* JADX INFO: loaded from: classes.dex */
+@w
+public interface s5 {
+    void a(@NotNull Function2<? super c0, ? super Integer, Unit> function2);
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:height="40dp"
+    android:width="308dp"
+    android:viewportWidth="308"
+    android:viewportHeight="40">
+    <path
+        android:fillColor="@drawable/_onboarding_green_button__0_res_0x7f08007e"
+        android:pathData="M0,0h308v40h-308z"/>
+</vector>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:background="@drawable/background_surface_alpha_rounded_very_large"
+    android:layout_width="match_parent"
+    android:layout_height="178dp"
+    android:foreground="@drawable/ripple_rounded_corners_very_large"
+    android:elevation="@dimen/p5d_elevation_small">
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/image"
+        android:layout_width="113dp"
+        android:layout_height="113dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textColor="@color/neutral.text.alpha"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/p5d_space_medium"
+        android:layout_marginStart="@dimen/p5d_space_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.Text.Title_Small"/>
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/p5d_space_medium"
+        android:src="@drawable/icon_arrow_right"
+        android:layout_marginEnd="@dimen/p5d_space_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

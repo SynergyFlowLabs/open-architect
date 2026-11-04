@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout
+        android:layout_gravity="start|top"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/p5d_space_huge"
+        android:paddingEnd="@dimen/p5d_space_20">
+        <com.planner5d.library.widget.EditTextWithValidator
+            android:textSize="@dimen/font_size_big"
+            android:textColor="@color/text.alpha"
+            android:textColorHint="@color/hint_text"
+            android:gravity="start|center_vertical"
+            android:id="@+id/input_search"
+            android:background="@drawable/background_catalog_search_field"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/catalog_search_tab"
+            android:singleLine="true"
+            android:drawablePadding="@dimen/p5d_space_xx_small"
+            android:drawableStart="@drawable/icon_search_right"
+            android:fontFamily="@font/roboto_regular_w400"
+            android:textAlignment="viewStart"
+            android:paddingEnd="@dimen/header_part_height"
+            android:paddingHorizontal="@dimen/p5d_space_xx_small"
+            android:paddingVertical="@dimen/p5d_space_xx_small"/>
+        <ImageView
+            android:layout_gravity="end|center_vertical"
+            android:id="@+id/button_clear"
+            android:padding="17dp"
+            android:visibility="gone"
+            android:layout_width="@dimen/header_part_height"
+            android:layout_height="match_parent"
+            android:cropToPadding="true"/>
+    </FrameLayout>
+</merge>

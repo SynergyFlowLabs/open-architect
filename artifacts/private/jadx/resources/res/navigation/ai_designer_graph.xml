@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ai_designer_graph"
+    app:startDestination="@+id/ai_designer">
+    <include app:graph="@navigation/room_type_graph"/>
+    <fragment
+        android:label="@string/room_wizard_tools_title"
+        android:name="com.planner5d.library.project.fragment.aidesigner.AiDesignerFragment"
+        android:id="@+id/ai_designer">
+        <action
+            android:id="@+id/to_ai_flow"
+            app:destination="@+id/ai_flow"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:name="com.planner5d.library.project.fragment.aidesigner.AiFlowFragment"
+        android:id="@+id/ai_flow">
+        <action
+            android:id="@+id/to_room_style"
+            app:destination="@+id/room_style"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/to_room_type"
+            app:destination="@+id/room_type_graph"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/to_decorator"
+            app:destination="@+id/room_decorator"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:label="@string/smart_wizard_choose_room_style"
+        android:name="com.planner5d.library.activity.fragment.smartwizard.roomstyle.ChooseRoomStyle"
+        android:id="@+id/room_style"
+        app:toolbarVisible="true"/>
+    <fragment
+        android:label="@string/ai_designer_decorator"
+        android:name="com.planner5d.library.activity.fragment.smartwizard.decorator.DecoratorFragment"
+        android:id="@+id/room_decorator"
+        app:toolbarVisible="true"/>
+</navigation>

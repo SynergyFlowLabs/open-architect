@@ -1,0 +1,22 @@
+package com.google.android.gms.common.moduleinstall.internal;
+
+import androidx.annotation.p0;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.api.internal.c0;
+import com.google.android.gms.common.moduleinstall.ModuleInstallResponse;
+
+/* JADX INFO: loaded from: classes4.dex */
+final class v extends a {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    final /* synthetic */ com.google.android.gms.tasks.l f106790a;
+
+    v(a0 a0Var, com.google.android.gms.tasks.l lVar) {
+        this.f106790a = lVar;
+    }
+
+    @Override // com.google.android.gms.common.moduleinstall.internal.a, com.google.android.gms.common.moduleinstall.internal.g
+    public final void i7(Status status, @p0 ModuleInstallResponse moduleInstallResponse) {
+        c0.e(status, moduleInstallResponse, this.f106790a);
+    }
+}

@@ -1,0 +1,55 @@
+package rd;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.p0;
+import androidx.viewpager2.widget.ViewPager2;
+
+/* JADX INFO: loaded from: classes10.dex */
+public final class f implements b4.b {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    @NonNull
+    private final ViewPager2 f366611a;
+
+    /* JADX INFO: renamed from: b, reason: collision with root package name */
+    @NonNull
+    public final ViewPager2 f366612b;
+
+    private f(@NonNull ViewPager2 viewPager2, @NonNull ViewPager2 viewPager3) {
+        this.f366611a = viewPager2;
+        this.f366612b = viewPager3;
+    }
+
+    @NonNull
+    public static f a(@NonNull View view) {
+        if (view == null) {
+            throw new NullPointerException("rootView");
+        }
+        ViewPager2 viewPager2 = (ViewPager2) view;
+        return new f(viewPager2, viewPager2);
+    }
+
+    @NonNull
+    public static f c(@NonNull LayoutInflater layoutInflater) {
+        return d(layoutInflater, null, false);
+    }
+
+    @NonNull
+    public static f d(@NonNull LayoutInflater layoutInflater, @p0 ViewGroup viewGroup, boolean z10) {
+        View viewInflate = layoutInflater.inflate(qd.b.l.X, viewGroup, false);
+        if (z10) {
+            viewGroup.addView(viewInflate);
+        }
+        return a(viewInflate);
+    }
+
+    @Override // b4.b
+    @NonNull
+    /* JADX INFO: renamed from: b, reason: merged with bridge method [inline-methods] */
+    public ViewPager2 getRoot() {
+        return this.f366611a;
+    }
+}

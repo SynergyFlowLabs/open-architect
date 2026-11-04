@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/text.alpha"
+        android:gravity="start|center_vertical"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/p5d_space_medium"
+        android:text="@string/search_recent"
+        android:drawablePadding="@dimen/p5d_space_tiny"
+        android:textAlignment="viewStart"
+        app:drawableStartCompat="@drawable/ic_clock_grey"
+        style="@style/Planner5D.TextView.Medium"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/p5d_space_xx_small"/>
+    </androidx.core.widget.NestedScrollView>
+</merge>

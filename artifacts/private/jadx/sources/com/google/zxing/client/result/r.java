@@ -1,0 +1,21 @@
+package com.google.zxing.client.result;
+
+/* JADX INFO: loaded from: classes5.dex */
+public enum r {
+    ADDRESSBOOK,
+    EMAIL_ADDRESS,
+    PRODUCT,
+    URI,
+    TEXT,
+    GEO,
+    TEL,
+    SMS,
+    CALENDAR,
+    WIFI,
+    ISBN,
+    VIN;
+
+    static {
+        int i10 = 5 ^ 1;
+    }
+}

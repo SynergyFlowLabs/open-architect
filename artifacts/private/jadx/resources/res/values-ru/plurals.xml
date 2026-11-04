@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="design_generator_images">
+        <item quantity="one">%d изображение</item>
+        <item quantity="few">%d изображения</item>
+        <item quantity="many">%d изображений</item>
+        <item quantity="other">%d изображений</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Перемотать на %d секунду вперед</item>
+        <item quantity="few">Перемотать на %d секунды вперед</item>
+        <item quantity="many">Перемотать на %d секунд вперед</item>
+        <item quantity="other">Перемотать на %d секунды вперед</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Перемотать на %d секунду назад</item>
+        <item quantity="few">Перемотать на %d секунды назад</item>
+        <item quantity="many">Перемотать на %d секунд назад</item>
+        <item quantity="other">Перемотать на %d секунды назад</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d новое уведомление</item>
+        <item quantity="few">%d новых уведомления</item>
+        <item quantity="many">%d новых уведомлений</item>
+        <item quantity="other">%d нового уведомления</item>
+    </plurals>
+    <plurals name="onboarding_address_details_bedrooms">
+        <item quantity="one" />
+        <item quantity="few" />
+        <item quantity="many" />
+        <item quantity="other">%d-комнатный дом</item>
+    </plurals>
+    <plurals name="purchase_design_generator_number_of_styles">
+        <item quantity="one">%d - стиль</item>
+        <item quantity="few">%d - стиля</item>
+        <item quantity="many">%d - стилей</item>
+        <item quantity="other">%d - стилей</item>
+    </plurals>
+    <plurals name="purchases_premium_benefit_upload_x_custom_textures">
+        <item quantity="one">Загрузить %d пользовательскую текстуру</item>
+        <item quantity="few">Загрузить %d пользовательские текстуры</item>
+        <item quantity="many">Загрузить %d пользовательских текстур</item>
+        <item quantity="other">Загрузить %d пользовательской текстуры</item>
+    </plurals>
+    <plurals name="purchases_premium_benefit_x_renders_per_year">
+        <item quantity="one">%d визуализация в год</item>
+        <item quantity="few">%d визуализации в год</item>
+        <item quantity="many">%d визуализаций в год</item>
+        <item quantity="other">%d визуализация в год</item>
+    </plurals>
+    <plurals name="purchases_premium_days_left">
+        <item quantity="one">остался %d день</item>
+        <item quantity="few">осталось %d дня</item>
+        <item quantity="many">осталось %d дней</item>
+        <item quantity="other">осталось %d дня</item>
+    </plurals>
+    <plurals name="purchases_premium_snapshots_left">
+        <item quantity="one">остался %d рендер</item>
+        <item quantity="few">осталось %d рендеров</item>
+        <item quantity="many">осталось %d рендеров</item>
+        <item quantity="other">осталось %d рендеров</item>
+    </plurals>
+    <plurals name="purchases_premium_textures_left">
+        <item quantity="one">Осталась одна текстура</item>
+        <item quantity="few">Осталось текстур: %d</item>
+        <item quantity="many">Осталось текстур: %d</item>
+        <item quantity="other" />
+    </plurals>
+    <plurals name="purchases_rewards_minutes_until_next">
+        <item quantity="one">осталась %d минута</item>
+        <item quantity="few">осталось %d минуты</item>
+        <item quantity="many">осталось %d минут</item>
+        <item quantity="other">осталось %d минуты</item>
+    </plurals>
+    <plurals name="purchases_rewards_number">
+        <item quantity="one">%d награда</item>
+        <item quantity="few">%d награды</item>
+        <item quantity="many">%d наград</item>
+        <item quantity="other">%d награды</item>
+    </plurals>
+    <plurals name="x_seconds_passed">
+        <item quantity="one">%d секунда прошла</item>
+        <item quantity="few">%d секунды прошли</item>
+        <item quantity="many">%d секунд прошло</item>
+        <item quantity="other">%d секунды прошли</item>
+    </plurals>
+</resources>

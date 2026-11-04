@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:name="vector"
+    android:height="96dp"
+    android:width="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="96">
+    <path
+        android:fillColor="#ffffffff"
+        android:pathData="M5,8L75,8A5,5 0,0 1,80 13L80,83A5,5 0,0 1,75 88L5,88A5,5 0,0 1,0 83L0,13A5,5 0,0 1,5 8z"/>
+    <path
+        android:fillColor="@drawable/_icon_recognition_in_progress__1_res_0x7f080034"
+        android:pathData="M40,30C40,28.895 39.105,28 38,28H22C20.895,28 20,28.895 20,30V48V66C20,67.105 20.895,68 22,68H40H58C59.105,68 60,67.105 60,66V50C60,48.895 59.105,48 58,48H42C40.895,48 40,47.105 40,46V30Z"
+        android:fillType="evenOdd"/>
+    <group android:name="overlay">
+        <path
+            android:name="overlay_path"
+            android:fillColor="#ffffffff"
+            android:pathData="M 0 18 L 2 18 L 2 78 L 0 78 Z"
+            android:strokeWidth="1"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6"/>
+    </group>
+    <group android:name="line">
+        <path
+            android:fillColor="@drawable/_icon_recognition_in_progress__2_res_0x7f080035"
+            android:pathData="M2,0C3.105,0 4,0.895 4,2L4,94C4,95.105 3.105,96 2,96C0.895,96 0,95.105 0,94L0,2C0,0.895 0.895,0 2,0Z"
+            android:fillType="evenOdd"/>
+    </group>
+</vector>

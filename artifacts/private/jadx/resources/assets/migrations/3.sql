@@ -1,0 +1,1 @@
+ALTER TABLE Snapshot ADD COLUMN date_created INTEGER;

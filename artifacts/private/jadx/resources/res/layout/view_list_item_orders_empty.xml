@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="@dimen/font_size_normal"
+    android:textColor="@color/list_order_text"
+    android:gravity="center"
+    android:padding="@dimen/p5d_space_x_small"
+    android:layout_width="match_parent"
+    android:layout_height="128dp"
+    android:text="@string/list_orders_empty"/>

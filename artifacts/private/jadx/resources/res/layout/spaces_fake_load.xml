@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/back_button"
+        android:padding="@dimen/p5d_space_x_tiny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/p5d_space_x_tiny"
+        android:layout_marginBottom="@dimen/p5d_space_x_tiny"
+        android:foreground="@drawable/ripple_rounded_corners_medium"
+        android:src="@drawable/icon_back_32"
+        android:layout_marginStart="@dimen/p5d_space_tiny"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/animation"
+        android:layout_width="276dp"
+        android:layout_height="271dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/house_building"/>
+    <TextSwitcher
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/text_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="33dp"
+        android:inAnimation="@anim/fade_slide_in_right"
+        android:outAnimation="@anim/fade_slide_out_left"
+        app:layout_constraintBottom_toBottomOf="@+id/animation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+package com.google.android.material.color;
+
+/* JADX INFO: loaded from: classes4.dex */
+public final /* synthetic */ class j {
+    public static /* synthetic */ void a() {
+    }
+}

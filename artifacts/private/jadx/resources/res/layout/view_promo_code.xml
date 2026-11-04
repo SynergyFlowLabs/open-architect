@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/title"
+        android:layout_marginTop="16dp"
+        android:text="@string/promo_code"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.Header.Material"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:theme="@style/Theme.Planner5D.Form.Material"
+        android:id="@+id/input_promo_code_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/enter_promo_code_here"
+        app:counterEnabled="true"
+        app:helperText="@string/promo_code_field_description"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+        <com.planner5d.library.widget.TextInputEditTextCompat
+            android:theme="@style/Theme.Planner5D.Form.Material"
+            android:id="@+id/input_promo_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNone"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        android:theme="@style/Theme.Planner5D.Form.Material"
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/use_promo_code"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_promo_code_layout"/>
+</merge>

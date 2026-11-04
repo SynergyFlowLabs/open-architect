@@ -1,0 +1,6 @@
+package org.locationtech.jts.geom;
+
+/* JADX INFO: loaded from: classes14.dex */
+public interface s {
+    void a(n nVar);
+}

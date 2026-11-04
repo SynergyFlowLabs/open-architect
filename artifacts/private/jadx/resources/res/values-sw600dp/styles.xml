@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Planner5D.Agreements.AcceptAll" parent="@style/Planner5D.TextView.Medium">
+        <item name="android:layout_marginTop">@dimen/p5d_space_medium</item>
+    </style>
+    <style name="Planner5D.Agreements.CheckBoxNewsletterText" parent="@style/Planner5D.TextView">
+        <item name="android:layout_marginTop">@dimen/p5d_space_40</item>
+    </style>
+    <style name="Planner5D.Agreements.Logo" parent="@style/Planner5D.Agreements">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">120dp</item>
+    </style>
+    <style name="Planner5D.Agreements.Space" parent="@style/Planner5D.Agreements">
+        <item name="android:visibility">2</item>
+    </style>
+    <style name="Planner5D.Agreements.SpaceBottom" parent="@style/Planner5D.Agreements">
+        <item name="android:visibility">0</item>
+    </style>
+    <style name="Planner5D.Agreements.Title" parent="@style/Planner5D.TextView.Bold">
+        <item name="android:textSize">@dimen/font_size_very_very_huge</item>
+    </style>
+    <style name="Planner5D.PurchasePremiumRecommendations.Card.Title" parent="@style/Planner5D.TextView">
+        <item name="android:textSize">@dimen/font_size_huge</item>
+    </style>
+    <style name="Planner5D.PurchasePremiumRecommendations.Comment" parent="@style/Planner5D.TextView">
+        <item name="android:textSize">@dimen/font_size_very_very_very_very_big</item>
+    </style>
+    <style name="Planner5D.PurchasePremiumRecommendations.Header" parent="@style/Planner5D.TextView.Black">
+        <item name="android:textSize">@dimen/font_size_very_very_huge</item>
+    </style>
+    <style name="Widget.Design.TabLayout" parent="@style/Base.Widget.Design.TabLayout">
+        <item name="tabGravity">center</item>
+        <item name="tabMode">fixed</item>
+    </style>
+    <style name="colorpickerview__ColorPickerViewStyle" parent="">
+        <item name="android:layout_width">360dp</item>
+        <item name="android:layout_height">-2</item>
+    </style>
+</resources>

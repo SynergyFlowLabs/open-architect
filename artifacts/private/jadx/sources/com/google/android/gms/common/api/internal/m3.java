@@ -1,0 +1,29 @@
+package com.google.android.gms.common.api.internal;
+
+import android.os.DeadObjectException;
+import android.os.RemoteException;
+import androidx.annotation.NonNull;
+import com.google.android.gms.common.api.Status;
+
+/* JADX INFO: loaded from: classes4.dex */
+public abstract class m3 {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    public final int f106141a;
+
+    public m3(int i10) {
+        this.f106141a = i10;
+    }
+
+    static /* bridge */ /* synthetic */ Status e(RemoteException remoteException) {
+        return new Status(19, remoteException.getClass().getSimpleName() + ": " + remoteException.getLocalizedMessage());
+    }
+
+    public abstract void a(@NonNull Status status);
+
+    public abstract void b(@NonNull Exception exc);
+
+    public abstract void c(u1 u1Var) throws DeadObjectException;
+
+    public abstract void d(@NonNull h0 h0Var, boolean z10);
+}

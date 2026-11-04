@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/p5d_space_xx_large"
+        android:src="@drawable/icon_wall_schema_v2"/>
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/p5d_grey_2"
+        android:gravity="center"
+        android:layout_gravity="top"
+        android:id="@+id/labelTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/p5d_space_20"
+        android:fontFamily="@font/roboto_regular_w400"/>
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/p5d_grey_2"
+        android:gravity="center"
+        android:layout_gravity="top"
+        android:id="@+id/labelBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:layout_marginBottom="@dimen/p5d_space_20"
+        android:fontFamily="@font/roboto_regular_w400"/>
+</merge>

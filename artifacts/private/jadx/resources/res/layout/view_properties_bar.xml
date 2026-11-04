@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.planner5d.library.widget.editor.propertiesbar.PropertiesButtonView
+        android:id="@+id/button_rotate_around_y"
+        style="@style/Planner5D.PropertiesBar.Button"/>
+    <com.planner5d.library.widget.editor.propertiesbar.PropertiesButtonView
+        android:id="@+id/button_rotate_around_x"
+        style="@style/Planner5D.PropertiesBar.Button"/>
+    <com.planner5d.library.widget.editor.propertiesbar.PropertiesButtonView
+        android:id="@+id/button_move_up_down"
+        style="@style/Planner5D.PropertiesBar.Button"/>
+</FrameLayout>

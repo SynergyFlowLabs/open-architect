@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/p5d_space_x_tiny">
+    <TextView
+        android:textSize="@dimen/font_size_normal"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:id="@+id/text"
+        android:background="@drawable/background_border_grey_rounded_very_large"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:foreground="@drawable/ripple_rounded_corners_very_large"
+        android:layout_marginEnd="@dimen/p5d_space_tiny"
+        android:paddingHorizontal="@dimen/p5d_space_xx_small"
+        style="@style/Planner5D.TextView"/>
+</FrameLayout>

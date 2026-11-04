@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android" android:insetRight="@dimen/p5d_border_minus">
+    <shape>
+        <corners
+            android:topLeftRadius="@dimen/p5d_corner_radius_medium"
+            android:bottomLeftRadius="@dimen/p5d_corner_radius_medium"/>
+        <solid android:color="@color/p5d_grey_7"/>
+        <stroke
+            android:width="@dimen/p5d_border"
+            android:color="@color/p5d_grey_5"/>
+    </shape>
+</inset>

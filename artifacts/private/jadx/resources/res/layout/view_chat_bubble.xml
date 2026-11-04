@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chatBubble"
+    android:clipChildren="false"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="12dp">
+    <TextView
+        android:textSize="@dimen/font_size_small"
+        android:textColor="@color/white"
+        android:id="@+id/chatTooltip"
+        android:background="@drawable/feed_bubble"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ai_chat_im_bernard"
+        android:paddingStart="8dp"
+        android:paddingEnd="20dp"
+        android:layout_marginEnd="4dp"
+        android:paddingVertical="12dp"
+        app:elevation="@dimen/p5d_elevation_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/chatButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/chatButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/bernard_avatar"
+        android:scaleType="centerCrop"
+        app:elevation="@dimen/p5d_elevation_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chatTooltip"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedImageView"
+        app:strokeColor="@color/p5d_grey_6"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

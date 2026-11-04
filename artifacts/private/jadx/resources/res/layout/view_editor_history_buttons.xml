@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@drawable/background_editor_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/catalog_drawer_peek_height_plus_padding"
+        android:layout_marginStart="@dimen/p5d_space_tiny"
+        android:layout_marginEnd="@dimen/p5d_space_tiny"
+        android:elevation="@dimen/p5d_elevation_medium"
+        android:outlineProvider="background">
+        <ImageView
+            android:id="@+id/editorHistoryBack"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/ripple_rounded_corners_huge"
+            android:src="@drawable/icon_history_back"
+            android:paddingStart="@dimen/p5d_space_x_small_perfect"
+            android:paddingEnd="@dimen/p5d_space_x_small_perfect"
+            app:tint="@color/button_icon"/>
+        <ImageView
+            android:id="@+id/editorHistoryForward"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/ripple_rounded_corners_huge"
+            android:src="@drawable/icon_history_forward"
+            android:paddingStart="@dimen/p5d_space_x_small_perfect"
+            android:paddingEnd="@dimen/p5d_space_x_small_perfect"
+            app:tint="@color/button_icon"/>
+    </LinearLayout>
+</merge>

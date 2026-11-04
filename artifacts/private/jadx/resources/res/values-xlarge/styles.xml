@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Planner5D.Joystick" parent="@style/Planner5D">
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_height">160dp</item>
+    </style>
+    <style name="Planner5D.Settings.Input" parent="@style/Planner5D.Settings.EditText">
+    </style>
+    <style name="Planner5D.Settings.Label" parent="@style/Planner5D.Settings.LabelInternal">
+        <item name="android:layout_marginTop">25dp</item>
+    </style>
+</resources>

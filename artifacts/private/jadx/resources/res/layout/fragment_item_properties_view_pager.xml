@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.planner5d.library.widget.TabLayout
+        android:id="@+id/itemPropertiesTabs"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/p5d_space_huge"
+        app:tabIndicator="@drawable/tab_indicator_rounded"
+        app:tabIndicatorColor="@color/p5d_primary"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="@dimen/p5d_border_medium"
+        app:tabPaddingBottom="@dimen/p5d_space_x_tiny"
+        app:tabSelectedTextColor="@color/p5d_primary"
+        app:tabTextAppearance="@style/Planner5D.TabLayout.Editor.ItemProperties"
+        app:tabTextColor="@color/p5d_grey_2"/>
+    <com.planner5d.library.widget.ViewPagerCompat
+        android:id="@+id/itemPropertiesPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="true"/>
+</LinearLayout>

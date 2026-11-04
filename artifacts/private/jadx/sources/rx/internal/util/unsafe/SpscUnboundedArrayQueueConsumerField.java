@@ -1,0 +1,9 @@
+package rx.internal.util.unsafe;
+
+/* JADX INFO: loaded from: classes14.dex */
+abstract class SpscUnboundedArrayQueueConsumerField<E> extends SpscUnboundedArrayQueueConsumerColdField<E> {
+    protected long consumerIndex;
+
+    SpscUnboundedArrayQueueConsumerField() {
+    }
+}

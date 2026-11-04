@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textColor="@color/tab_text"
+        android:id="@android:id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_favorites"
+        android:layout_centerVertical="true"
+        style="@style/Planner5D.TabLayout.TextAppearance.Material"/>
+    <ImageView
+        android:id="@android:id/icon1"
+        android:paddingTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="6dp"
+        android:layout_toEndOf="@android:id/text1"
+        app:srcCompat="@drawable/icon_favorite_tab"
+        app:tint="@color/tab_icon"/>
+</RelativeLayout>

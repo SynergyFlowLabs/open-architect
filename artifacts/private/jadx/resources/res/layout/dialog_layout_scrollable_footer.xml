@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="@dimen/p5d_space_tiny"
+    android:paddingBottom="@dimen/p5d_space_tiny"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textColor="@color/p5d_text"
+        android:id="@+id/button_cancel"
+        android:background="@drawable/background_button_grey"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/p5d_space_x_large"
+        android:text="@string/Cancel"
+        android:layout_marginEnd="@dimen/p5d_space_tiny"
+        app:layout_constraintEnd_toStartOf="@+id/button_middle"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.Button"/>
+    <TextView
+        android:textColor="@color/main_theme_color"
+        android:id="@+id/button_middle"
+        android:background="@drawable/background_button_grey"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/p5d_space_x_large"
+        android:layout_marginEnd="@dimen/p5d_space_tiny"
+        app:layout_constraintEnd_toStartOf="@+id/button_save"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.Button"/>
+    <TextView
+        android:textColor="@color/button_text_default"
+        android:id="@+id/button_save"
+        android:background="@drawable/background_button_default"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/p5d_space_x_large"
+        android:text="@string/save"
+        android:layout_marginEnd="@dimen/p5d_space_tiny"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.Button"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

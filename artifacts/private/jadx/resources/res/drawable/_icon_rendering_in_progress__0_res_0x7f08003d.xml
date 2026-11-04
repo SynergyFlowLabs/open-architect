@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:name="vector"
+    android:height="96dp"
+    android:width="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="96">
+    <path
+        android:fillColor="#ffffffff"
+        android:pathData="M5,8L75,8A5,5 0,0 1,80 13L80,83A5,5 0,0 1,75 88L5,88A5,5 0,0 1,0 83L0,13A5,5 0,0 1,5 8z"/>
+    <path
+        android:fillColor="@drawable/_icon_rendering_in_progress__1_res_0x7f08003e"
+        android:pathData="M49.87,30.083C49.109,28.639 46.992,28.639 46.231,30.083L33.299,54.653L27.329,44.571C26.542,43.242 24.574,43.242 23.787,44.571L12.277,64.009C11.49,65.339 12.474,67 14.048,67H37.068C37.079,67 37.09,67 37.1,67H65.952C67.482,67 68.47,65.423 67.772,64.096L49.87,30.083Z"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@drawable/_icon_rendering_in_progress__2_res_0x7f08003f"
+        android:pathData="M26,33m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0"/>
+    <group android:name="overlay">
+        <path
+            android:name="overlay_path"
+            android:fillColor="#ffffffff"
+            android:pathData="M 0 18 L 2 18 L 2 78 L 0 78 Z"
+            android:strokeWidth="1"
+            android:strokeAlpha="0.6"
+            android:fillAlpha="0.6"/>
+    </group>
+    <group android:name="line">
+        <path
+            android:fillColor="@drawable/_icon_rendering_in_progress__3_res_0x7f080040"
+            android:pathData="M2,0C3.105,0 4,0.895 4,2L4,94C4,95.105 3.105,96 2,96C0.895,96 0,95.105 0,94L0,2C0,0.895 0.895,0 2,0Z"
+            android:fillType="evenOdd"/>
+    </group>
+</vector>

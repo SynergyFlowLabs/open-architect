@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/icon_folder_upload"
+        android:id="@+id/action_add_file"
+        android:title="@string/files"
+        android:tooltipText="@string/select_file"/>
+    <item
+        android:icon="@drawable/icon_photo_library"
+        android:id="@+id/action_add_from_photo_library"
+        android:title="@string/photo_library"
+        android:tooltipText="@string/select_photo"/>
+    <item
+        android:icon="@drawable/icon_camera_rounded"
+        android:id="@+id/action_add_from_camera"
+        android:title="@string/camera"
+        android:tooltipText="@string/upload_using_camera"/>
+    <item
+        android:icon="@drawable/icon_folder_outline"
+        android:id="@+id/action_create_folder"
+        android:title="@string/create_folder"
+        android:tooltipText="@string/create_personal_folders"/>
+</menu>

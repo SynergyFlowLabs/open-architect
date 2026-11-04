@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.Planner5D.MaterialCard.Material"
+    android:id="@+id/imageWrapper"
+    android:layout_width="@dimen/feed_projects_image_size"
+    android:layout_height="@dimen/feed_projects_image_size"
+    android:layout_margin="@dimen/p5d_space_xxx_small"
+    android:layout_marginBottom="@dimen/p5d_space_tiny"
+    android:foreground="?attr/selectableItemBackground"
+    android:stateListAnimator="@animator/card_press"
+    app:cardCornerRadius="@dimen/p5d_corner_radius_large"
+    app:cardElevation="@dimen/p5d_elevation_large">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textSize="@dimen/font_size_normal"
+            android:textColor="@color/black"
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/p5d_space_tiny"
+            android:text="@string/home_feed_button_more"
+            style="@style/Planner5D.TextView.Medium"/>
+        <TextView
+            android:textSize="@dimen/font_size_small"
+            android:textColor="@color/p5d_grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_all_projects"
+            android:layout_below="@+id/title"
+            android:layout_marginStart="@dimen/p5d_space_tiny"
+            style="@style/Planner5D.TextView"/>
+        <ImageView
+            android:layout_width="@dimen/feed_plus_icon_size"
+            android:layout_height="@dimen/feed_plus_icon_size"
+            android:layout_marginTop="@dimen/p5d_space_tiny"
+            android:layout_marginBottom="@dimen/p5d_space_tiny"
+            android:src="@drawable/icon_feed_projects_more"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/p5d_space_tiny"
+            android:layout_marginEnd="@dimen/p5d_space_tiny"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

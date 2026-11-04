@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:enabled="false"
+        android:id="@+id/list_swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.planner5d.library.widget.EnhancedRecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cellSpacing="@dimen/p5d_space_20"
+            app:cellWidth="@dimen/p5d_gallery_list_cell_width"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/p5d_text"
+        android:gravity="center"
+        android:id="@+id/placeholder_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/list_gallery_empty"
+        android:fontFamily="@font/roboto_medium_w500"
+        android:layout_marginStart="@dimen/p5d_space_x_small"
+        android:layout_marginEnd="@dimen/p5d_space_x_small"
+        android:letterSpacing="@dimen/p5d_letter_spacing_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.planner5d.library.widget.preloader.PreloaderBoxV2View
+        android:id="@+id/preloader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

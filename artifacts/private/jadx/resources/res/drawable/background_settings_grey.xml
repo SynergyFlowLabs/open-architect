@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="@dimen/p5d_border_minus"
+    android:insetRight="@dimen/p5d_border_minus">
+    <shape>
+        <solid android:color="@color/p5d_grey_7"/>
+        <stroke
+            android:width="@dimen/p5d_border"
+            android:color="@color/p5d_grey_5"/>
+    </shape>
+</inset>

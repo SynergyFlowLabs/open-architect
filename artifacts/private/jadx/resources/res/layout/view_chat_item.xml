@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="4dp"
+    android:paddingBottom="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/p5d_space_20">
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/black"
+        android:layout_gravity="end"
+        android:id="@+id/text"
+        android:background="@drawable/chat_bubble_ai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"/>
+    <ImageView
+        android:id="@+id/loader"
+        android:background="@drawable/chat_bubble_ai"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:src="@drawable/icon_typing"
+        android:scaleType="centerInside"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="14dp"/>
+</FrameLayout>

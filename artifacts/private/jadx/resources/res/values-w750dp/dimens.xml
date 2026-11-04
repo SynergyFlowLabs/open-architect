@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_sheet_width">744dp</dimen>
+    <dimen name="orders_history_column2_margin">172dp</dimen>
+    <dimen name="orders_history_column3_margin">300dp</dimen>
+    <dimen name="orders_history_text">@dimen/font_size_normal</dimen>
+    <dimen name="room_type_grid_padding">@dimen/p5d_space_x_huge</dimen>
+</resources>

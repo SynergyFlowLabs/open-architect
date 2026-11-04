@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/start"
+        android:background="@drawable/background_wall_resize_left"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/p5d_space_large"
+        android:foreground="@drawable/ripple_rounded_corners"
+        android:src="@drawable/icon_wall_resize_start_v2"
+        android:scaleType="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/middle"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/middle"
+        android:background="@drawable/background_wall_resize_middle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/p5d_space_large"
+        android:foreground="@drawable/ripple_rectangle"
+        android:src="@drawable/icon_wall_resize_middle_v2"
+        android:scaleType="center"
+        app:layout_constraintLeft_toRightOf="@+id/start"
+        app:layout_constraintRight_toLeftOf="@+id/end"
+        app:layout_constraintTop_toTopOf="@+id/start"/>
+    <ImageView
+        android:id="@+id/end"
+        android:background="@drawable/background_wall_resize_right"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/p5d_space_large"
+        android:foreground="@drawable/ripple_rounded_corners"
+        android:src="@drawable/icon_wall_resize_end_v2"
+        android:scaleType="center"
+        app:layout_constraintLeft_toRightOf="@+id/middle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/start"/>
+</merge>

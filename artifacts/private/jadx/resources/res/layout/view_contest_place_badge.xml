@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:textSize="@dimen/font_size_very_small"
+        android:textColor="@color/white"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:id="@+id/placeLabelAndBackground"
+        android:layout_width="@dimen/p5d_space_20"
+        android:layout_height="@dimen/p5d_space_20"
+        android:maxLines="1"
+        style="@style/Planner5D.Font.Medium"/>
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/cupImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_award_cup_small"/>
+</merge>

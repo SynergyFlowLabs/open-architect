@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="purchase_logo_height_premium_square">53dp</dimen>
+    <dimen name="purchase_logo_height_pro_square">54dp</dimen>
+    <dimen name="purchase_logo_top_premium_square">24dp</dimen>
+    <dimen name="purchase_logo_top_pro_square">24dp</dimen>
+    <dimen name="purchase_marque_top_margin_premium_square">29dp</dimen>
+    <dimen name="purchase_marque_top_margin_pro_square">29dp</dimen>
+    <dimen name="purchase_title_font_size_premium_square">@dimen/font_size_very_very_very_very_big</dimen>
+    <dimen name="purchase_title_font_size_pro_square">@dimen/font_size_very_very_very_very_big</dimen>
+    <dimen name="purchase_title_padding_square">@dimen/p5d_space_medium</dimen>
+    <dimen name="purchase_title_top_margin_premium_square">30dp</dimen>
+    <dimen name="purchase_title_top_margin_pro_square">28dp</dimen>
+    <dimen name="purchase_trial_marquee_top">34dp</dimen>
+    <dimen name="purchase_trial_title_top">32dp</dimen>
+</resources>

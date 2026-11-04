@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/trial_layout"
+    android:visibility="gone"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/p5d_space_x_huge"
+    android:layout_marginHorizontal="@dimen/p5d_space_x_small"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/purchasePremiumProductText"
+        android:background="@drawable/background_switch_white_round"
+        android:paddingTop="@dimen/p5d_space_xx_small"
+        android:paddingBottom="@dimen/p5d_space_xx_small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:foreground="@drawable/ripple_rounded_corners"
+        android:minHeight="@dimen/p5d_space_xx_huge"
+        android:text="@string/purchases.switch_trial.title"
+        android:paddingStart="@dimen/p5d_space_x_small"
+        android:paddingEnd="@dimen/p5d_space_xx_huge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.TextView"/>
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/trialSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

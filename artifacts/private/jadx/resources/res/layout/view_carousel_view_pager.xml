@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.planner5d.library.widget.RoundedCornersLayout
+        android:id="@+id/carouselViewPagerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:cornerRadius="@dimen/carousel_corner_radius"
+        app:layout_constraintDimensionRatio="16:9">
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/carouselViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.planner5d.library.widget.RoundedCornersLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/carouselViewPagerIndicator"
+        android:layout_width="80dp"
+        android:layout_height="@dimen/carousel_indicator_height"
+        android:layout_marginTop="@dimen/carousel_top_margin"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carouselViewPagerContainer"
+        app:tabBackground="@drawable/selector_dot"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
+        app:tabMaxWidth="0dp"
+        app:tabMode="fixed"/>
+</merge>

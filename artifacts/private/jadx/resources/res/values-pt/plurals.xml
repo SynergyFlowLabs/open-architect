@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="design_generator_images">
+        <item quantity="one">%d imagem</item>
+        <item quantity="many">%d imagens</item>
+        <item quantity="other">%d imagens</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Avançar %d segundo</item>
+        <item quantity="other">Avançar %d segundos</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Voltar %d segundo</item>
+        <item quantity="other">Voltar %d segundos</item>
+    </plurals>
+    <plurals name="onboarding_address_details_bedrooms">
+        <item quantity="one" />
+        <item quantity="many" />
+        <item quantity="other">Casa de %d quartos</item>
+    </plurals>
+    <plurals name="purchase_design_generator_number_of_styles">
+        <item quantity="one">%d - estilo</item>
+        <item quantity="many">%d - estilos</item>
+        <item quantity="other">%d - estilos</item>
+    </plurals>
+    <plurals name="purchases_premium_benefit_upload_x_custom_textures">
+        <item quantity="one">Carregar %d textura personalizada</item>
+        <item quantity="many" />
+        <item quantity="other">Carregar %d texturas personalizadas</item>
+    </plurals>
+    <plurals name="purchases_premium_benefit_x_renders_per_year">
+        <item quantity="one">%d renderizador por ano</item>
+        <item quantity="many" />
+        <item quantity="other">%d renderizadores por ano</item>
+    </plurals>
+    <plurals name="purchases_premium_days_left">
+        <item quantity="one">%d dia restante</item>
+        <item quantity="many" />
+        <item quantity="other">%d dias restantes</item>
+    </plurals>
+    <plurals name="purchases_premium_snapshots_left">
+        <item quantity="one">%d snapshot restante</item>
+        <item quantity="many" />
+        <item quantity="other">%d snapshots restantes</item>
+    </plurals>
+    <plurals name="purchases_premium_textures_left">
+        <item quantity="one">%d textura restante</item>
+        <item quantity="many" />
+        <item quantity="other">%d texturas restantes</item>
+    </plurals>
+    <plurals name="purchases_rewards_minutes_until_next">
+        <item quantity="one">%d minuto até o próximo</item>
+        <item quantity="many" />
+        <item quantity="other">%d minutos até o próximo</item>
+    </plurals>
+    <plurals name="purchases_rewards_number">
+        <item quantity="one">%d recompensa</item>
+        <item quantity="many" />
+        <item quantity="other">%d recompensas</item>
+    </plurals>
+</resources>

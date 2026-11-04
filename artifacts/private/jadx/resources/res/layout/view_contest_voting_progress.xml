@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/contestVotingProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        app:indicatorColor="@color/p5d_primary"
+        app:trackColor="@color/p5d_eerie_black85"
+        app:trackCornerRadius="1dp"
+        app:trackThickness="2dp"/>
+</merge>

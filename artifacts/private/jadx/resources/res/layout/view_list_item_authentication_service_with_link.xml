@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_button_white_round_normal"
+    android:focusable="true"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:layout_marginTop="@dimen/p5d_space_medium"
+    android:foreground="@drawable/ripple_rounded"
+    android:backgroundTint="@color/black">
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/p5d_space_xx_small"
+        android:layout_centerInParent="true"
+        app:drawableLeftCompat="@drawable/icon_google_20"
+        style="@style/Planner5D.TextView.Medium"/>
+</RelativeLayout>

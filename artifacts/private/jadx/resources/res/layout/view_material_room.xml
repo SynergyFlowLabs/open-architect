@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/p5d_grey_1"
+        android:gravity="center_vertical"
+        android:id="@+id/roomMaterialTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/p5d_space_x_huge"
+        android:foreground="@drawable/ripple_rectangle"
+        android:text="@string/room_floor"
+        android:paddingStart="@dimen/p5d_space_20"
+        android:paddingEnd="@dimen/p5d_space_20"
+        app:drawableEndCompat="@drawable/icon_arrow_right_22"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.TextView"/>
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/roomMaterialSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/p5d_space_x_huge"
+        android:layout_marginEnd="@dimen/p5d_space_large"
+        app:layout_constraintEnd_toStartOf="@+id/roomMaterialImage"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.CheckBox"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/roomMaterialImage"
+        android:padding="@dimen/p5d_border"
+        android:layout_width="72dp"
+        android:layout_height="@dimen/p5d_space_large"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="@dimen/p5d_space_xx_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/Planner5D.RoundedImageView"
+        app:strokeColor="@color/p5d_grey_6"
+        app:strokeWidth="@dimen/p5d_border"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

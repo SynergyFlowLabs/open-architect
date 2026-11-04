@@ -1,0 +1,6 @@
+package androidx.compose.foundation.gestures;
+
+/* JADX INFO: loaded from: classes.dex */
+public interface p3 {
+    void v1(long j10);
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:textSize="@dimen/font_size_normal"
+        android:textColorLink="@color/p5d_primary"
+        android:gravity="start|center_vertical"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_weight="1"
+        android:paddingStart="@dimen/project_settings_margin_double"
+        android:layout_marginEnd="@dimen/p5d_space_x_huge"
+        style="@style/Planner5D.TextView"/>
+</merge>

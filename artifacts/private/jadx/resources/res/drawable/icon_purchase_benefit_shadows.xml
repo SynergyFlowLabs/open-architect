@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M16.118,17.3306H2.779C2.1097,17.3306 1.5664,16.7874 1.5664,16.118V2.779C1.5664,2.1097 2.1097,1.5664 2.779,1.5664H16.118C16.7874,1.5664 17.3306,2.1097 17.3306,2.779V16.118C17.3306,16.7874 16.7874,17.3306 16.118,17.3306Z"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M21.8777,7.3264H17.3304V16.118C17.3304,16.7874 16.7871,17.3306 16.1177,17.3306H7.3262V21.878C7.3262,22.5474 7.8694,23.0906 8.5388,23.0906H21.8777C22.5471,23.0906 23.0904,22.5474 23.0904,21.878V8.5391C23.0904,7.8697 22.5471,7.3264 21.8777,7.3264Z"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M7.6289,17.3303L13.3889,23.0903"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M18.2405,23.0903L12.4805,17.3303"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M22.7358,22.7353L17.3311,17.3306"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M17.9375,8.2358L23.0912,13.3895"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"/>
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M17.3311,12.48L23.0911,18.24"
+        android:strokeColor="@color/p5d_purchase_benefit_icon"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"/>
+</vector>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/purchase_renders_benefit_spacing"
+    android:layout_width="@dimen/purchase_texture_layout_width"
+    android:layout_height="wrap_content"
+    android:layout_weight="1">
+    <ImageView
+        android:id="@+id/purchaseBenefitImage"
+        android:layout_width="@dimen/purchase_renders_benefit_icon_size"
+        android:layout_height="@dimen/purchase_renders_benefit_icon_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="@dimen/purchase_renders_benefit_title_size"
+        android:id="@+id/purchaseBenefitTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/purchase_renders_benefit_title_extra_spacing"
+        android:layout_marginStart="@dimen/p5d_space_x_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/purchaseBenefitImage"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.TextView.Medium"/>
+    <TextView
+        android:textSize="@dimen/purchase_renders_benefit_text_size"
+        android:textColor="@color/p5d_grey_1"
+        android:id="@+id/purchaseBenefitExplanation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/p5d_space_x_tiny"
+        android:lineSpacingExtra="@dimen/purchase_renders_benefit_text_extra_spacing"
+        android:layout_marginStart="@dimen/p5d_space_x_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/purchaseBenefitImage"
+        app:layout_constraintTop_toBottomOf="@+id/purchaseBenefitTitle"
+        style="@style/Planner5D.TextView"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

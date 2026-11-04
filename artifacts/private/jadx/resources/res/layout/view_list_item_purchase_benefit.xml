@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/purchase_benefits_padding"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/purchaseBenefitCheck"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_check"/>
+    <TextView
+        android:textSize="@dimen/purchase_premium_benefit_text_size"
+        android:textColor="@color/p5d_text"
+        android:id="@+id/purchaseBenefitText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/p5d_space_x_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/purchaseBenefitCheck"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Planner5D.TextView"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

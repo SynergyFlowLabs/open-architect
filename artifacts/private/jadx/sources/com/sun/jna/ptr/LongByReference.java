@@ -1,0 +1,28 @@
+package com.sun.jna.ptr;
+
+import com.sun.jna.Pointer;
+
+/* JADX INFO: loaded from: classes13.dex */
+public class LongByReference extends ByReference {
+    public LongByReference() {
+        this(0L);
+    }
+
+    public long getValue() {
+        return getPointer().getLong(0L);
+    }
+
+    public void setValue(long j10) {
+        getPointer().setLong(0L, j10);
+    }
+
+    @Override // com.sun.jna.ptr.ByReference, com.sun.jna.PointerType
+    public String toString() {
+        return String.format("long@0x%1$x=0x%2$x (%2$d)", Long.valueOf(Pointer.nativeValue(getPointer())), Long.valueOf(getValue()));
+    }
+
+    public LongByReference(long j10) {
+        super(8);
+        setValue(j10);
+    }
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.AppCompat.DialogWhenLarge" parent="@style/Base.Theme.AppCompat.Dialog.FixedSize">
+    </style>
+    <style name="Base.Theme.AppCompat.Light.DialogWhenLarge" parent="@style/Base.Theme.AppCompat.Light.Dialog.FixedSize">
+    </style>
+    <style name="Base.Theme.Material3.Dark.DialogWhenLarge" parent="@style/Base.Theme.Material3.Dark.Dialog.FixedSize">
+    </style>
+    <style name="Base.Theme.Material3.Light.DialogWhenLarge" parent="@style/Base.Theme.Material3.Light.Dialog.FixedSize">
+    </style>
+    <style name="Base.Theme.MaterialComponents.DialogWhenLarge" parent="@style/Base.Theme.MaterialComponents.Dialog.FixedSize">
+    </style>
+    <style name="Base.Theme.MaterialComponents.Light.DialogWhenLarge" parent="@style/Base.Theme.MaterialComponents.Light.Dialog.FixedSize">
+    </style>
+    <style name="Planner5D.ColorPicker" parent="@style/Planner5D">
+        <item name="android:layout_height">146dp</item>
+    </style>
+    <style name="Planner5D.PurchasePremium.Comment" parent="@style/Planner5D.TextView">
+        <item name="android:textSize">@dimen/font_size_very_big</item>
+    </style>
+    <style name="Planner5D.PurchasePremium.Commenter" parent="@style/Planner5D.PurchasePremium">
+        <item name="android:textSize">@dimen/font_size_big</item>
+    </style>
+    <style name="Planner5D.PurchasePremium.Header" parent="@style/Planner5D.TextView.Bold">
+        <item name="android:textSize">@dimen/font_size_huge</item>
+    </style>
+    <style name="Planner5D.PurchasePremium.VectorRatingBar" parent="@style/Planner5D.PurchasePremium">
+        <item name="android:layout_marginTop">@dimen/p5d_space_x_large</item>
+        <item name="android:layout_marginBottom">@dimen/p5d_space_small</item>
+        <item name="android:minHeight">30dp</item>
+    </style>
+</resources>

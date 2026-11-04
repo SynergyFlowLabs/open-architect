@@ -1,0 +1,301 @@
+package com.google.common.hash;
+
+import java.lang.reflect.Field;
+import java.security.AccessController;
+import java.security.PrivilegedActionException;
+import java.security.PrivilegedExceptionAction;
+import java.util.Random;
+import sun.misc.Unsafe;
+
+/* JADX INFO: loaded from: classes5.dex */
+@com.google.common.annotations.c
+@k
+abstract class k0 extends Number {
+
+    /* JADX INFO: renamed from: d, reason: collision with root package name */
+    static final ThreadLocal<int[]> f118848d = new ThreadLocal<>();
+
+    /* JADX INFO: renamed from: e, reason: collision with root package name */
+    static final Random f118849e = new Random();
+
+    /* JADX INFO: renamed from: f, reason: collision with root package name */
+    static final int f118850f = Runtime.getRuntime().availableProcessors();
+
+    /* JADX INFO: renamed from: g, reason: collision with root package name */
+    private static final Unsafe f118851g;
+
+    /* JADX INFO: renamed from: h, reason: collision with root package name */
+    private static final long f118852h;
+
+    /* JADX INFO: renamed from: i, reason: collision with root package name */
+    private static final long f118853i;
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    @fj.a
+    volatile transient b[] f118854a;
+
+    /* JADX INFO: renamed from: b, reason: collision with root package name */
+    volatile transient long f118855b;
+
+    /* JADX INFO: renamed from: c, reason: collision with root package name */
+    volatile transient int f118856c;
+
+    class a implements PrivilegedExceptionAction<Unsafe> {
+        a() {
+        }
+
+        @Override // java.security.PrivilegedExceptionAction
+        /* JADX INFO: renamed from: a, reason: merged with bridge method [inline-methods] */
+        public Unsafe run() throws Exception {
+            for (Field field : Unsafe.class.getDeclaredFields()) {
+                field.setAccessible(true);
+                Object obj = field.get(null);
+                if (Unsafe.class.isInstance(obj)) {
+                    return (Unsafe) Unsafe.class.cast(obj);
+                }
+            }
+            throw new NoSuchFieldError("the Unsafe");
+        }
+    }
+
+    static final class b {
+
+        /* JADX INFO: renamed from: p, reason: collision with root package name */
+        private static final Unsafe f118857p;
+
+        /* JADX INFO: renamed from: q, reason: collision with root package name */
+        private static final long f118858q;
+
+        /* JADX INFO: renamed from: a, reason: collision with root package name */
+        volatile long f118859a;
+
+        /* JADX INFO: renamed from: b, reason: collision with root package name */
+        volatile long f118860b;
+
+        /* JADX INFO: renamed from: c, reason: collision with root package name */
+        volatile long f118861c;
+
+        /* JADX INFO: renamed from: d, reason: collision with root package name */
+        volatile long f118862d;
+
+        /* JADX INFO: renamed from: e, reason: collision with root package name */
+        volatile long f118863e;
+
+        /* JADX INFO: renamed from: f, reason: collision with root package name */
+        volatile long f118864f;
+
+        /* JADX INFO: renamed from: g, reason: collision with root package name */
+        volatile long f118865g;
+
+        /* JADX INFO: renamed from: h, reason: collision with root package name */
+        volatile long f118866h;
+
+        /* JADX INFO: renamed from: i, reason: collision with root package name */
+        volatile long f118867i;
+
+        /* JADX INFO: renamed from: j, reason: collision with root package name */
+        volatile long f118868j;
+
+        /* JADX INFO: renamed from: k, reason: collision with root package name */
+        volatile long f118869k;
+
+        /* JADX INFO: renamed from: l, reason: collision with root package name */
+        volatile long f118870l;
+
+        /* JADX INFO: renamed from: m, reason: collision with root package name */
+        volatile long f118871m;
+
+        /* JADX INFO: renamed from: n, reason: collision with root package name */
+        volatile long f118872n;
+
+        /* JADX INFO: renamed from: o, reason: collision with root package name */
+        volatile long f118873o;
+
+        static {
+            try {
+                Unsafe unsafeF = k0.f();
+                f118857p = unsafeF;
+                f118858q = unsafeF.objectFieldOffset(b.class.getDeclaredField(androidx.media3.exoplayer.upstream.h.f65993g));
+            } catch (Exception e10) {
+                throw new Error(e10);
+            }
+        }
+
+        b(long x10) {
+            this.f118866h = x10;
+        }
+
+        final boolean a(long cmp, long val) {
+            return f118857p.compareAndSwapLong(this, f118858q, cmp, val);
+        }
+    }
+
+    static {
+        try {
+            Unsafe unsafeF = f();
+            f118851g = unsafeF;
+            f118852h = unsafeF.objectFieldOffset(k0.class.getDeclaredField("b"));
+            f118853i = unsafeF.objectFieldOffset(k0.class.getDeclaredField("c"));
+        } catch (Exception e10) {
+            throw new Error(e10);
+        }
+    }
+
+    k0() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static Unsafe f() {
+        try {
+            try {
+                return Unsafe.getUnsafe();
+            } catch (SecurityException unused) {
+                return (Unsafe) AccessController.doPrivileged(new a());
+            }
+        } catch (PrivilegedActionException e10) {
+            throw new RuntimeException("Could not initialize intrinsics", e10.getCause());
+        }
+    }
+
+    final boolean c(long cmp, long val) {
+        return f118851g.compareAndSwapLong(this, f118852h, cmp, val);
+    }
+
+    final boolean d() {
+        return f118851g.compareAndSwapInt(this, f118853i, 0, 1);
+    }
+
+    abstract long e(long currentValue, long newValue);
+
+    final void g(long initialValue) {
+        b[] bVarArr = this.f118854a;
+        this.f118855b = initialValue;
+        if (bVarArr != null) {
+            for (b bVar : bVarArr) {
+                if (bVar != null) {
+                    bVar.f118866h = initialValue;
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: Code duplicated, block: B:32:0x005e  */
+    final void h(long x10, @fj.a int[] hc2, boolean wasUncontended) {
+        int iNextInt;
+        int[] iArr;
+        boolean z10;
+        int length;
+        boolean z11;
+        int length2;
+        if (hc2 == null) {
+            iArr = new int[1];
+            f118848d.set(iArr);
+            iNextInt = f118849e.nextInt();
+            if (iNextInt == 0) {
+                iNextInt = 1;
+            }
+            iArr[0] = iNextInt;
+        } else {
+            iNextInt = hc2[0];
+            iArr = hc2;
+        }
+        boolean z12 = false;
+        int i10 = iNextInt;
+        boolean z13 = wasUncontended;
+        while (true) {
+            b[] bVarArr = this.f118854a;
+            if (bVarArr != null && (length = bVarArr.length) > 0) {
+                b bVar = bVarArr[(length - 1) & i10];
+                if (bVar == null) {
+                    if (this.f118856c == 0) {
+                        b bVar2 = new b(x10);
+                        if (this.f118856c == 0 && d()) {
+                            try {
+                                b[] bVarArr2 = this.f118854a;
+                                if (bVarArr2 == null || (length2 = bVarArr2.length) <= 0) {
+                                    z11 = false;
+                                } else {
+                                    int i11 = (length2 - 1) & i10;
+                                    if (bVarArr2[i11] == null) {
+                                        bVarArr2[i11] = bVar2;
+                                        z11 = true;
+                                    } else {
+                                        z11 = false;
+                                    }
+                                }
+                                this.f118856c = 0;
+                                if (z11) {
+                                    return;
+                                }
+                            } catch (Throwable th2) {
+                                this.f118856c = 0;
+                                throw th2;
+                            }
+                        }
+                    }
+                    z12 = false;
+                    int i12 = i10 ^ (i10 << 13);
+                    int i13 = i12 ^ (i12 >>> 17);
+                    i10 = i13 ^ (i13 << 5);
+                    iArr[0] = i10;
+                } else {
+                    if (z13) {
+                        long j10 = bVar.f118866h;
+                        if (bVar.a(j10, e(j10, x10))) {
+                            return;
+                        }
+                        if (length >= f118850f || this.f118854a != bVarArr) {
+                            z12 = false;
+                        } else if (!z12) {
+                            z12 = true;
+                        } else if (this.f118856c == 0 && d()) {
+                            try {
+                                if (this.f118854a == bVarArr) {
+                                    b[] bVarArr3 = new b[length << 1];
+                                    for (int i14 = 0; i14 < length; i14++) {
+                                        bVarArr3[i14] = bVarArr[i14];
+                                    }
+                                    this.f118854a = bVarArr3;
+                                }
+                                this.f118856c = 0;
+                                z12 = false;
+                            } catch (Throwable th3) {
+                                this.f118856c = 0;
+                                throw th3;
+                            }
+                        }
+                    } else {
+                        z13 = true;
+                    }
+                    int i15 = i10 ^ (i10 << 13);
+                    int i16 = i15 ^ (i15 >>> 17);
+                    i10 = i16 ^ (i16 << 5);
+                    iArr[0] = i10;
+                }
+            } else if (this.f118856c == 0 && this.f118854a == bVarArr && d()) {
+                try {
+                    if (this.f118854a == bVarArr) {
+                        b[] bVarArr4 = new b[2];
+                        bVarArr4[i10 & 1] = new b(x10);
+                        this.f118854a = bVarArr4;
+                        z10 = true;
+                    } else {
+                        z10 = false;
+                    }
+                    this.f118856c = 0;
+                    if (z10) {
+                        return;
+                    }
+                } catch (Throwable th4) {
+                    this.f118856c = 0;
+                    throw th4;
+                }
+            } else {
+                long j11 = this.f118855b;
+                if (c(j11, e(j11, x10))) {
+                    return;
+                }
+            }
+        }
+    }
+}

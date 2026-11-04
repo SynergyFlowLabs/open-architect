@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/icon_dashboard"
+        android:id="@+id/dashboard"
+        android:title="@string/dashboard"/>
+    <item
+        android:icon="@drawable/icon_documents"
+        android:id="@+id/documents"
+        android:title="@string/spaces_new_tab_files"/>
+    <item
+        android:icon="@drawable/icon_home"
+        android:id="@+id/home"
+        android:title="@string/tab_bar_home"/>
+    <item
+        android:icon="@drawable/icon_planner"
+        android:id="@+id/projects"
+        android:title="@string/projects"/>
+    <item
+        android:icon="@drawable/icon_trophy"
+        android:id="@+id/design_battle"
+        android:title="@string/design_battle"/>
+    <item
+        android:icon="@drawable/icon_gallery_24"
+        android:id="@+id/gallery"
+        android:title="@string/gallery"/>
+    <item
+        android:icon="@drawable/icon_user"
+        android:id="@+id/profile"
+        android:title="@string/profile"/>
+</menu>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Planner5D.BottomSheetLayout" parent="@style/Planner5D">
+        <item name="android:layout_width">@dimen/bottom_sheet_width_editor</item>
+    </style>
+</resources>

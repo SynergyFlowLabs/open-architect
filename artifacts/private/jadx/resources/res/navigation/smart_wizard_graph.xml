@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/smart_wizard_graph"
+    app:startDestination="@+id/room_shape">
+    <fragment
+        android:label="@string/smart_wizard_room_shape"
+        android:name="com.planner5d.library.activity.fragment.smartwizard.roomshape.ChooseRoomShape"
+        android:id="@+id/room_shape"
+        app:toolbarVisible="true">
+        <action
+            android:id="@+id/to_dimensions"
+            app:destination="@+id/dimensions"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:label="@string/smart_wizard_dimensions"
+        android:name="com.planner5d.library.activity.fragment.smartwizard.dimensions.Dimensions"
+        android:id="@+id/dimensions"
+        app:toolbarVisible="true">
+        <action
+            android:id="@+id/to_room_style"
+            app:destination="@+id/room_style"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:label="@string/smart_wizard_choose_room_style"
+        android:name="com.planner5d.library.activity.fragment.smartwizard.roomstyle.ChooseRoomStyle"
+        android:id="@+id/room_style"
+        app:toolbarVisible="true"/>
+</navigation>

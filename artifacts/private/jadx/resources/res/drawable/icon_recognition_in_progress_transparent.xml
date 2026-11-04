@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" android:drawable="@drawable/_icon_recognition_in_progress_transparent__0_res_0x7f080038">
+    <target
+        android:name="line"
+        android:animation="@drawable/_icon_recognition_in_progress_transparent__3_res_0x7f08003b"/>
+    <target
+        android:name="overlay_path"
+        android:animation="@drawable/_icon_recognition_in_progress_transparent__4_res_0x7f08003c"/>
+</animated-vector>

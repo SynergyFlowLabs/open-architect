@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:foreground="@drawable/ripple_rounded_corners_large">
+    <ImageView
+        android:id="@+id/actionIcon"
+        android:layout_width="@dimen/p5d_space_medium"
+        android:layout_height="@dimen/p5d_space_medium"/>
+</FrameLayout>

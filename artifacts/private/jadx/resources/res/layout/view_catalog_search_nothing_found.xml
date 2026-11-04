@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="196dp"
+        android:layout_height="196dp"
+        android:src="@drawable/material_list_placeholder"/>
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/text.beta"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/p5d_space_x_small"
+        android:text="@string/search_no_results"
+        style="@style/Planner5D.TextView"/>
+</LinearLayout>

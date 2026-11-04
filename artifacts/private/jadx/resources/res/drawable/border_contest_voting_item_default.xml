@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke
+        android:width="@dimen/p5d_border_small"
+        android:color="@color/p5d_contests_voting_item_border"/>
+    <corners android:radius="@dimen/p5d_corner_radius_medium"/>
+</shape>

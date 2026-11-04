@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatEditText
+        android:textColor="@color/p5d_grey_1"
+        android:id="@+id/colorPickerInput"
+        android:background="@drawable/background_grey_5_round_medium"
+        android:paddingTop="0dp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/p5d_space_large"
+        android:singleLine="true"
+        android:maxLength="6"
+        android:digits="0123456789ABCDEF"
+        android:inputType="textNoSuggestions"
+        android:fontFamily="@font/roboto_medium_w500"
+        android:layout_marginEnd="@dimen/p5d_space_x_small"
+        android:paddingHorizontal="@dimen/p5d_space_xx_small"
+        app:layout_constraintEnd_toStartOf="@+id/colorPreview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <View
+        android:id="@+id/colorPreview"
+        android:background="@drawable/background_white_round_medium"
+        android:layout_width="@dimen/p5d_space_large"
+        android:layout_height="@dimen/p5d_space_large"
+        android:foreground="@drawable/ripple_rounded_corners_medium"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</merge>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.planner5d.library.widget.colorpicker.ColorPickerInternalView
+        android:id="@+id/color_picker"
+        android:layout_width="match_parent"
+        style="@style/Planner5D.ColorPicker"/>
+    <com.planner5d.library.widget.EditTextWithValidator
+        android:textColor="@color/p5d_grey_1"
+        android:id="@+id/input_color"
+        android:background="@drawable/background_grey_5_round_medium"
+        android:paddingTop="0dp"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="7dp"
+        android:singleLine="true"
+        android:maxLength="6"
+        android:digits="0123456789ABCDEF"
+        android:inputType="textNoSuggestions"
+        android:fontFamily="@font/roboto_medium_w500"
+        android:layout_marginEnd="@dimen/p5d_space_x_small"
+        android:paddingHorizontal="@dimen/p5d_space_xx_small"
+        app:layout_constraintEnd_toStartOf="@+id/color_picker_standard_colors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/color_picker"/>
+    <com.planner5d.library.widget.colorpicker.ColorPickerStandardColors
+        android:id="@+id/color_picker_standard_colors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/color_picker"/>
+</merge>

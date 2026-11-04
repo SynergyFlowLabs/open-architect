@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.planner5d.library.widget.previewtoolbar.PreviewToolbar
+        android:layout_gravity="bottom|center_horizontal"
+        android:id="@+id/preview_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/p5d_space_x_small">
+        <com.planner5d.library.widget.previewtoolbar.PreviewToolbarItem
+            android:id="@+id/item_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:iconSrc="@drawable/icon_download"/>
+        <com.planner5d.library.widget.previewtoolbar.PreviewToolbarItem
+            android:id="@+id/item_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:iconSrc="@drawable/icon_share"/>
+        <com.planner5d.library.widget.previewtoolbar.PreviewToolbarItem
+            android:id="@+id/item_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.planner5d.library.widget.previewtoolbar.PreviewToolbar>
+    <TextView
+        android:textSize="@dimen/font_size_big"
+        android:textColor="@color/error"
+        android:layout_gravity="center"
+        android:id="@+id/error_message"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/error_gallery_record"/>
+    <com.planner5d.library.widget.preloader.PreloaderBoxView
+        android:id="@+id/preloader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</FrameLayout>

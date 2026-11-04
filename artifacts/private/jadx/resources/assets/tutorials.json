@@ -1,0 +1,10 @@
+{
+	"cardboard" : {
+		"group" : "cardboard",
+		"pages" : ["cardboard_0", "cardboard_1", "cardboard_2", "cardboard_3"]
+	},
+	"cardboard_short" : {
+		"group" : "cardboard",
+		"pages" : ["cardboard_2", "cardboard_3"]
+	}
+}

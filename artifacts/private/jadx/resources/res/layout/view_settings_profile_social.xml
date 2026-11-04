@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:paddingBottom="@dimen/p5d_space_x_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/p5d_space_x_small"
+        android:minHeight="128dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.planner5d.library.widget.preloader.PreloaderCoverView
+        android:id="@+id/preloaderSocial"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/list"
+        app:layout_constraintTop_toTopOf="@+id/list"/>
+</merge>

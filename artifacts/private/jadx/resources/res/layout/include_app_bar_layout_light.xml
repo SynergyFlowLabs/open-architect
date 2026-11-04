@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.planner5d.library.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.planner5d.library.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:theme="@style/Theme.Planner5D.Toolbar.Light"
+                android:id="@+id/toolbar"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/p5d_toolbar_height"
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                style="@style/Planner5D.Toolbar.Light"/>
+        </com.planner5d.library.widget.CollapsingToolbarLayout>
+    </com.planner5d.library.widget.AppBarLayout>
+</merge>
