@@ -74,6 +74,7 @@ The resize reducer preserves the top-left origin and snaps dimensions to 0.5 met
 - [#6](https://github.com/SynergyFlowLabs/open-architect/pull/6) — M4 validated plan import, non-destructive errors, and one-step undo; merged 2026-11-04.
 - [#7](https://github.com/SynergyFlowLabs/open-architect/pull/7) — M5 bounded undo/redo, keyboard shortcuts, drag coalescing, and history-aware inspector drafts; merged 2026-11-04.
 - [#8](https://github.com/SynergyFlowLabs/open-architect/pull/8) — M6 plan naming, Unicode export filenames, confirmed undoable reset, and pending-import safety; merged 2026-11-04.
+- [#9](https://github.com/SynergyFlowLabs/open-architect/pull/9) — M7 selected-room direct resizing with anchored bounds and gesture history.
 
 ## Update protocol
 
